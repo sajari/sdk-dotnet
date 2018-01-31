@@ -1,0 +1,14 @@
+﻿{
+  "dependencies": {
+    "Google.Protobuf": "3.3.0",
+    "Grpc": "1.4.1",
+    "Grpc.Tools": "1.4.1",
+    "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
+    "NETStandard.Library": "1.6.1",
+    "NuGet.Build.Packaging": "0.1.324",
+    "System.Interactive.Async": "3.1.1"
+  },
+  "frameworks": {
+    "netstandard1.5": {}
+  }
+}
