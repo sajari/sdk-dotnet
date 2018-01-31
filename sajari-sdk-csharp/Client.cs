@@ -69,7 +69,7 @@ namespace sajari
         /// </summary>
         /// <returns>The pipeline.</returns>
         /// <param name="name">Name.</param>
-        public Pipeline Pipeline(string name)
+        public Pipeline NewPipeline(string name)
         {
             return new Pipeline(this, name);
         }

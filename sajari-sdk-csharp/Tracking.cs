@@ -1,8 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace sajari
 {
+    private static Random random = new Random();
+    private static string RandomString(int length)
+    {
+        const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        return new string(Enumerable.Repeat(chars, length)
+          .Select(s => s[random.Next(s.Length)]).ToArray());
+    }
+
     /// <summary>
     /// Tracking type.
     /// </summary>
@@ -41,7 +50,7 @@ namespace sajari
         /// Reset the query tracking.
         /// </summary>
         public void Reset() {
-            this.queryID = ""; // generate random string
+            this.queryID = RandomString(20);
             this.seq = 0;
         }
 
