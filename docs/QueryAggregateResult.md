@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **Buckets** | [**QueryAggregateResultBuckets**](QueryAggregateResultBuckets.md) |  | [optional] 
 **Date** | [**QueryAggregateResultDate**](QueryAggregateResultDate.md) |  | [optional] 
 **Analysis** | [**QueryAggregateResultAnalysis**](QueryAggregateResultAnalysis.md) |  | [optional] 
+**Percentile** | [**QueryAggregateResultPercentile**](QueryAggregateResultPercentile.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

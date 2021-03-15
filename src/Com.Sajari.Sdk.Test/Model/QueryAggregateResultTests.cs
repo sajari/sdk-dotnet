@@ -97,6 +97,14 @@ namespace Com.Sajari.Sdk.Test.Model
         {
             // TODO unit test for the property 'Analysis'
         }
+        /// <summary>
+        /// Test the property 'Percentile'
+        /// </summary>
+        [Fact]
+        public void PercentileTest()
+        {
+            // TODO unit test for the property 'Percentile'
+        }
 
     }
 

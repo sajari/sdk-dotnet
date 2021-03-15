@@ -40,13 +40,15 @@ namespace Com.Sajari.Sdk.Model
         /// <param name="buckets">buckets.</param>
         /// <param name="date">date.</param>
         /// <param name="analysis">analysis.</param>
-        public QueryAggregateResult(QueryAggregateResultMetric metric = default(QueryAggregateResultMetric), QueryAggregateResultCount count = default(QueryAggregateResultCount), QueryAggregateResultBuckets buckets = default(QueryAggregateResultBuckets), QueryAggregateResultDate date = default(QueryAggregateResultDate), QueryAggregateResultAnalysis analysis = default(QueryAggregateResultAnalysis))
+        /// <param name="percentile">percentile.</param>
+        public QueryAggregateResult(QueryAggregateResultMetric metric = default(QueryAggregateResultMetric), QueryAggregateResultCount count = default(QueryAggregateResultCount), QueryAggregateResultBuckets buckets = default(QueryAggregateResultBuckets), QueryAggregateResultDate date = default(QueryAggregateResultDate), QueryAggregateResultAnalysis analysis = default(QueryAggregateResultAnalysis), QueryAggregateResultPercentile percentile = default(QueryAggregateResultPercentile))
         {
             this.Metric = metric;
             this.Count = count;
             this.Buckets = buckets;
             this.Date = date;
             this.Analysis = analysis;
+            this.Percentile = percentile;
         }
 
         /// <summary>
@@ -80,6 +82,12 @@ namespace Com.Sajari.Sdk.Model
         public QueryAggregateResultAnalysis Analysis { get; set; }
 
         /// <summary>
+        /// Gets or Sets Percentile
+        /// </summary>
+        [DataMember(Name = "percentile", EmitDefaultValue = false)]
+        public QueryAggregateResultPercentile Percentile { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,6 +100,7 @@ namespace Com.Sajari.Sdk.Model
             sb.Append("  Buckets: ").Append(Buckets).Append("\n");
             sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  Analysis: ").Append(Analysis).Append("\n");
+            sb.Append("  Percentile: ").Append(Percentile).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -150,6 +159,11 @@ namespace Com.Sajari.Sdk.Model
                     this.Analysis == input.Analysis ||
                     (this.Analysis != null &&
                     this.Analysis.Equals(input.Analysis))
+                ) && 
+                (
+                    this.Percentile == input.Percentile ||
+                    (this.Percentile != null &&
+                    this.Percentile.Equals(input.Percentile))
                 );
         }
 
@@ -172,6 +186,8 @@ namespace Com.Sajari.Sdk.Model
                     hashCode = hashCode * 59 + this.Date.GetHashCode();
                 if (this.Analysis != null)
                     hashCode = hashCode * 59 + this.Analysis.GetHashCode();
+                if (this.Percentile != null)
+                    hashCode = hashCode * 59 + this.Percentile.GetHashCode();
                 return hashCode;
             }
         }
