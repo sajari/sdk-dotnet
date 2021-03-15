@@ -61,7 +61,6 @@ docs/Status.md
 docs/UpsertRecordRequest.md
 docs/UpsertRecordRequestPipeline.md
 docs/UpsertRecordResponse.md
-git_push.sh
 src/Com.Sajari.Sdk.Test/Api/CollectionsApiTests.cs
 src/Com.Sajari.Sdk.Test/Api/PipelinesApiTests.cs
 src/Com.Sajari.Sdk.Test/Api/RecordsApiTests.cs
