@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Com.Sajari.Sdk.Client.OpenAPIDateConverter;
 namespace Com.Sajari.Sdk.Model
 {
     /// <summary>
-    /// QueryCollectionRequest is a request to perform a search using a pipeline.
+    /// A request to perform a search using a pipeline.
     /// </summary>
     [DataContract(Name = "QueryCollectionRequest")]
     public partial class QueryCollectionRequest : IEquatable<QueryCollectionRequest>, IValidatableObject
