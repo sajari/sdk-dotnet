@@ -74,8 +74,8 @@ namespace Example
             Configuration config = new Configuration();
             config.BasePath = "https://api-gateway.sajari.com";
             // Configure HTTP basic authorization: BasicAuth
-            config.Username = "YOUR_USERNAME";
-            config.Password = "YOUR_PASSWORD";
+            config.Username = "KEY_ID";
+            config.Password = "KEY_SECRET";
 
             var apiInstance = new CollectionsApi(config);
             var collectionId = collectionId_example;  // string | The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or `-` characters. Strictly speaking, it must match the regular expression: `^[A-Za-z][A-Za-z0-9\\-]*$`.
