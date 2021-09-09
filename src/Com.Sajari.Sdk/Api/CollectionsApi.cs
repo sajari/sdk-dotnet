@@ -54,7 +54,7 @@ namespace Com.Sajari.Sdk.Api
         /// Delete collection
         /// </summary>
         /// <remarks>
-        /// Delete a collection and all of its associated data.  &gt; Note: this operation cannot be reversed.
+        /// Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>
@@ -65,7 +65,7 @@ namespace Com.Sajari.Sdk.Api
         /// Delete collection
         /// </summary>
         /// <remarks>
-        /// Delete a collection and all of its associated data.  &gt; Note: this operation cannot be reversed.
+        /// Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>
@@ -201,7 +201,7 @@ namespace Com.Sajari.Sdk.Api
         /// Delete collection
         /// </summary>
         /// <remarks>
-        /// Delete a collection and all of its associated data.  &gt; Note: this operation cannot be reversed.
+        /// Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>
@@ -213,7 +213,7 @@ namespace Com.Sajari.Sdk.Api
         /// Delete collection
         /// </summary>
         /// <remarks>
-        /// Delete a collection and all of its associated data.  &gt; Note: this operation cannot be reversed.
+        /// Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>
@@ -584,7 +584,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Delete collection Delete a collection and all of its associated data.  &gt; Note: this operation cannot be reversed.
+        /// Delete collection Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>
@@ -596,7 +596,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Delete collection Delete a collection and all of its associated data.  &gt; Note: this operation cannot be reversed.
+        /// Delete collection Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>
@@ -645,7 +645,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Delete collection Delete a collection and all of its associated data.  &gt; Note: this operation cannot be reversed.
+        /// Delete collection Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>
@@ -658,7 +658,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Delete collection Delete a collection and all of its associated data.  &gt; Note: this operation cannot be reversed.
+        /// Delete collection Delete a collection and all of its associated data.  &gt; Note: This operation cannot be reversed.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>

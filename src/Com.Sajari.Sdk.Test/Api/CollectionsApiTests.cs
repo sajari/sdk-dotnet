@@ -12,6 +12,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using RestSharp;
@@ -19,6 +20,8 @@ using Xunit;
 
 using Com.Sajari.Sdk.Client;
 using Com.Sajari.Sdk.Api;
+using Com.Sajari.Sdk.Model;
+
 // uncomment below to import models
 //using Com.Sajari.Sdk.Model;
 
@@ -61,11 +64,30 @@ namespace Com.Sajari.Sdk.Test.Api
         [Fact]
         public void CreateCollectionTest()
         {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string collectionId = null;
-            //Collection collection = null;
-            //var response = instance.CreateCollection(collectionId, collection);
-            //Assert.IsType<Collection>(response);
+            
+            Configuration config = new Configuration();
+            config.BasePath = "https://api-gateway.sajari.com";
+            // Configure HTTP basic authorization: BasicAuth
+            config.Username = "mWc1UpIL9pKOY68S";
+            config.Password = "twnuOBW6uiNVkD2P";
+
+            var apiInstance = new CollectionsApi(config);
+
+            try
+            {
+                // Create collection
+                Collection result = apiInstance.CreateCollection("test-collection-dotnet", new Collection("My Special Dot Net Collection", new List<string>(){"example.com"}));
+                Debug.WriteLine(result);
+                Assert.IsType<Collection>(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling CollectionsApi.CreateCollection: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+
+            
         }
 
         /// <summary>
