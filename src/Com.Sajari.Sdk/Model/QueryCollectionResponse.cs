@@ -35,23 +35,37 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryCollectionResponse" /> class.
         /// </summary>
+        /// <param name="aggregateFilters">The aggregates run with filters..</param>
+        /// <param name="aggregates">The aggregates returned by the query..</param>
         /// <param name="pipeline">pipeline.</param>
-        /// <param name="variables">The modified variables returned by the pipeline after it has finished processing..</param>
+        /// <param name="processingDuration">The total time taken to perform the query..</param>
         /// <param name="results">The results returned by the query..</param>
         /// <param name="totalSize">The total number of results that match the query..</param>
-        /// <param name="processingDuration">The total time taken to perform the query..</param>
-        /// <param name="aggregates">The aggregates returned by the query..</param>
-        /// <param name="aggregateFilters">The aggregates run with filters..</param>
-        public QueryCollectionResponse(QueryCollectionResponsePipeline pipeline = default(QueryCollectionResponsePipeline), Object variables = default(Object), List<QueryResult> results = default(List<QueryResult>), string totalSize = default(string), string processingDuration = default(string), Dictionary<string, QueryAggregateResult> aggregates = default(Dictionary<string, QueryAggregateResult>), Dictionary<string, QueryAggregateResult> aggregateFilters = default(Dictionary<string, QueryAggregateResult>))
+        /// <param name="variables">The modified variables returned by the pipeline after it has finished processing..</param>
+        public QueryCollectionResponse(Dictionary<string, QueryAggregateResult> aggregateFilters = default(Dictionary<string, QueryAggregateResult>), Dictionary<string, QueryAggregateResult> aggregates = default(Dictionary<string, QueryAggregateResult>), QueryCollectionResponsePipeline pipeline = default(QueryCollectionResponsePipeline), string processingDuration = default(string), List<QueryResult> results = default(List<QueryResult>), string totalSize = default(string), Dictionary<string, Object> variables = default(Dictionary<string, Object>))
         {
+            this.AggregateFilters = aggregateFilters;
+            this.Aggregates = aggregates;
             this.Pipeline = pipeline;
-            this.Variables = variables;
+            this.ProcessingDuration = processingDuration;
             this.Results = results;
             this.TotalSize = totalSize;
-            this.ProcessingDuration = processingDuration;
-            this.Aggregates = aggregates;
-            this.AggregateFilters = aggregateFilters;
+            this.Variables = variables;
         }
+
+        /// <summary>
+        /// The aggregates run with filters.
+        /// </summary>
+        /// <value>The aggregates run with filters.</value>
+        [DataMember(Name = "aggregate_filters", EmitDefaultValue = false)]
+        public Dictionary<string, QueryAggregateResult> AggregateFilters { get; set; }
+
+        /// <summary>
+        /// The aggregates returned by the query.
+        /// </summary>
+        /// <value>The aggregates returned by the query.</value>
+        [DataMember(Name = "aggregates", EmitDefaultValue = false)]
+        public Dictionary<string, QueryAggregateResult> Aggregates { get; set; }
 
         /// <summary>
         /// Gets or Sets Pipeline
@@ -60,11 +74,11 @@ namespace Com.Sajari.Sdk.Model
         public QueryCollectionResponsePipeline Pipeline { get; set; }
 
         /// <summary>
-        /// The modified variables returned by the pipeline after it has finished processing.
+        /// The total time taken to perform the query.
         /// </summary>
-        /// <value>The modified variables returned by the pipeline after it has finished processing.</value>
-        [DataMember(Name = "variables", EmitDefaultValue = false)]
-        public Object Variables { get; set; }
+        /// <value>The total time taken to perform the query.</value>
+        [DataMember(Name = "processing_duration", EmitDefaultValue = false)]
+        public string ProcessingDuration { get; set; }
 
         /// <summary>
         /// The results returned by the query.
@@ -81,25 +95,11 @@ namespace Com.Sajari.Sdk.Model
         public string TotalSize { get; set; }
 
         /// <summary>
-        /// The total time taken to perform the query.
+        /// The modified variables returned by the pipeline after it has finished processing.
         /// </summary>
-        /// <value>The total time taken to perform the query.</value>
-        [DataMember(Name = "processing_duration", EmitDefaultValue = false)]
-        public string ProcessingDuration { get; set; }
-
-        /// <summary>
-        /// The aggregates returned by the query.
-        /// </summary>
-        /// <value>The aggregates returned by the query.</value>
-        [DataMember(Name = "aggregates", EmitDefaultValue = false)]
-        public Dictionary<string, QueryAggregateResult> Aggregates { get; set; }
-
-        /// <summary>
-        /// The aggregates run with filters.
-        /// </summary>
-        /// <value>The aggregates run with filters.</value>
-        [DataMember(Name = "aggregate_filters", EmitDefaultValue = false)]
-        public Dictionary<string, QueryAggregateResult> AggregateFilters { get; set; }
+        /// <value>The modified variables returned by the pipeline after it has finished processing.</value>
+        [DataMember(Name = "variables", EmitDefaultValue = false)]
+        public Dictionary<string, Object> Variables { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -109,13 +109,13 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class QueryCollectionResponse {\n");
+            sb.Append("  AggregateFilters: ").Append(AggregateFilters).Append("\n");
+            sb.Append("  Aggregates: ").Append(Aggregates).Append("\n");
             sb.Append("  Pipeline: ").Append(Pipeline).Append("\n");
-            sb.Append("  Variables: ").Append(Variables).Append("\n");
+            sb.Append("  ProcessingDuration: ").Append(ProcessingDuration).Append("\n");
             sb.Append("  Results: ").Append(Results).Append("\n");
             sb.Append("  TotalSize: ").Append(TotalSize).Append("\n");
-            sb.Append("  ProcessingDuration: ").Append(ProcessingDuration).Append("\n");
-            sb.Append("  Aggregates: ").Append(Aggregates).Append("\n");
-            sb.Append("  AggregateFilters: ").Append(AggregateFilters).Append("\n");
+            sb.Append("  Variables: ").Append(Variables).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -126,7 +126,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -151,14 +151,26 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
+                    this.AggregateFilters == input.AggregateFilters ||
+                    this.AggregateFilters != null &&
+                    input.AggregateFilters != null &&
+                    this.AggregateFilters.SequenceEqual(input.AggregateFilters)
+                ) && 
+                (
+                    this.Aggregates == input.Aggregates ||
+                    this.Aggregates != null &&
+                    input.Aggregates != null &&
+                    this.Aggregates.SequenceEqual(input.Aggregates)
+                ) && 
+                (
                     this.Pipeline == input.Pipeline ||
                     (this.Pipeline != null &&
                     this.Pipeline.Equals(input.Pipeline))
                 ) && 
                 (
-                    this.Variables == input.Variables ||
-                    (this.Variables != null &&
-                    this.Variables.Equals(input.Variables))
+                    this.ProcessingDuration == input.ProcessingDuration ||
+                    (this.ProcessingDuration != null &&
+                    this.ProcessingDuration.Equals(input.ProcessingDuration))
                 ) && 
                 (
                     this.Results == input.Results ||
@@ -172,21 +184,10 @@ namespace Com.Sajari.Sdk.Model
                     this.TotalSize.Equals(input.TotalSize))
                 ) && 
                 (
-                    this.ProcessingDuration == input.ProcessingDuration ||
-                    (this.ProcessingDuration != null &&
-                    this.ProcessingDuration.Equals(input.ProcessingDuration))
-                ) && 
-                (
-                    this.Aggregates == input.Aggregates ||
-                    this.Aggregates != null &&
-                    input.Aggregates != null &&
-                    this.Aggregates.SequenceEqual(input.Aggregates)
-                ) && 
-                (
-                    this.AggregateFilters == input.AggregateFilters ||
-                    this.AggregateFilters != null &&
-                    input.AggregateFilters != null &&
-                    this.AggregateFilters.SequenceEqual(input.AggregateFilters)
+                    this.Variables == input.Variables ||
+                    this.Variables != null &&
+                    input.Variables != null &&
+                    this.Variables.SequenceEqual(input.Variables)
                 );
         }
 
@@ -199,20 +200,20 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AggregateFilters != null)
+                    hashCode = hashCode * 59 + this.AggregateFilters.GetHashCode();
+                if (this.Aggregates != null)
+                    hashCode = hashCode * 59 + this.Aggregates.GetHashCode();
                 if (this.Pipeline != null)
                     hashCode = hashCode * 59 + this.Pipeline.GetHashCode();
-                if (this.Variables != null)
-                    hashCode = hashCode * 59 + this.Variables.GetHashCode();
+                if (this.ProcessingDuration != null)
+                    hashCode = hashCode * 59 + this.ProcessingDuration.GetHashCode();
                 if (this.Results != null)
                     hashCode = hashCode * 59 + this.Results.GetHashCode();
                 if (this.TotalSize != null)
                     hashCode = hashCode * 59 + this.TotalSize.GetHashCode();
-                if (this.ProcessingDuration != null)
-                    hashCode = hashCode * 59 + this.ProcessingDuration.GetHashCode();
-                if (this.Aggregates != null)
-                    hashCode = hashCode * 59 + this.Aggregates.GetHashCode();
-                if (this.AggregateFilters != null)
-                    hashCode = hashCode * 59 + this.AggregateFilters.GetHashCode();
+                if (this.Variables != null)
+                    hashCode = hashCode * 59 + this.Variables.GetHashCode();
                 return hashCode;
             }
         }
@@ -222,7 +223,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

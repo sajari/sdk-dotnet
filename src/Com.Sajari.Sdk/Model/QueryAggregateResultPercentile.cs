@@ -35,20 +35,13 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryAggregateResultPercentile" /> class.
         /// </summary>
-        /// <param name="percentiles">The percentile data points..</param>
         /// <param name="cdf">The cumulative distribution function (CDF) data points..</param>
-        public QueryAggregateResultPercentile(List<PercentileDataPoint> percentiles = default(List<PercentileDataPoint>), List<PercentileDataPoint> cdf = default(List<PercentileDataPoint>))
+        /// <param name="percentiles">The percentile data points..</param>
+        public QueryAggregateResultPercentile(List<PercentileDataPoint> cdf = default(List<PercentileDataPoint>), List<PercentileDataPoint> percentiles = default(List<PercentileDataPoint>))
         {
-            this.Percentiles = percentiles;
             this.Cdf = cdf;
+            this.Percentiles = percentiles;
         }
-
-        /// <summary>
-        /// The percentile data points.
-        /// </summary>
-        /// <value>The percentile data points.</value>
-        [DataMember(Name = "percentiles", EmitDefaultValue = false)]
-        public List<PercentileDataPoint> Percentiles { get; set; }
 
         /// <summary>
         /// The cumulative distribution function (CDF) data points.
@@ -58,6 +51,13 @@ namespace Com.Sajari.Sdk.Model
         public List<PercentileDataPoint> Cdf { get; set; }
 
         /// <summary>
+        /// The percentile data points.
+        /// </summary>
+        /// <value>The percentile data points.</value>
+        [DataMember(Name = "percentiles", EmitDefaultValue = false)]
+        public List<PercentileDataPoint> Percentiles { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,8 +65,8 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class QueryAggregateResultPercentile {\n");
-            sb.Append("  Percentiles: ").Append(Percentiles).Append("\n");
             sb.Append("  Cdf: ").Append(Cdf).Append("\n");
+            sb.Append("  Percentiles: ").Append(Percentiles).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,7 +77,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -102,16 +102,16 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
-                    this.Percentiles == input.Percentiles ||
-                    this.Percentiles != null &&
-                    input.Percentiles != null &&
-                    this.Percentiles.SequenceEqual(input.Percentiles)
-                ) && 
-                (
                     this.Cdf == input.Cdf ||
                     this.Cdf != null &&
                     input.Cdf != null &&
                     this.Cdf.SequenceEqual(input.Cdf)
+                ) && 
+                (
+                    this.Percentiles == input.Percentiles ||
+                    this.Percentiles != null &&
+                    input.Percentiles != null &&
+                    this.Percentiles.SequenceEqual(input.Percentiles)
                 );
         }
 
@@ -124,10 +124,10 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Percentiles != null)
-                    hashCode = hashCode * 59 + this.Percentiles.GetHashCode();
                 if (this.Cdf != null)
                     hashCode = hashCode * 59 + this.Cdf.GetHashCode();
+                if (this.Percentiles != null)
+                    hashCode = hashCode * 59 + this.Percentiles.GetHashCode();
                 return hashCode;
             }
         }
@@ -137,7 +137,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

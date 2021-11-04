@@ -35,25 +35,25 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryResultTokenPosNeg" /> class.
         /// </summary>
-        /// <param name="pos">pos.</param>
         /// <param name="neg">neg.</param>
-        public QueryResultTokenPosNeg(string pos = default(string), string neg = default(string))
+        /// <param name="pos">pos.</param>
+        public QueryResultTokenPosNeg(string neg = default(string), string pos = default(string))
         {
-            this.Pos = pos;
             this.Neg = neg;
+            this.Pos = pos;
         }
-
-        /// <summary>
-        /// Gets or Sets Pos
-        /// </summary>
-        [DataMember(Name = "pos", EmitDefaultValue = false)]
-        public string Pos { get; set; }
 
         /// <summary>
         /// Gets or Sets Neg
         /// </summary>
         [DataMember(Name = "neg", EmitDefaultValue = false)]
         public string Neg { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Pos
+        /// </summary>
+        [DataMember(Name = "pos", EmitDefaultValue = false)]
+        public string Pos { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -63,8 +63,8 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class QueryResultTokenPosNeg {\n");
-            sb.Append("  Pos: ").Append(Pos).Append("\n");
             sb.Append("  Neg: ").Append(Neg).Append("\n");
+            sb.Append("  Pos: ").Append(Pos).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,7 +75,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -100,14 +100,14 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
-                    this.Pos == input.Pos ||
-                    (this.Pos != null &&
-                    this.Pos.Equals(input.Pos))
-                ) && 
-                (
                     this.Neg == input.Neg ||
                     (this.Neg != null &&
                     this.Neg.Equals(input.Neg))
+                ) && 
+                (
+                    this.Pos == input.Pos ||
+                    (this.Pos != null &&
+                    this.Pos.Equals(input.Pos))
                 );
         }
 
@@ -120,10 +120,10 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Pos != null)
-                    hashCode = hashCode * 59 + this.Pos.GetHashCode();
                 if (this.Neg != null)
                     hashCode = hashCode * 59 + this.Neg.GetHashCode();
+                if (this.Pos != null)
+                    hashCode = hashCode * 59 + this.Pos.GetHashCode();
                 return hashCode;
             }
         }
@@ -133,7 +133,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -35,20 +35,13 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryAggregateResultBucketsBucket" /> class.
         /// </summary>
-        /// <param name="name">Name of bucket..</param>
         /// <param name="count">Number of records in the bucket..</param>
-        public QueryAggregateResultBucketsBucket(string name = default(string), int count = default(int))
+        /// <param name="name">Name of bucket..</param>
+        public QueryAggregateResultBucketsBucket(int count = default(int), string name = default(string))
         {
-            this.Name = name;
             this.Count = count;
+            this.Name = name;
         }
-
-        /// <summary>
-        /// Name of bucket.
-        /// </summary>
-        /// <value>Name of bucket.</value>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
 
         /// <summary>
         /// Number of records in the bucket.
@@ -58,6 +51,13 @@ namespace Com.Sajari.Sdk.Model
         public int Count { get; set; }
 
         /// <summary>
+        /// Name of bucket.
+        /// </summary>
+        /// <value>Name of bucket.</value>
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,8 +65,8 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class QueryAggregateResultBucketsBucket {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Count: ").Append(Count).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,7 +77,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -102,13 +102,13 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
+                    this.Count == input.Count ||
+                    this.Count.Equals(input.Count)
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Count == input.Count ||
-                    this.Count.Equals(input.Count)
                 );
         }
 
@@ -121,9 +121,9 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.Count.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                hashCode = hashCode * 59 + this.Count.GetHashCode();
                 return hashCode;
             }
         }
@@ -133,7 +133,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

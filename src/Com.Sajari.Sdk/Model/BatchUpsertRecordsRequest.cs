@@ -41,12 +41,15 @@ namespace Com.Sajari.Sdk.Model
         /// Initializes a new instance of the <see cref="BatchUpsertRecordsRequest" /> class.
         /// </summary>
         /// <param name="pipeline">pipeline.</param>
-        /// <param name="records">A list of records to upsert. (required).</param>
+        /// <param name="records">A list of records to upsert.  A maximum of 200 records can be upsert in a batch. (required).</param>
         /// <param name="variables">The initial values for the variables the pipeline operates on and transforms throughout its steps..</param>
-        public BatchUpsertRecordsRequest(BatchUpsertRecordsRequestPipeline pipeline = default(BatchUpsertRecordsRequestPipeline), List<Object> records = default(List<Object>), Object variables = default(Object))
+        public BatchUpsertRecordsRequest(BatchUpsertRecordsRequestPipeline pipeline = default(BatchUpsertRecordsRequestPipeline), List<Object> records = default(List<Object>), Dictionary<string, Object> variables = default(Dictionary<string, Object>))
         {
             // to ensure "records" is required (not null)
-            this.Records = records ?? throw new ArgumentNullException("records is a required property for BatchUpsertRecordsRequest and cannot be null");
+            if (records == null) {
+                throw new ArgumentNullException("records is a required property for BatchUpsertRecordsRequest and cannot be null");
+            }
+            this.Records = records;
             this.Pipeline = pipeline;
             this.Variables = variables;
         }
@@ -58,9 +61,9 @@ namespace Com.Sajari.Sdk.Model
         public BatchUpsertRecordsRequestPipeline Pipeline { get; set; }
 
         /// <summary>
-        /// A list of records to upsert.
+        /// A list of records to upsert.  A maximum of 200 records can be upsert in a batch.
         /// </summary>
-        /// <value>A list of records to upsert.</value>
+        /// <value>A list of records to upsert.  A maximum of 200 records can be upsert in a batch.</value>
         [DataMember(Name = "records", IsRequired = true, EmitDefaultValue = false)]
         public List<Object> Records { get; set; }
 
@@ -69,7 +72,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <value>The initial values for the variables the pipeline operates on and transforms throughout its steps.</value>
         [DataMember(Name = "variables", EmitDefaultValue = false)]
-        public Object Variables { get; set; }
+        public Dictionary<string, Object> Variables { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -92,7 +95,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -129,8 +132,9 @@ namespace Com.Sajari.Sdk.Model
                 ) && 
                 (
                     this.Variables == input.Variables ||
-                    (this.Variables != null &&
-                    this.Variables.Equals(input.Variables))
+                    this.Variables != null &&
+                    input.Variables != null &&
+                    this.Variables.SequenceEqual(input.Variables)
                 );
         }
 
@@ -158,7 +162,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

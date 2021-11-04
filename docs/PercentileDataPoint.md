@@ -1,4 +1,5 @@
 # Com.Sajari.Sdk.Model.PercentileDataPoint
+
 ## Properties
 
 Name | Type | Description | Notes

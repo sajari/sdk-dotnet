@@ -35,15 +35,22 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ListSchemaFieldsResponse" /> class.
         /// </summary>
+        /// <param name="nextPageToken">A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages..</param>
         /// <param name="schemaFields">The schema fields..</param>
         /// <param name="totalSize">Maximum number of fields to return..</param>
-        /// <param name="nextPageToken">A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages..</param>
-        public ListSchemaFieldsResponse(List<SchemaField> schemaFields = default(List<SchemaField>), int totalSize = default(int), string nextPageToken = default(string))
+        public ListSchemaFieldsResponse(string nextPageToken = default(string), List<SchemaField> schemaFields = default(List<SchemaField>), int totalSize = default(int))
         {
+            this.NextPageToken = nextPageToken;
             this.SchemaFields = schemaFields;
             this.TotalSize = totalSize;
-            this.NextPageToken = nextPageToken;
         }
+
+        /// <summary>
+        /// A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages.
+        /// </summary>
+        /// <value>A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages.</value>
+        [DataMember(Name = "next_page_token", EmitDefaultValue = false)]
+        public string NextPageToken { get; set; }
 
         /// <summary>
         /// The schema fields.
@@ -60,13 +67,6 @@ namespace Com.Sajari.Sdk.Model
         public int TotalSize { get; set; }
 
         /// <summary>
-        /// A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages.
-        /// </summary>
-        /// <value>A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages.</value>
-        [DataMember(Name = "next_page_token", EmitDefaultValue = false)]
-        public string NextPageToken { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -74,9 +74,9 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ListSchemaFieldsResponse {\n");
+            sb.Append("  NextPageToken: ").Append(NextPageToken).Append("\n");
             sb.Append("  SchemaFields: ").Append(SchemaFields).Append("\n");
             sb.Append("  TotalSize: ").Append(TotalSize).Append("\n");
-            sb.Append("  NextPageToken: ").Append(NextPageToken).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,7 +87,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -112,6 +112,11 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
+                    this.NextPageToken == input.NextPageToken ||
+                    (this.NextPageToken != null &&
+                    this.NextPageToken.Equals(input.NextPageToken))
+                ) && 
+                (
                     this.SchemaFields == input.SchemaFields ||
                     this.SchemaFields != null &&
                     input.SchemaFields != null &&
@@ -120,11 +125,6 @@ namespace Com.Sajari.Sdk.Model
                 (
                     this.TotalSize == input.TotalSize ||
                     this.TotalSize.Equals(input.TotalSize)
-                ) && 
-                (
-                    this.NextPageToken == input.NextPageToken ||
-                    (this.NextPageToken != null &&
-                    this.NextPageToken.Equals(input.NextPageToken))
                 );
         }
 
@@ -137,11 +137,11 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.NextPageToken != null)
+                    hashCode = hashCode * 59 + this.NextPageToken.GetHashCode();
                 if (this.SchemaFields != null)
                     hashCode = hashCode * 59 + this.SchemaFields.GetHashCode();
                 hashCode = hashCode * 59 + this.TotalSize.GetHashCode();
-                if (this.NextPageToken != null)
-                    hashCode = hashCode * 59 + this.NextPageToken.GetHashCode();
                 return hashCode;
             }
         }
@@ -151,7 +151,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

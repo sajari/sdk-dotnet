@@ -68,15 +68,15 @@ namespace Com.Sajari.Sdk.Test.Api
             Configuration config = new Configuration();
             config.BasePath = "https://api-gateway.sajari.com";
             // Configure HTTP basic authorization: BasicAuth
-            config.Username = "mWc1UpIL9pKOY68S";
-            config.Password = "twnuOBW6uiNVkD2P";
+            config.Username = "";
+            config.Password = "";
 
             var apiInstance = new CollectionsApi(config);
 
             try
             {
                 // Create collection
-                Collection result = apiInstance.CreateCollection("test-collection-dotnet", new Collection("My Special Dot Net Collection", new List<string>(){"example.com"}));
+                Collection result = apiInstance.CreateCollection("test-collection-dotnet", new Collection(new List<string>(){"example.com"},"My Special Dot Net Collection"));
                 Debug.WriteLine(result);
                 Assert.IsType<Collection>(result);
             }

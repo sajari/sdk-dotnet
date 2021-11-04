@@ -1,5 +1,6 @@
 # Com.Sajari.Sdk.Model.PipelineType
  - TYPE_UNSPECIFIED: Pipeline type not specified.  - RECORD: Record pipeline.  - QUERY: Query pipeline.
+
 ## Properties
 
 Name | Type | Description | Notes

@@ -32,7 +32,7 @@ namespace Com.Sajari.Sdk.Client
         /// Version of the package.
         /// </summary>
         /// <value>Version of the package.</value>
-        public const string Version = "4.1.0";
+        public const string Version = "4.2.0";
 
         /// <summary>
         /// Identifier for ISO 8601 DateTime Format
@@ -68,11 +68,11 @@ namespace Com.Sajari.Sdk.Client
         /// Defines the base path of the target API server.
         /// Example: http://localhost:3000/v1/
         /// </summary>
-        private String _basePath;
+        private string _basePath;
 
         /// <summary>
         /// Gets or sets the API key based on the authentication name.
-        /// This is the key and value comprising the "secret" for acessing an API.
+        /// This is the key and value comprising the "secret" for accessing an API.
         /// </summary>
         /// <value>The API key.</value>
         private IDictionary<string, string> _apiKey;
@@ -102,7 +102,7 @@ namespace Com.Sajari.Sdk.Client
         public Configuration()
         {
             Proxy = null;
-            UserAgent = "sajari-sdk-csharp-4.1.0";
+            UserAgent = "sajari-sdk-csharp-4.2.0";
             BasePath = "https://api-gateway.sajari.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
@@ -426,7 +426,7 @@ namespace Com.Sajari.Sdk.Client
                 }
                 else
                 {
-                    // use defualt value
+                    // use default value
                     url = url.Replace("{" + variable.Key + "}", (string)serverVariables["default_value"]);
                 }
             }
@@ -441,13 +441,13 @@ namespace Com.Sajari.Sdk.Client
         /// <summary>
         /// Returns a string with essential information for debugging.
         /// </summary>
-        public static String ToDebugReport()
+        public static string ToDebugReport()
         {
-            String report = "C# SDK (Com.Sajari.Sdk) Debug Report:\n";
+            string report = "C# SDK (Com.Sajari.Sdk) Debug Report:\n";
             report += "    OS: " + System.Environment.OSVersion + "\n";
             report += "    .NET Framework Version: " + System.Environment.Version  + "\n";
             report += "    Version of the API: v4\n";
-            report += "    SDK Package Version: 4.1.0\n";
+            report += "    SDK Package Version: 4.2.0\n";
 
             return report;
         }

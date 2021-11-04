@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**BatchUpsertRecords**](RecordsApi.md#batchupsertrecords) | **POST** /v4/collections/{collection_id}/records:batchUpsert | Batch upsert records
 [**DeleteRecord**](RecordsApi.md#deleterecord) | **POST** /v4/collections/{collection_id}/records:delete | Delete record
 [**GetRecord**](RecordsApi.md#getrecord) | **POST** /v4/collections/{collection_id}/records:get | Get record
+[**UpdateRecord**](RecordsApi.md#updaterecord) | **POST** /v4/collections/{collection_id}/records:update | Update record
 [**UpsertRecord**](RecordsApi.md#upsertrecord) | **POST** /v4/collections/{collection_id}/records:upsert | Upsert record
 
 
@@ -79,6 +80,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -87,7 +89,7 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the resource does not exist. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -160,6 +162,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -168,7 +171,7 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the resource does not exist. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -241,6 +244,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -249,7 +253,89 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the resource does not exist. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updaterecord"></a>
+# **UpdateRecord**
+> Object UpdateRecord (string collectionId, UpdateRecordRequest updateRecordRequest)
+
+Update record
+
+Add or update specific fields within a record with the given values. The updated record is returned in the response.  To replace all fields in a record, you should use the [UpsertRecord](/api#operation/UpsertRecord) call.  Note that the update record call cannot be used to add or update indexed or unique fields. For this case use the [UpsertRecord](/api#operation/UpsertRecord) call.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Com.Sajari.Sdk.Api;
+using Com.Sajari.Sdk.Client;
+using Com.Sajari.Sdk.Model;
+
+namespace Example
+{
+    public class UpdateRecordExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api-gateway.sajari.com";
+            // Configure HTTP basic authorization: BasicAuth
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+
+            var apiInstance = new RecordsApi(config);
+            var collectionId = collectionId_example;  // string | The collection that contains the record to update, e.g. `my-collection`.
+            var updateRecordRequest = new UpdateRecordRequest(); // UpdateRecordRequest | 
+
+            try
+            {
+                // Update record
+                Object result = apiInstance.UpdateRecord(collectionId, updateRecordRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling RecordsApi.UpdateRecord: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collectionId** | **string**| The collection that contains the record to update, e.g. &#x60;my-collection&#x60;. | 
+ **updateRecordRequest** | [**UpdateRecordRequest**](UpdateRecordRequest.md)|  | 
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **401** | Returned when the request does not have valid authentication credentials. |  -  |
+| **403** | Returned when the user does not have permission to access the resource. |  -  |
+| **404** | Returned when the resource does not exist. |  -  |
+| **500** | Returned when the API encounters an internal error. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -259,7 +345,7 @@ Name | Type | Description  | Notes
 
 Upsert record
 
-If the record does not exist in your collection it is inserted. If it does exist it is updated.  If no pipeline is specified, the default record pipeline is used to process the record.  If the record is inserted, the response contains the key of the inserted record. You can use this if you need to retrieve or delete the record. If the record is updated, the response does not contain a key. Callers can use this as a signal to determine if the record is inserted/created or updated.  For example, to add a single product from your ecommerce store to a collection, use the following call:  ```json {   \"pipeline\": {     \"name\": \"my-pipeline\",     \"version\": \"1\"   },   \"record\": {     \"id\": \"54hdc7h2334h\",     \"name\": \"Smart TV\",     \"price\": 1999,     \"brand\": \"Acme\",     \"description\": \"...\",     \"in_stock\": true   } } ```
+If the record does not exist in the collection it is inserted. If it does exist it is updated.  If no pipeline is specified, the default record pipeline is used to process the record.  If the record is inserted, the response contains the key of the inserted record. You can use this if you need to retrieve or delete the record. If the record is updated, the response does not contain a key. Callers can use this as a signal to determine if the record is inserted/created or updated.  For example, to add a single product from your ecommerce store to a collection, use the following call:  ```json {   \"pipeline\": {     \"name\": \"my-pipeline\",     \"version\": \"1\"   },   \"record\": {     \"id\": \"54hdc7h2334h\",     \"name\": \"Smart TV\",     \"price\": 1999,     \"brand\": \"Acme\",     \"description\": \"...\",     \"in_stock\": true   } } ```
 
 ### Example
 ```csharp
@@ -322,6 +408,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -330,7 +417,7 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the resource does not exist. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

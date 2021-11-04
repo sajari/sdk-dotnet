@@ -40,29 +40,16 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Collection" /> class.
         /// </summary>
-        /// <param name="displayName">The collection&#39;s display name. You can change this at any time. (required).</param>
         /// <param name="authorizedQueryDomains">The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request..</param>
-        public Collection(string displayName = default(string), List<string> authorizedQueryDomains = default(List<string>))
+        /// <param name="displayName">The collection&#39;s display name. You can change this at any time. (required).</param>
+        public Collection(List<string> authorizedQueryDomains = default(List<string>), string displayName = default(string))
         {
             // to ensure "displayName" is required (not null)
-            this.DisplayName = displayName ?? throw new ArgumentNullException("displayName is a required property for Collection and cannot be null");
+            if (displayName == null) {
+                throw new ArgumentNullException("displayName is a required property for Collection and cannot be null");
+            }
+            this.DisplayName = displayName;
             this.AuthorizedQueryDomains = authorizedQueryDomains;
-        }
-
-        /// <summary>
-        /// Output only. The collection&#39;s ID.
-        /// </summary>
-        /// <value>Output only. The collection&#39;s ID.</value>
-        [DataMember(Name = "id", EmitDefaultValue = false)]
-        public string Id { get; private set; }
-
-        /// <summary>
-        /// Returns false as Id should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeId()
-        {
-            return false;
         }
 
         /// <summary>
@@ -80,11 +67,17 @@ namespace Com.Sajari.Sdk.Model
         {
             return false;
         }
+        /// <summary>
+        /// The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.
+        /// </summary>
+        /// <value>The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.</value>
+        [DataMember(Name = "authorized_query_domains", EmitDefaultValue = false)]
+        public List<string> AuthorizedQueryDomains { get; set; }
 
         /// <summary>
-        /// Output only. Creation time of the collection.
+        /// Output only. Time the collection was created.
         /// </summary>
-        /// <value>Output only. Creation time of the collection.</value>
+        /// <value>Output only. Time the collection was created.</value>
         [DataMember(Name = "create_time", EmitDefaultValue = false)]
         public DateTime CreateTime { get; private set; }
 
@@ -96,7 +89,6 @@ namespace Com.Sajari.Sdk.Model
         {
             return false;
         }
-
         /// <summary>
         /// The collection&#39;s display name. You can change this at any time.
         /// </summary>
@@ -105,12 +97,20 @@ namespace Com.Sajari.Sdk.Model
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.
+        /// Output only. The collection&#39;s ID.
         /// </summary>
-        /// <value>The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.</value>
-        [DataMember(Name = "authorized_query_domains", EmitDefaultValue = false)]
-        public List<string> AuthorizedQueryDomains { get; set; }
+        /// <value>Output only. The collection&#39;s ID.</value>
+        [DataMember(Name = "id", EmitDefaultValue = false)]
+        public string Id { get; private set; }
 
+        /// <summary>
+        /// Returns false as Id should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeId()
+        {
+            return false;
+        }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -119,11 +119,11 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Collection {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  AccountId: ").Append(AccountId).Append("\n");
+            sb.Append("  AuthorizedQueryDomains: ").Append(AuthorizedQueryDomains).Append("\n");
             sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
             sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  AuthorizedQueryDomains: ").Append(AuthorizedQueryDomains).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,7 +134,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -159,14 +159,15 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
-                ) && 
-                (
                     this.AccountId == input.AccountId ||
                     (this.AccountId != null &&
                     this.AccountId.Equals(input.AccountId))
+                ) && 
+                (
+                    this.AuthorizedQueryDomains == input.AuthorizedQueryDomains ||
+                    this.AuthorizedQueryDomains != null &&
+                    input.AuthorizedQueryDomains != null &&
+                    this.AuthorizedQueryDomains.SequenceEqual(input.AuthorizedQueryDomains)
                 ) && 
                 (
                     this.CreateTime == input.CreateTime ||
@@ -179,10 +180,9 @@ namespace Com.Sajari.Sdk.Model
                     this.DisplayName.Equals(input.DisplayName))
                 ) && 
                 (
-                    this.AuthorizedQueryDomains == input.AuthorizedQueryDomains ||
-                    this.AuthorizedQueryDomains != null &&
-                    input.AuthorizedQueryDomains != null &&
-                    this.AuthorizedQueryDomains.SequenceEqual(input.AuthorizedQueryDomains)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 );
         }
 
@@ -195,16 +195,16 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.AccountId != null)
                     hashCode = hashCode * 59 + this.AccountId.GetHashCode();
+                if (this.AuthorizedQueryDomains != null)
+                    hashCode = hashCode * 59 + this.AuthorizedQueryDomains.GetHashCode();
                 if (this.CreateTime != null)
                     hashCode = hashCode * 59 + this.CreateTime.GetHashCode();
                 if (this.DisplayName != null)
                     hashCode = hashCode * 59 + this.DisplayName.GetHashCode();
-                if (this.AuthorizedQueryDomains != null)
-                    hashCode = hashCode * 59 + this.AuthorizedQueryDomains.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 return hashCode;
             }
         }
@@ -214,7 +214,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

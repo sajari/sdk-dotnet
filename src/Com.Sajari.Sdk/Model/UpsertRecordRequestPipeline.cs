@@ -45,8 +45,11 @@ namespace Com.Sajari.Sdk.Model
         public UpsertRecordRequestPipeline(string name = default(string), string version = default(string))
         {
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for UpsertRecordRequestPipeline and cannot be null");
-            this.Version = version;
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for UpsertRecordRequestPipeline and cannot be null");
+            }
+            this.Name = name;
+            this._Version = version;
         }
 
         /// <summary>
@@ -61,7 +64,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <value>The record pipeline&#39;s version, e.g. &#x60;42&#x60;.  If not provided the default version is used.</value>
         [DataMember(Name = "version", EmitDefaultValue = false)]
-        public string Version { get; set; }
+        public string _Version { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,7 +75,7 @@ namespace Com.Sajari.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class UpsertRecordRequestPipeline {\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,7 +86,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -113,9 +116,9 @@ namespace Com.Sajari.Sdk.Model
                     this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
+                    this._Version == input._Version ||
+                    (this._Version != null &&
+                    this._Version.Equals(input._Version))
                 );
         }
 
@@ -130,8 +133,8 @@ namespace Com.Sajari.Sdk.Model
                 int hashCode = 41;
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
+                if (this._Version != null)
+                    hashCode = hashCode * 59 + this._Version.GetHashCode();
                 return hashCode;
             }
         }
@@ -141,7 +144,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

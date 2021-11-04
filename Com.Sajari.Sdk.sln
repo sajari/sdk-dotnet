@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.Sajari.Sdk", "src\Com.Sajari.Sdk\Com.Sajari.Sdk.csproj", "{8C4ED383-DD7C-4961-A23C-E3C8108A7A75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.Sajari.Sdk", "src\Com.Sajari.Sdk\Com.Sajari.Sdk.csproj", "{028A2A5B-F258-4825-8462-DF48027A4BD0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.Sajari.Sdk.Test", "src\Com.Sajari.Sdk.Test\Com.Sajari.Sdk.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{8C4ED383-DD7C-4961-A23C-E3C8108A7A75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C4ED383-DD7C-4961-A23C-E3C8108A7A75}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C4ED383-DD7C-4961-A23C-E3C8108A7A75}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C4ED383-DD7C-4961-A23C-E3C8108A7A75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{028A2A5B-F258-4825-8462-DF48027A4BD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{028A2A5B-F258-4825-8462-DF48027A4BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{028A2A5B-F258-4825-8462-DF48027A4BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{028A2A5B-F258-4825-8462-DF48027A4BD0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU

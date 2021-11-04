@@ -1,4 +1,5 @@
 # Com.Sajari.Sdk.Model.DeleteRecordRequest
+
 ## Properties
 
 Name | Type | Description | Notes

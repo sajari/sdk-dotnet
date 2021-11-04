@@ -36,13 +36,13 @@ namespace Com.Sajari.Sdk.Model
         /// Initializes a new instance of the <see cref="Error" /> class.
         /// </summary>
         /// <param name="code">code.</param>
-        /// <param name="message">message.</param>
         /// <param name="details">details.</param>
-        public Error(int code = default(int), string message = default(string), List<ProtobufAny> details = default(List<ProtobufAny>))
+        /// <param name="message">message.</param>
+        public Error(int code = default(int), List<ProtobufAny> details = default(List<ProtobufAny>), string message = default(string))
         {
             this.Code = code;
-            this.Message = message;
             this.Details = details;
+            this.Message = message;
         }
 
         /// <summary>
@@ -52,16 +52,16 @@ namespace Com.Sajari.Sdk.Model
         public int Code { get; set; }
 
         /// <summary>
-        /// Gets or Sets Message
-        /// </summary>
-        [DataMember(Name = "message", EmitDefaultValue = false)]
-        public string Message { get; set; }
-
-        /// <summary>
         /// Gets or Sets Details
         /// </summary>
         [DataMember(Name = "details", EmitDefaultValue = false)]
         public List<ProtobufAny> Details { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Message
+        /// </summary>
+        [DataMember(Name = "message", EmitDefaultValue = false)]
+        public string Message { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -72,8 +72,8 @@ namespace Com.Sajari.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class Error {\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,7 +84,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -113,15 +113,15 @@ namespace Com.Sajari.Sdk.Model
                     this.Code.Equals(input.Code)
                 ) && 
                 (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                ) && 
-                (
                     this.Details == input.Details ||
                     this.Details != null &&
                     input.Details != null &&
                     this.Details.SequenceEqual(input.Details)
+                ) && 
+                (
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
                 );
         }
 
@@ -135,10 +135,10 @@ namespace Com.Sajari.Sdk.Model
             {
                 int hashCode = 41;
                 hashCode = hashCode * 59 + this.Code.GetHashCode();
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
                 if (this.Details != null)
                     hashCode = hashCode * 59 + this.Details.GetHashCode();
+                if (this.Message != null)
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
                 return hashCode;
             }
         }
@@ -148,7 +148,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -1,4 +1,5 @@
 # Com.Sajari.Sdk.Model.RecordKey
+
 ## Properties
 
 Name | Type | Description | Notes

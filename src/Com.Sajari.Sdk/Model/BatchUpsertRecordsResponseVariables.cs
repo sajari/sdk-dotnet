@@ -37,7 +37,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="index">Index of the record in &#x60;records&#x60; that these variables correspond to..</param>
         /// <param name="variables">The variables..</param>
-        public BatchUpsertRecordsResponseVariables(int index = default(int), Object variables = default(Object))
+        public BatchUpsertRecordsResponseVariables(int index = default(int), Dictionary<string, Object> variables = default(Dictionary<string, Object>))
         {
             this.Index = index;
             this.Variables = variables;
@@ -55,7 +55,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <value>The variables.</value>
         [DataMember(Name = "variables", EmitDefaultValue = false)]
-        public Object Variables { get; set; }
+        public Dictionary<string, Object> Variables { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,7 +77,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -107,8 +107,9 @@ namespace Com.Sajari.Sdk.Model
                 ) && 
                 (
                     this.Variables == input.Variables ||
-                    (this.Variables != null &&
-                    this.Variables.Equals(input.Variables))
+                    this.Variables != null &&
+                    input.Variables != null &&
+                    this.Variables.SequenceEqual(input.Variables)
                 );
         }
 
@@ -133,7 +134,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

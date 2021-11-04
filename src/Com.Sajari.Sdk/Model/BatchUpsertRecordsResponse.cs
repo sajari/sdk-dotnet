@@ -35,15 +35,22 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchUpsertRecordsResponse" /> class.
         /// </summary>
+        /// <param name="errors">Errors that occurred..</param>
         /// <param name="keys">A list of keys of the records that were inserted.  If a record was inserted, keys contains an entry containing the index of the inserted record from &#x60;records&#x60; and the key. You can use the key if you need to retrieve or delete the record.  If a record was updated, keys contains no such entry for the updated record..</param>
         /// <param name="variables">A list of modified variables returned by the pipeline after it has finished processing each record..</param>
-        /// <param name="errors">Errors that occurred..</param>
-        public BatchUpsertRecordsResponse(List<BatchUpsertRecordsResponseKey> keys = default(List<BatchUpsertRecordsResponseKey>), List<BatchUpsertRecordsResponseVariables> variables = default(List<BatchUpsertRecordsResponseVariables>), List<BatchUpsertRecordsResponseError> errors = default(List<BatchUpsertRecordsResponseError>))
+        public BatchUpsertRecordsResponse(List<BatchUpsertRecordsResponseError> errors = default(List<BatchUpsertRecordsResponseError>), List<BatchUpsertRecordsResponseKey> keys = default(List<BatchUpsertRecordsResponseKey>), List<BatchUpsertRecordsResponseVariables> variables = default(List<BatchUpsertRecordsResponseVariables>))
         {
+            this.Errors = errors;
             this.Keys = keys;
             this.Variables = variables;
-            this.Errors = errors;
         }
+
+        /// <summary>
+        /// Errors that occurred.
+        /// </summary>
+        /// <value>Errors that occurred.</value>
+        [DataMember(Name = "errors", EmitDefaultValue = false)]
+        public List<BatchUpsertRecordsResponseError> Errors { get; set; }
 
         /// <summary>
         /// A list of keys of the records that were inserted.  If a record was inserted, keys contains an entry containing the index of the inserted record from &#x60;records&#x60; and the key. You can use the key if you need to retrieve or delete the record.  If a record was updated, keys contains no such entry for the updated record.
@@ -60,13 +67,6 @@ namespace Com.Sajari.Sdk.Model
         public List<BatchUpsertRecordsResponseVariables> Variables { get; set; }
 
         /// <summary>
-        /// Errors that occurred.
-        /// </summary>
-        /// <value>Errors that occurred.</value>
-        [DataMember(Name = "errors", EmitDefaultValue = false)]
-        public List<BatchUpsertRecordsResponseError> Errors { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -74,9 +74,9 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class BatchUpsertRecordsResponse {\n");
+            sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("  Keys: ").Append(Keys).Append("\n");
             sb.Append("  Variables: ").Append(Variables).Append("\n");
-            sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,7 +87,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -112,6 +112,12 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
+                    this.Errors == input.Errors ||
+                    this.Errors != null &&
+                    input.Errors != null &&
+                    this.Errors.SequenceEqual(input.Errors)
+                ) && 
+                (
                     this.Keys == input.Keys ||
                     this.Keys != null &&
                     input.Keys != null &&
@@ -122,12 +128,6 @@ namespace Com.Sajari.Sdk.Model
                     this.Variables != null &&
                     input.Variables != null &&
                     this.Variables.SequenceEqual(input.Variables)
-                ) && 
-                (
-                    this.Errors == input.Errors ||
-                    this.Errors != null &&
-                    input.Errors != null &&
-                    this.Errors.SequenceEqual(input.Errors)
                 );
         }
 
@@ -140,12 +140,12 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Errors != null)
+                    hashCode = hashCode * 59 + this.Errors.GetHashCode();
                 if (this.Keys != null)
                     hashCode = hashCode * 59 + this.Keys.GetHashCode();
                 if (this.Variables != null)
                     hashCode = hashCode * 59 + this.Variables.GetHashCode();
-                if (this.Errors != null)
-                    hashCode = hashCode * 59 + this.Errors.GetHashCode();
                 return hashCode;
             }
         }
@@ -155,7 +155,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

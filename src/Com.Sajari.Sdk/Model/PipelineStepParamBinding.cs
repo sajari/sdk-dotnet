@@ -36,15 +36,15 @@ namespace Com.Sajari.Sdk.Model
         /// Initializes a new instance of the <see cref="PipelineStepParamBinding" /> class.
         /// </summary>
         /// <param name="bind">Bind the step parameter to a pipeline variable..</param>
-        /// <param name="description">Set the description of the step parameter..</param>
-        /// <param name="defaultValue">Set a default value for the step parameter.  This allows you to set a default value for the step parameter when it is not bound to a pipeline variable..</param>
         /// <param name="constant">Bind the step parameter to a constant value..</param>
-        public PipelineStepParamBinding(string bind = default(string), string description = default(string), string defaultValue = default(string), string constant = default(string))
+        /// <param name="defaultValue">Set a default value for the step parameter.  This allows you to set a default value for the step parameter when it is not bound to a pipeline variable..</param>
+        /// <param name="description">Set the description of the step parameter..</param>
+        public PipelineStepParamBinding(string bind = default(string), string constant = default(string), string defaultValue = default(string), string description = default(string))
         {
             this.Bind = bind;
-            this.Description = description;
-            this.DefaultValue = defaultValue;
             this.Constant = constant;
+            this.DefaultValue = defaultValue;
+            this.Description = description;
         }
 
         /// <summary>
@@ -55,11 +55,11 @@ namespace Com.Sajari.Sdk.Model
         public string Bind { get; set; }
 
         /// <summary>
-        /// Set the description of the step parameter.
+        /// Bind the step parameter to a constant value.
         /// </summary>
-        /// <value>Set the description of the step parameter.</value>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
-        public string Description { get; set; }
+        /// <value>Bind the step parameter to a constant value.</value>
+        [DataMember(Name = "constant", EmitDefaultValue = false)]
+        public string Constant { get; set; }
 
         /// <summary>
         /// Set a default value for the step parameter.  This allows you to set a default value for the step parameter when it is not bound to a pipeline variable.
@@ -69,11 +69,11 @@ namespace Com.Sajari.Sdk.Model
         public string DefaultValue { get; set; }
 
         /// <summary>
-        /// Bind the step parameter to a constant value.
+        /// Set the description of the step parameter.
         /// </summary>
-        /// <value>Bind the step parameter to a constant value.</value>
-        [DataMember(Name = "constant", EmitDefaultValue = false)]
-        public string Constant { get; set; }
+        /// <value>Set the description of the step parameter.</value>
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public string Description { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,9 +84,9 @@ namespace Com.Sajari.Sdk.Model
             var sb = new StringBuilder();
             sb.Append("class PipelineStepParamBinding {\n");
             sb.Append("  Bind: ").Append(Bind).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  DefaultValue: ").Append(DefaultValue).Append("\n");
             sb.Append("  Constant: ").Append(Constant).Append("\n");
+            sb.Append("  DefaultValue: ").Append(DefaultValue).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,7 +97,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -127,9 +127,9 @@ namespace Com.Sajari.Sdk.Model
                     this.Bind.Equals(input.Bind))
                 ) && 
                 (
-                    this.Description == input.Description ||
-                    (this.Description != null &&
-                    this.Description.Equals(input.Description))
+                    this.Constant == input.Constant ||
+                    (this.Constant != null &&
+                    this.Constant.Equals(input.Constant))
                 ) && 
                 (
                     this.DefaultValue == input.DefaultValue ||
@@ -137,9 +137,9 @@ namespace Com.Sajari.Sdk.Model
                     this.DefaultValue.Equals(input.DefaultValue))
                 ) && 
                 (
-                    this.Constant == input.Constant ||
-                    (this.Constant != null &&
-                    this.Constant.Equals(input.Constant))
+                    this.Description == input.Description ||
+                    (this.Description != null &&
+                    this.Description.Equals(input.Description))
                 );
         }
 
@@ -154,12 +154,12 @@ namespace Com.Sajari.Sdk.Model
                 int hashCode = 41;
                 if (this.Bind != null)
                     hashCode = hashCode * 59 + this.Bind.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                if (this.DefaultValue != null)
-                    hashCode = hashCode * 59 + this.DefaultValue.GetHashCode();
                 if (this.Constant != null)
                     hashCode = hashCode * 59 + this.Constant.GetHashCode();
+                if (this.DefaultValue != null)
+                    hashCode = hashCode * 59 + this.DefaultValue.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
                 return hashCode;
             }
         }
@@ -169,7 +169,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

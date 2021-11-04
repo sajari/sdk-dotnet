@@ -35,47 +35,19 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryAggregateResultAnalysis" /> class.
         /// </summary>
-        /// <param name="coverage">Coverage is the number of records which have a value set..</param>
-        /// <param name="cardinality">Cardinality is the number of different values in a field..</param>
-        /// <param name="minLength">Minimum length of an array field..</param>
-        /// <param name="maxLength">Maximum number of values in an array field..</param>
         /// <param name="avgLength">Average number of items in an array field..</param>
-        public QueryAggregateResultAnalysis(int coverage = default(int), int cardinality = default(int), int minLength = default(int), int maxLength = default(int), float avgLength = default(float))
+        /// <param name="cardinality">Cardinality is the number of different values in a field..</param>
+        /// <param name="coverage">Coverage is the number of records which have a value set..</param>
+        /// <param name="maxLength">Maximum number of values in an array field..</param>
+        /// <param name="minLength">Minimum length of an array field..</param>
+        public QueryAggregateResultAnalysis(float avgLength = default(float), int cardinality = default(int), int coverage = default(int), int maxLength = default(int), int minLength = default(int))
         {
-            this.Coverage = coverage;
-            this.Cardinality = cardinality;
-            this.MinLength = minLength;
-            this.MaxLength = maxLength;
             this.AvgLength = avgLength;
+            this.Cardinality = cardinality;
+            this.Coverage = coverage;
+            this.MaxLength = maxLength;
+            this.MinLength = minLength;
         }
-
-        /// <summary>
-        /// Coverage is the number of records which have a value set.
-        /// </summary>
-        /// <value>Coverage is the number of records which have a value set.</value>
-        [DataMember(Name = "coverage", EmitDefaultValue = false)]
-        public int Coverage { get; set; }
-
-        /// <summary>
-        /// Cardinality is the number of different values in a field.
-        /// </summary>
-        /// <value>Cardinality is the number of different values in a field.</value>
-        [DataMember(Name = "cardinality", EmitDefaultValue = false)]
-        public int Cardinality { get; set; }
-
-        /// <summary>
-        /// Minimum length of an array field.
-        /// </summary>
-        /// <value>Minimum length of an array field.</value>
-        [DataMember(Name = "min_length", EmitDefaultValue = false)]
-        public int MinLength { get; set; }
-
-        /// <summary>
-        /// Maximum number of values in an array field.
-        /// </summary>
-        /// <value>Maximum number of values in an array field.</value>
-        [DataMember(Name = "max_length", EmitDefaultValue = false)]
-        public int MaxLength { get; set; }
 
         /// <summary>
         /// Average number of items in an array field.
@@ -85,6 +57,34 @@ namespace Com.Sajari.Sdk.Model
         public float AvgLength { get; set; }
 
         /// <summary>
+        /// Cardinality is the number of different values in a field.
+        /// </summary>
+        /// <value>Cardinality is the number of different values in a field.</value>
+        [DataMember(Name = "cardinality", EmitDefaultValue = false)]
+        public int Cardinality { get; set; }
+
+        /// <summary>
+        /// Coverage is the number of records which have a value set.
+        /// </summary>
+        /// <value>Coverage is the number of records which have a value set.</value>
+        [DataMember(Name = "coverage", EmitDefaultValue = false)]
+        public int Coverage { get; set; }
+
+        /// <summary>
+        /// Maximum number of values in an array field.
+        /// </summary>
+        /// <value>Maximum number of values in an array field.</value>
+        [DataMember(Name = "max_length", EmitDefaultValue = false)]
+        public int MaxLength { get; set; }
+
+        /// <summary>
+        /// Minimum length of an array field.
+        /// </summary>
+        /// <value>Minimum length of an array field.</value>
+        [DataMember(Name = "min_length", EmitDefaultValue = false)]
+        public int MinLength { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -92,11 +92,11 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class QueryAggregateResultAnalysis {\n");
-            sb.Append("  Coverage: ").Append(Coverage).Append("\n");
-            sb.Append("  Cardinality: ").Append(Cardinality).Append("\n");
-            sb.Append("  MinLength: ").Append(MinLength).Append("\n");
-            sb.Append("  MaxLength: ").Append(MaxLength).Append("\n");
             sb.Append("  AvgLength: ").Append(AvgLength).Append("\n");
+            sb.Append("  Cardinality: ").Append(Cardinality).Append("\n");
+            sb.Append("  Coverage: ").Append(Coverage).Append("\n");
+            sb.Append("  MaxLength: ").Append(MaxLength).Append("\n");
+            sb.Append("  MinLength: ").Append(MinLength).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,7 +107,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -132,24 +132,24 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
-                    this.Coverage == input.Coverage ||
-                    this.Coverage.Equals(input.Coverage)
+                    this.AvgLength == input.AvgLength ||
+                    this.AvgLength.Equals(input.AvgLength)
                 ) && 
                 (
                     this.Cardinality == input.Cardinality ||
                     this.Cardinality.Equals(input.Cardinality)
                 ) && 
                 (
-                    this.MinLength == input.MinLength ||
-                    this.MinLength.Equals(input.MinLength)
+                    this.Coverage == input.Coverage ||
+                    this.Coverage.Equals(input.Coverage)
                 ) && 
                 (
                     this.MaxLength == input.MaxLength ||
                     this.MaxLength.Equals(input.MaxLength)
                 ) && 
                 (
-                    this.AvgLength == input.AvgLength ||
-                    this.AvgLength.Equals(input.AvgLength)
+                    this.MinLength == input.MinLength ||
+                    this.MinLength.Equals(input.MinLength)
                 );
         }
 
@@ -162,11 +162,11 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Coverage.GetHashCode();
-                hashCode = hashCode * 59 + this.Cardinality.GetHashCode();
-                hashCode = hashCode * 59 + this.MinLength.GetHashCode();
-                hashCode = hashCode * 59 + this.MaxLength.GetHashCode();
                 hashCode = hashCode * 59 + this.AvgLength.GetHashCode();
+                hashCode = hashCode * 59 + this.Cardinality.GetHashCode();
+                hashCode = hashCode * 59 + this.Coverage.GetHashCode();
+                hashCode = hashCode * 59 + this.MaxLength.GetHashCode();
+                hashCode = hashCode * 59 + this.MinLength.GetHashCode();
                 return hashCode;
             }
         }
@@ -176,7 +176,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

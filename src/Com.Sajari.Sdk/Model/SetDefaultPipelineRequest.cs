@@ -32,6 +32,7 @@ namespace Com.Sajari.Sdk.Model
     [DataContract(Name = "SetDefaultPipelineRequest")]
     public partial class SetDefaultPipelineRequest : IEquatable<SetDefaultPipelineRequest>, IValidatableObject
     {
+
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
@@ -45,13 +46,16 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SetDefaultPipelineRequest" /> class.
         /// </summary>
-        /// <param name="type">type (required).</param>
         /// <param name="pipeline">The name of the pipeline to use when not otherwise specified. (required).</param>
-        public SetDefaultPipelineRequest(PipelineType type = default(PipelineType), string pipeline = default(string))
+        /// <param name="type">type (required).</param>
+        public SetDefaultPipelineRequest(string pipeline = default(string), PipelineType type = default(PipelineType))
         {
-            this.Type = type;
             // to ensure "pipeline" is required (not null)
-            this.Pipeline = pipeline ?? throw new ArgumentNullException("pipeline is a required property for SetDefaultPipelineRequest and cannot be null");
+            if (pipeline == null) {
+                throw new ArgumentNullException("pipeline is a required property for SetDefaultPipelineRequest and cannot be null");
+            }
+            this.Pipeline = pipeline;
+            this.Type = type;
         }
 
         /// <summary>
@@ -69,8 +73,8 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SetDefaultPipelineRequest {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Pipeline: ").Append(Pipeline).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -81,7 +85,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -106,13 +110,13 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                ) && 
-                (
                     this.Pipeline == input.Pipeline ||
                     (this.Pipeline != null &&
                     this.Pipeline.Equals(input.Pipeline))
+                ) && 
+                (
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
                 );
         }
 
@@ -125,9 +129,9 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Pipeline != null)
                     hashCode = hashCode * 59 + this.Pipeline.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }
@@ -137,7 +141,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

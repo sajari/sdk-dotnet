@@ -8,7 +8,8 @@ Method | HTTP request | Description
 [**DeleteCollection**](CollectionsApi.md#deletecollection) | **DELETE** /v4/collections/{collection_id} | Delete collection
 [**GetCollection**](CollectionsApi.md#getcollection) | **GET** /v4/collections/{collection_id} | Get collection
 [**ListCollections**](CollectionsApi.md#listcollections) | **GET** /v4/collections | List collections
-[**QueryCollection**](CollectionsApi.md#querycollection) | **POST** /v4/collections/{collection_id}:queryCollection | Query collection
+[**QueryCollection**](CollectionsApi.md#querycollection) | **POST** /v4/collections/{collection_id}:query | Query collection
+[**QueryCollection2**](CollectionsApi.md#querycollection2) | **POST** /v4/collections/{collection_id}:queryCollection | Query collection
 [**UpdateCollection**](CollectionsApi.md#updatecollection) | **PATCH** /v4/collections/{collection_id} | Update collection
 
 
@@ -81,6 +82,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -91,7 +93,7 @@ Name | Type | Description  | Notes
 | **404** | Returned when the resource does not exist. |  -  |
 | **409** | Returned when the collection already exists. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -162,6 +164,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -170,7 +173,7 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the collection was not found. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -241,6 +244,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -249,7 +253,7 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the resource does not exist. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -259,7 +263,7 @@ Name | Type | Description  | Notes
 
 List collections
 
-Retrieve a list of collections in the account.
+Retrieve a list of collections in an account.
 
 ### Example
 ```csharp
@@ -322,6 +326,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -330,7 +335,7 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the resource does not exist. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -403,6 +408,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -411,13 +417,95 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the resource does not exist. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="querycollection2"></a>
+# **QueryCollection2**
+> QueryCollectionResponse QueryCollection2 (string collectionId, QueryCollectionRequest queryCollectionRequest)
+
+Query collection
+
+Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  ```json {   \"variables\": { \"q\": \"search terms\" } } ```  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Com.Sajari.Sdk.Api;
+using Com.Sajari.Sdk.Client;
+using Com.Sajari.Sdk.Model;
+
+namespace Example
+{
+    public class QueryCollection2Example
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api-gateway.sajari.com";
+            // Configure HTTP basic authorization: BasicAuth
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+
+            var apiInstance = new CollectionsApi(config);
+            var collectionId = collectionId_example;  // string | The collection to query, e.g. `my-collection`.
+            var queryCollectionRequest = new QueryCollectionRequest(); // QueryCollectionRequest | 
+
+            try
+            {
+                // Query collection
+                QueryCollectionResponse result = apiInstance.QueryCollection2(collectionId, queryCollectionRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CollectionsApi.QueryCollection2: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collectionId** | **string**| The collection to query, e.g. &#x60;my-collection&#x60;. | 
+ **queryCollectionRequest** | [**QueryCollectionRequest**](QueryCollectionRequest.md)|  | 
+
+### Return type
+
+[**QueryCollectionResponse**](QueryCollectionResponse.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **401** | Returned when the request does not have valid authentication credentials. |  -  |
+| **403** | Returned when the user does not have permission to access the resource. |  -  |
+| **404** | Returned when the resource does not exist. |  -  |
+| **500** | Returned when the API encounters an internal error. |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="updatecollection"></a>
 # **UpdateCollection**
-> Collection UpdateCollection (string collectionId, Collection collection, string updateMask = null)
+> Collection UpdateCollection (string collectionId, string updateMask, Collection collection)
 
 Update collection
 
@@ -445,13 +533,13 @@ namespace Example
 
             var apiInstance = new CollectionsApi(config);
             var collectionId = collectionId_example;  // string | The collection to update, e.g. `my-collection`.
+            var updateMask = updateMask_example;  // string | The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  Each field should be in snake case, e.g. `display_name`.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.
             var collection = new Collection(); // Collection | Details of the collection to update.
-            var updateMask = updateMask_example;  // string | The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  Each field should be in snake case, e.g. `display_name`.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional) 
 
             try
             {
                 // Update collection
-                Collection result = apiInstance.UpdateCollection(collectionId, collection, updateMask);
+                Collection result = apiInstance.UpdateCollection(collectionId, updateMask, collection);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -470,8 +558,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **string**| The collection to update, e.g. &#x60;my-collection&#x60;. | 
+ **updateMask** | **string**| The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. | 
  **collection** | [**Collection**](Collection.md)| Details of the collection to update. | 
- **updateMask** | **string**| The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. | [optional] 
 
 ### Return type
 
@@ -486,6 +574,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -494,7 +583,7 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the collection was not found. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

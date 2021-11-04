@@ -44,7 +44,10 @@ namespace Com.Sajari.Sdk.Model
         public DeleteRecordRequest(RecordKey key = default(RecordKey))
         {
             // to ensure "key" is required (not null)
-            this.Key = key ?? throw new ArgumentNullException("key is a required property for DeleteRecordRequest and cannot be null");
+            if (key == null) {
+                throw new ArgumentNullException("key is a required property for DeleteRecordRequest and cannot be null");
+            }
+            this.Key = key;
         }
 
         /// <summary>
@@ -72,7 +75,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -123,7 +126,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

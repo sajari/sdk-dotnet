@@ -40,21 +40,17 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GeneratePipelinesRequest" /> class.
         /// </summary>
-        /// <param name="searchableFields">Prioritized list of fields to search. (required).</param>
         /// <param name="queryTrainingFields">List of fields to train query suggestions from..</param>
-        public GeneratePipelinesRequest(List<string> searchableFields = default(List<string>), List<string> queryTrainingFields = default(List<string>))
+        /// <param name="searchableFields">Prioritized list of fields to search. (required).</param>
+        public GeneratePipelinesRequest(List<string> queryTrainingFields = default(List<string>), List<string> searchableFields = default(List<string>))
         {
             // to ensure "searchableFields" is required (not null)
-            this.SearchableFields = searchableFields ?? throw new ArgumentNullException("searchableFields is a required property for GeneratePipelinesRequest and cannot be null");
+            if (searchableFields == null) {
+                throw new ArgumentNullException("searchableFields is a required property for GeneratePipelinesRequest and cannot be null");
+            }
+            this.SearchableFields = searchableFields;
             this.QueryTrainingFields = queryTrainingFields;
         }
-
-        /// <summary>
-        /// Prioritized list of fields to search.
-        /// </summary>
-        /// <value>Prioritized list of fields to search.</value>
-        [DataMember(Name = "searchable_fields", IsRequired = true, EmitDefaultValue = false)]
-        public List<string> SearchableFields { get; set; }
 
         /// <summary>
         /// List of fields to train query suggestions from.
@@ -64,6 +60,13 @@ namespace Com.Sajari.Sdk.Model
         public List<string> QueryTrainingFields { get; set; }
 
         /// <summary>
+        /// Prioritized list of fields to search.
+        /// </summary>
+        /// <value>Prioritized list of fields to search.</value>
+        [DataMember(Name = "searchable_fields", IsRequired = true, EmitDefaultValue = false)]
+        public List<string> SearchableFields { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -71,8 +74,8 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GeneratePipelinesRequest {\n");
-            sb.Append("  SearchableFields: ").Append(SearchableFields).Append("\n");
             sb.Append("  QueryTrainingFields: ").Append(QueryTrainingFields).Append("\n");
+            sb.Append("  SearchableFields: ").Append(SearchableFields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,7 +86,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -108,16 +111,16 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
-                    this.SearchableFields == input.SearchableFields ||
-                    this.SearchableFields != null &&
-                    input.SearchableFields != null &&
-                    this.SearchableFields.SequenceEqual(input.SearchableFields)
-                ) && 
-                (
                     this.QueryTrainingFields == input.QueryTrainingFields ||
                     this.QueryTrainingFields != null &&
                     input.QueryTrainingFields != null &&
                     this.QueryTrainingFields.SequenceEqual(input.QueryTrainingFields)
+                ) && 
+                (
+                    this.SearchableFields == input.SearchableFields ||
+                    this.SearchableFields != null &&
+                    input.SearchableFields != null &&
+                    this.SearchableFields.SequenceEqual(input.SearchableFields)
                 );
         }
 
@@ -130,10 +133,10 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.SearchableFields != null)
-                    hashCode = hashCode * 59 + this.SearchableFields.GetHashCode();
                 if (this.QueryTrainingFields != null)
                     hashCode = hashCode * 59 + this.QueryTrainingFields.GetHashCode();
+                if (this.SearchableFields != null)
+                    hashCode = hashCode * 59 + this.SearchableFields.GetHashCode();
                 return hashCode;
             }
         }
@@ -143,7 +146,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

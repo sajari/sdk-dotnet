@@ -83,6 +83,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json, application/yaml
  - **Accept**: application/json, application/yaml
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -91,7 +92,7 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the resource does not exist. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -164,6 +165,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json, application/yaml
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -172,7 +174,7 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the resource does not exist. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -245,6 +247,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -253,7 +256,7 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the resource does not exist. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -330,6 +333,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json, application/yaml
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -338,7 +342,7 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the pipeline does not have a default version. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -417,6 +421,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json, application/yaml
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -425,7 +430,7 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the resource does not exist. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -435,7 +440,7 @@ Name | Type | Description  | Notes
 
 List pipelines
 
-Retrieve a list of pipelines.
+Retrieve a list of pipelines in a collection.
 
 ### Example
 ```csharp
@@ -502,6 +507,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -510,7 +516,7 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the resource does not exist. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -583,6 +589,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -591,7 +598,7 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the resource does not exist. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -668,6 +675,7 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
@@ -676,7 +684,7 @@ Name | Type | Description  | Notes
 | **403** | Returned when the user does not have permission to access the resource. |  -  |
 | **404** | Returned when the resource does not exist. |  -  |
 | **500** | Returned when the API encounters an internal error. |  -  |
-| **0** | An unexpected error response |  -  |
+| **0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -32,16 +32,18 @@ namespace Com.Sajari.Sdk.Model
     [DataContract(Name = "SchemaField")]
     public partial class SchemaField : IEquatable<SchemaField>, IValidatableObject
     {
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
-        public SchemaFieldType Type { get; set; }
+
         /// <summary>
         /// Gets or Sets Mode
         /// </summary>
         [DataMember(Name = "mode", IsRequired = true, EmitDefaultValue = false)]
         public SchemaFieldMode Mode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
+        public SchemaFieldType Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="SchemaField" /> class.
         /// </summary>
@@ -50,42 +52,31 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SchemaField" /> class.
         /// </summary>
-        /// <param name="name">The name of the field. (required).</param>
-        /// <param name="description">The description of the field..</param>
-        /// <param name="type">type (required).</param>
-        /// <param name="mode">mode (required).</param>
         /// <param name="array">Array indicates if the field is an array of values.  For example, if &#x60;type&#x60; is string and &#x60;array&#x60; is &#x60;true&#x60;, then the field is an array of strings..</param>
         /// <param name="arrayLength">The required length of the array, if &#x60;array&#x60; is &#x60;true&#x60;.  This allows you to enforce that an array contains an exact number of items.  For example, to store a 2x2 vector, you could set &#x60;type&#x60; to float, &#x60;array&#x60; to &#x60;true&#x60; and &#x60;array_length&#x60; to &#x60;4&#x60;..</param>
-        public SchemaField(string name = default(string), string description = default(string), SchemaFieldType type = default(SchemaFieldType), SchemaFieldMode mode = default(SchemaFieldMode), bool array = default(bool), int arrayLength = default(int))
+        /// <param name="description">The description of the field..</param>
+        /// <param name="mode">mode (required).</param>
+        /// <param name="name">The name of the field. (required).</param>
+        /// <param name="type">type (required).</param>
+        public SchemaField(bool array = default(bool), int arrayLength = default(int), string description = default(string), SchemaFieldMode mode = default(SchemaFieldMode), string name = default(string), SchemaFieldType type = default(SchemaFieldType))
         {
-            // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for SchemaField and cannot be null");
-            this.Type = type;
             this.Mode = mode;
-            this.Description = description;
+            // to ensure "name" is required (not null)
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for SchemaField and cannot be null");
+            }
+            this.Name = name;
+            this.Type = type;
             this.Array = array;
             this.ArrayLength = arrayLength;
+            this.Description = description;
         }
-
-        /// <summary>
-        /// The name of the field.
-        /// </summary>
-        /// <value>The name of the field.</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// The description of the field.
-        /// </summary>
-        /// <value>The description of the field.</value>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
-        public string Description { get; set; }
 
         /// <summary>
         /// Array indicates if the field is an array of values.  For example, if &#x60;type&#x60; is string and &#x60;array&#x60; is &#x60;true&#x60;, then the field is an array of strings.
         /// </summary>
         /// <value>Array indicates if the field is an array of values.  For example, if &#x60;type&#x60; is string and &#x60;array&#x60; is &#x60;true&#x60;, then the field is an array of strings.</value>
-        [DataMember(Name = "array", EmitDefaultValue = false)]
+        [DataMember(Name = "array", EmitDefaultValue = true)]
         public bool Array { get; set; }
 
         /// <summary>
@@ -96,6 +87,20 @@ namespace Com.Sajari.Sdk.Model
         public int ArrayLength { get; set; }
 
         /// <summary>
+        /// The description of the field.
+        /// </summary>
+        /// <value>The description of the field.</value>
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// The name of the field.
+        /// </summary>
+        /// <value>The name of the field.</value>
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        public string Name { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -103,12 +108,12 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SchemaField {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Mode: ").Append(Mode).Append("\n");
             sb.Append("  Array: ").Append(Array).Append("\n");
             sb.Append("  ArrayLength: ").Append(ArrayLength).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  Mode: ").Append(Mode).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,7 +124,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -144,9 +149,12 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.Array == input.Array ||
+                    this.Array.Equals(input.Array)
+                ) && 
+                (
+                    this.ArrayLength == input.ArrayLength ||
+                    this.ArrayLength.Equals(input.ArrayLength)
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -154,20 +162,17 @@ namespace Com.Sajari.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                ) && 
-                (
                     this.Mode == input.Mode ||
                     this.Mode.Equals(input.Mode)
                 ) && 
                 (
-                    this.Array == input.Array ||
-                    this.Array.Equals(input.Array)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.ArrayLength == input.ArrayLength ||
-                    this.ArrayLength.Equals(input.ArrayLength)
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
                 );
         }
 
@@ -180,14 +185,14 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                hashCode = hashCode * 59 + this.Type.GetHashCode();
-                hashCode = hashCode * 59 + this.Mode.GetHashCode();
                 hashCode = hashCode * 59 + this.Array.GetHashCode();
                 hashCode = hashCode * 59 + this.ArrayLength.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                hashCode = hashCode * 59 + this.Mode.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }
@@ -197,7 +202,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

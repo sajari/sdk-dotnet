@@ -1,5 +1,6 @@
 # Com.Sajari.Sdk.Model.QueryAggregateResultCount
 Count contains the counts for the set of values returned.
+
 ## Properties
 
 Name | Type | Description | Notes

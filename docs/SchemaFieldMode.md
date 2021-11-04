@@ -1,5 +1,6 @@
 # Com.Sajari.Sdk.Model.SchemaFieldMode
 Mode is an enumeration of modes for a field.   - MODE_UNSPECIFIED: Mode not specified.  - NULLABLE: Nullable fields do not need to be specified.  - REQUIRED: Required fields must be specified and cannot be null.  - UNIQUE: Unique fields must be specified and must be unique.
+
 ## Properties
 
 Name | Type | Description | Notes

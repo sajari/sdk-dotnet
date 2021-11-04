@@ -43,10 +43,13 @@ namespace Com.Sajari.Sdk.Model
         /// <param name="pipeline">pipeline.</param>
         /// <param name="record">An object made up of field-value pairs that contains the record data. (required).</param>
         /// <param name="variables">The initial values for the variables the pipeline operates on and transforms throughout its steps..</param>
-        public UpsertRecordRequest(UpsertRecordRequestPipeline pipeline = default(UpsertRecordRequestPipeline), Object record = default(Object), Object variables = default(Object))
+        public UpsertRecordRequest(UpsertRecordRequestPipeline pipeline = default(UpsertRecordRequestPipeline), Object record = default(Object), Dictionary<string, Object> variables = default(Dictionary<string, Object>))
         {
             // to ensure "record" is required (not null)
-            this.Record = record ?? throw new ArgumentNullException("record is a required property for UpsertRecordRequest and cannot be null");
+            if (record == null) {
+                throw new ArgumentNullException("record is a required property for UpsertRecordRequest and cannot be null");
+            }
+            this.Record = record;
             this.Pipeline = pipeline;
             this.Variables = variables;
         }
@@ -69,7 +72,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <value>The initial values for the variables the pipeline operates on and transforms throughout its steps.</value>
         [DataMember(Name = "variables", EmitDefaultValue = false)]
-        public Object Variables { get; set; }
+        public Dictionary<string, Object> Variables { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -92,7 +95,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -128,8 +131,9 @@ namespace Com.Sajari.Sdk.Model
                 ) && 
                 (
                     this.Variables == input.Variables ||
-                    (this.Variables != null &&
-                    this.Variables.Equals(input.Variables))
+                    this.Variables != null &&
+                    input.Variables != null &&
+                    this.Variables.SequenceEqual(input.Variables)
                 );
         }
 
@@ -157,7 +161,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

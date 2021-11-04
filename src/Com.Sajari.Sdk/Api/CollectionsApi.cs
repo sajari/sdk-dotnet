@@ -96,7 +96,7 @@ namespace Com.Sajari.Sdk.Api
         /// List collections
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of collections in the account.
+        /// Retrieve a list of collections in an account.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
@@ -108,7 +108,7 @@ namespace Com.Sajari.Sdk.Api
         /// List collections
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of collections in the account.
+        /// Retrieve a list of collections in an account.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
@@ -139,6 +139,31 @@ namespace Com.Sajari.Sdk.Api
         /// <returns>ApiResponse of QueryCollectionResponse</returns>
         ApiResponse<QueryCollectionResponse> QueryCollectionWithHttpInfo(string collectionId, QueryCollectionRequest queryCollectionRequest);
         /// <summary>
+        /// Query collection
+        /// </summary>
+        /// <remarks>
+        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="queryCollectionRequest"></param>
+        /// <returns>QueryCollectionResponse</returns>
+        [Obsolete]
+        QueryCollectionResponse QueryCollection2(string collectionId, QueryCollectionRequest queryCollectionRequest);
+
+        /// <summary>
+        /// Query collection
+        /// </summary>
+        /// <remarks>
+        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="queryCollectionRequest"></param>
+        /// <returns>ApiResponse of QueryCollectionResponse</returns>
+        [Obsolete]
+        ApiResponse<QueryCollectionResponse> QueryCollection2WithHttpInfo(string collectionId, QueryCollectionRequest queryCollectionRequest);
+        /// <summary>
         /// Update collection
         /// </summary>
         /// <remarks>
@@ -146,10 +171,10 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
         /// <param name="collection">Details of the collection to update.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <returns>Collection</returns>
-        Collection UpdateCollection(string collectionId, Collection collection, string updateMask = default(string));
+        Collection UpdateCollection(string collectionId, string updateMask, Collection collection);
 
         /// <summary>
         /// Update collection
@@ -159,10 +184,10 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
         /// <param name="collection">Details of the collection to update.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <returns>ApiResponse of Collection</returns>
-        ApiResponse<Collection> UpdateCollectionWithHttpInfo(string collectionId, Collection collection, string updateMask = default(string));
+        ApiResponse<Collection> UpdateCollectionWithHttpInfo(string collectionId, string updateMask, Collection collection);
         #endregion Synchronous Operations
     }
 
@@ -247,7 +272,7 @@ namespace Com.Sajari.Sdk.Api
         /// List collections
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of collections in the account.
+        /// Retrieve a list of collections in an account.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
@@ -260,7 +285,7 @@ namespace Com.Sajari.Sdk.Api
         /// List collections
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of collections in the account.
+        /// Retrieve a list of collections in an account.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
@@ -294,6 +319,33 @@ namespace Com.Sajari.Sdk.Api
         /// <returns>Task of ApiResponse (QueryCollectionResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<QueryCollectionResponse>> QueryCollectionWithHttpInfoAsync(string collectionId, QueryCollectionRequest queryCollectionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Query collection
+        /// </summary>
+        /// <remarks>
+        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="queryCollectionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of QueryCollectionResponse</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<QueryCollectionResponse> QueryCollection2Async(string collectionId, QueryCollectionRequest queryCollectionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Query collection
+        /// </summary>
+        /// <remarks>
+        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="queryCollectionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (QueryCollectionResponse)</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<ApiResponse<QueryCollectionResponse>> QueryCollection2WithHttpInfoAsync(string collectionId, QueryCollectionRequest queryCollectionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Update collection
         /// </summary>
         /// <remarks>
@@ -301,11 +353,11 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
         /// <param name="collection">Details of the collection to update.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Collection</returns>
-        System.Threading.Tasks.Task<Collection> UpdateCollectionAsync(string collectionId, Collection collection, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Collection> UpdateCollectionAsync(string collectionId, string updateMask, Collection collection, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update collection
@@ -315,11 +367,11 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
         /// <param name="collection">Details of the collection to update.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Collection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Collection>> UpdateCollectionWithHttpInfoAsync(string collectionId, Collection collection, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Collection>> UpdateCollectionWithHttpInfoAsync(string collectionId, string updateMask, Collection collection, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -350,7 +402,7 @@ namespace Com.Sajari.Sdk.Api
         /// Initializes a new instance of the <see cref="CollectionsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public CollectionsApi(String basePath)
+        public CollectionsApi(string basePath)
         {
             this.Configuration = Com.Sajari.Sdk.Client.Configuration.MergeConfigurations(
                 Com.Sajari.Sdk.Client.GlobalConfiguration.Instance,
@@ -413,7 +465,7 @@ namespace Com.Sajari.Sdk.Api
         /// Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public String GetBasePath()
+        public string GetBasePath()
         {
             return this.Configuration.BasePath;
         }
@@ -472,12 +524,12 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -492,7 +544,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -544,12 +596,12 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -565,7 +617,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -609,11 +661,11 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -627,7 +679,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -673,11 +725,11 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -692,7 +744,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -736,11 +788,11 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -754,7 +806,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -800,11 +852,11 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -819,7 +871,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -838,7 +890,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// List collections Retrieve a list of collections in the account.
+        /// List collections Retrieve a list of collections in an account.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
@@ -851,7 +903,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// List collections Retrieve a list of collections in the account.
+        /// List collections Retrieve a list of collections in an account.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
@@ -861,11 +913,11 @@ namespace Com.Sajari.Sdk.Api
         {
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -886,7 +938,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -904,7 +956,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// List collections Retrieve a list of collections in the account.
+        /// List collections Retrieve a list of collections in an account.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
@@ -918,7 +970,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// List collections Retrieve a list of collections in the account.
+        /// List collections Retrieve a list of collections in an account.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
@@ -930,11 +982,11 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -956,7 +1008,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1006,12 +1058,12 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1026,13 +1078,13 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<QueryCollectionResponse>("/v4/collections/{collection_id}:queryCollection", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<QueryCollectionResponse>("/v4/collections/{collection_id}:query", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1078,12 +1130,12 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1099,14 +1151,14 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<QueryCollectionResponse>("/v4/collections/{collection_id}:queryCollection", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<QueryCollectionResponse>("/v4/collections/{collection_id}:query", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1118,45 +1170,45 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Update collection Update the details of a collection.
+        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
-        /// <param name="collection">Details of the collection to update.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
-        /// <returns>Collection</returns>
-        public Collection UpdateCollection(string collectionId, Collection collection, string updateMask = default(string))
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="queryCollectionRequest"></param>
+        /// <returns>QueryCollectionResponse</returns>
+        [Obsolete]
+        public QueryCollectionResponse QueryCollection2(string collectionId, QueryCollectionRequest queryCollectionRequest)
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = UpdateCollectionWithHttpInfo(collectionId, collection, updateMask);
+            Com.Sajari.Sdk.Client.ApiResponse<QueryCollectionResponse> localVarResponse = QueryCollection2WithHttpInfo(collectionId, queryCollectionRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update collection Update the details of a collection.
+        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
-        /// <param name="collection">Details of the collection to update.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
-        /// <returns>ApiResponse of Collection</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<Collection> UpdateCollectionWithHttpInfo(string collectionId, Collection collection, string updateMask = default(string))
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="queryCollectionRequest"></param>
+        /// <returns>ApiResponse of QueryCollectionResponse</returns>
+        [Obsolete]
+        public Com.Sajari.Sdk.Client.ApiResponse<QueryCollectionResponse> QueryCollection2WithHttpInfo(string collectionId, QueryCollectionRequest queryCollectionRequest)
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
-                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->UpdateCollection");
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->QueryCollection2");
 
-            // verify the required parameter 'collection' is set
-            if (collection == null)
-                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collection' when calling CollectionsApi->UpdateCollection");
+            // verify the required parameter 'queryCollectionRequest' is set
+            if (queryCollectionRequest == null)
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'queryCollectionRequest' when calling CollectionsApi->QueryCollection2");
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1167,15 +1219,163 @@ namespace Com.Sajari.Sdk.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
-            if (updateMask != null)
+            localVarRequestOptions.Data = queryCollectionRequest;
+
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
-                localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<QueryCollectionResponse>("/v4/collections/{collection_id}:queryCollection", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("QueryCollection2", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="queryCollectionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of QueryCollectionResponse</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<QueryCollectionResponse> QueryCollection2Async(string collectionId, QueryCollectionRequest queryCollectionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Com.Sajari.Sdk.Client.ApiResponse<QueryCollectionResponse> localVarResponse = await QueryCollection2WithHttpInfoAsync(collectionId, queryCollectionRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="queryCollectionRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (QueryCollectionResponse)</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<QueryCollectionResponse>> QueryCollection2WithHttpInfoAsync(string collectionId, QueryCollectionRequest queryCollectionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'collectionId' is set
+            if (collectionId == null)
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->QueryCollection2");
+
+            // verify the required parameter 'queryCollectionRequest' is set
+            if (queryCollectionRequest == null)
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'queryCollectionRequest' when calling CollectionsApi->QueryCollection2");
+
+
+            Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            localVarRequestOptions.Data = queryCollectionRequest;
+
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<QueryCollectionResponse>("/v4/collections/{collection_id}:queryCollection", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("QueryCollection2", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update collection Update the details of a collection.
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
+        /// <param name="collection">Details of the collection to update.</param>
+        /// <returns>Collection</returns>
+        public Collection UpdateCollection(string collectionId, string updateMask, Collection collection)
+        {
+            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = UpdateCollectionWithHttpInfo(collectionId, updateMask, collection);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update collection Update the details of a collection.
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
+        /// <param name="collection">Details of the collection to update.</param>
+        /// <returns>ApiResponse of Collection</returns>
+        public Com.Sajari.Sdk.Client.ApiResponse<Collection> UpdateCollectionWithHttpInfo(string collectionId, string updateMask, Collection collection)
+        {
+            // verify the required parameter 'collectionId' is set
+            if (collectionId == null)
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->UpdateCollection");
+
+            // verify the required parameter 'updateMask' is set
+            if (updateMask == null)
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'updateMask' when calling CollectionsApi->UpdateCollection");
+
+            // verify the required parameter 'collection' is set
+            if (collection == null)
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collection' when calling CollectionsApi->UpdateCollection");
+
+            Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
             localVarRequestOptions.Data = collection;
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1197,13 +1397,13 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
         /// <param name="collection">Details of the collection to update.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Collection</returns>
-        public async System.Threading.Tasks.Task<Collection> UpdateCollectionAsync(string collectionId, Collection collection, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Collection> UpdateCollectionAsync(string collectionId, string updateMask, Collection collection, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = await UpdateCollectionWithHttpInfoAsync(collectionId, collection, updateMask, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = await UpdateCollectionWithHttpInfoAsync(collectionId, updateMask, collection, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1212,15 +1412,19 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
         /// <param name="collection">Details of the collection to update.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Collection)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Collection>> UpdateCollectionWithHttpInfoAsync(string collectionId, Collection collection, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Collection>> UpdateCollectionWithHttpInfoAsync(string collectionId, string updateMask, Collection collection, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
                 throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->UpdateCollection");
+
+            // verify the required parameter 'updateMask' is set
+            if (updateMask == null)
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'updateMask' when calling CollectionsApi->UpdateCollection");
 
             // verify the required parameter 'collection' is set
             if (collection == null)
@@ -1229,12 +1433,12 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1246,15 +1450,12 @@ namespace Com.Sajari.Sdk.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
-            if (updateMask != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
-            }
+            localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
             localVarRequestOptions.Data = collection;
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }

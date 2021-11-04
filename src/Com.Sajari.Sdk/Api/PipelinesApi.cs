@@ -156,7 +156,7 @@ namespace Com.Sajari.Sdk.Api
         /// List pipelines
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of pipelines.
+        /// Retrieve a list of pipelines in a collection.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
@@ -170,7 +170,7 @@ namespace Com.Sajari.Sdk.Api
         /// List pipelines
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of pipelines.
+        /// Retrieve a list of pipelines in a collection.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
@@ -377,7 +377,7 @@ namespace Com.Sajari.Sdk.Api
         /// List pipelines
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of pipelines.
+        /// Retrieve a list of pipelines in a collection.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
@@ -392,7 +392,7 @@ namespace Com.Sajari.Sdk.Api
         /// List pipelines
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of pipelines.
+        /// Retrieve a list of pipelines in a collection.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
@@ -486,7 +486,7 @@ namespace Com.Sajari.Sdk.Api
         /// Initializes a new instance of the <see cref="PipelinesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public PipelinesApi(String basePath)
+        public PipelinesApi(string basePath)
         {
             this.Configuration = Com.Sajari.Sdk.Client.Configuration.MergeConfigurations(
                 Com.Sajari.Sdk.Client.GlobalConfiguration.Instance,
@@ -549,7 +549,7 @@ namespace Com.Sajari.Sdk.Api
         /// Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public String GetBasePath()
+        public string GetBasePath()
         {
             return this.Configuration.BasePath;
         }
@@ -608,13 +608,13 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json",
                 "application/yaml"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json",
                 "application/yaml"
             };
@@ -630,7 +630,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -682,13 +682,13 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json", 
                 "application/yaml"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json",
                 "application/yaml"
             };
@@ -705,7 +705,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -755,12 +755,12 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json",
                 "application/yaml"
             };
@@ -776,7 +776,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -828,12 +828,12 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json",
                 "application/yaml"
             };
@@ -850,7 +850,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -900,11 +900,11 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -919,7 +919,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -971,11 +971,11 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -991,7 +991,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1049,11 +1049,11 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json",
                 "application/yaml"
             };
@@ -1074,7 +1074,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1134,11 +1134,11 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json",
                 "application/yaml"
             };
@@ -1160,7 +1160,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1224,11 +1224,11 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json",
                 "application/yaml"
             };
@@ -1250,7 +1250,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1316,11 +1316,11 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json",
                 "application/yaml"
             };
@@ -1343,7 +1343,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1362,7 +1362,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// List pipelines Retrieve a list of pipelines.
+        /// List pipelines Retrieve a list of pipelines in a collection.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
@@ -1377,7 +1377,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// List pipelines Retrieve a list of pipelines.
+        /// List pipelines Retrieve a list of pipelines in a collection.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
@@ -1393,11 +1393,11 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1423,7 +1423,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1441,7 +1441,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// List pipelines Retrieve a list of pipelines.
+        /// List pipelines Retrieve a list of pipelines in a collection.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
@@ -1457,7 +1457,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// List pipelines Retrieve a list of pipelines.
+        /// List pipelines Retrieve a list of pipelines in a collection.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
@@ -1475,11 +1475,11 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1506,7 +1506,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1556,12 +1556,12 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1576,7 +1576,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1628,12 +1628,12 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1649,7 +1649,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1711,12 +1711,12 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1733,7 +1733,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1797,12 +1797,12 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -1820,7 +1820,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }

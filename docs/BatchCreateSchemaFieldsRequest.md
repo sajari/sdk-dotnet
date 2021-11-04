@@ -1,4 +1,5 @@
 # Com.Sajari.Sdk.Model.BatchCreateSchemaFieldsRequest
+
 ## Properties
 
 Name | Type | Description | Notes

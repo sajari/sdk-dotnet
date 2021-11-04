@@ -35,33 +35,27 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryAggregateResult" /> class.
         /// </summary>
-        /// <param name="metric">metric.</param>
-        /// <param name="count">count.</param>
-        /// <param name="buckets">buckets.</param>
-        /// <param name="date">date.</param>
         /// <param name="analysis">analysis.</param>
+        /// <param name="buckets">buckets.</param>
+        /// <param name="count">count.</param>
+        /// <param name="date">date.</param>
+        /// <param name="metric">metric.</param>
         /// <param name="percentile">percentile.</param>
-        public QueryAggregateResult(QueryAggregateResultMetric metric = default(QueryAggregateResultMetric), QueryAggregateResultCount count = default(QueryAggregateResultCount), QueryAggregateResultBuckets buckets = default(QueryAggregateResultBuckets), QueryAggregateResultDate date = default(QueryAggregateResultDate), QueryAggregateResultAnalysis analysis = default(QueryAggregateResultAnalysis), QueryAggregateResultPercentile percentile = default(QueryAggregateResultPercentile))
+        public QueryAggregateResult(QueryAggregateResultAnalysis analysis = default(QueryAggregateResultAnalysis), QueryAggregateResultBuckets buckets = default(QueryAggregateResultBuckets), QueryAggregateResultCount count = default(QueryAggregateResultCount), QueryAggregateResultDate date = default(QueryAggregateResultDate), QueryAggregateResultMetric metric = default(QueryAggregateResultMetric), QueryAggregateResultPercentile percentile = default(QueryAggregateResultPercentile))
         {
-            this.Metric = metric;
-            this.Count = count;
-            this.Buckets = buckets;
-            this.Date = date;
             this.Analysis = analysis;
+            this.Buckets = buckets;
+            this.Count = count;
+            this.Date = date;
+            this.Metric = metric;
             this.Percentile = percentile;
         }
 
         /// <summary>
-        /// Gets or Sets Metric
+        /// Gets or Sets Analysis
         /// </summary>
-        [DataMember(Name = "metric", EmitDefaultValue = false)]
-        public QueryAggregateResultMetric Metric { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Count
-        /// </summary>
-        [DataMember(Name = "count", EmitDefaultValue = false)]
-        public QueryAggregateResultCount Count { get; set; }
+        [DataMember(Name = "analysis", EmitDefaultValue = false)]
+        public QueryAggregateResultAnalysis Analysis { get; set; }
 
         /// <summary>
         /// Gets or Sets Buckets
@@ -70,16 +64,22 @@ namespace Com.Sajari.Sdk.Model
         public QueryAggregateResultBuckets Buckets { get; set; }
 
         /// <summary>
+        /// Gets or Sets Count
+        /// </summary>
+        [DataMember(Name = "count", EmitDefaultValue = false)]
+        public QueryAggregateResultCount Count { get; set; }
+
+        /// <summary>
         /// Gets or Sets Date
         /// </summary>
         [DataMember(Name = "date", EmitDefaultValue = false)]
         public QueryAggregateResultDate Date { get; set; }
 
         /// <summary>
-        /// Gets or Sets Analysis
+        /// Gets or Sets Metric
         /// </summary>
-        [DataMember(Name = "analysis", EmitDefaultValue = false)]
-        public QueryAggregateResultAnalysis Analysis { get; set; }
+        [DataMember(Name = "metric", EmitDefaultValue = false)]
+        public QueryAggregateResultMetric Metric { get; set; }
 
         /// <summary>
         /// Gets or Sets Percentile
@@ -95,11 +95,11 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class QueryAggregateResult {\n");
-            sb.Append("  Metric: ").Append(Metric).Append("\n");
-            sb.Append("  Count: ").Append(Count).Append("\n");
-            sb.Append("  Buckets: ").Append(Buckets).Append("\n");
-            sb.Append("  Date: ").Append(Date).Append("\n");
             sb.Append("  Analysis: ").Append(Analysis).Append("\n");
+            sb.Append("  Buckets: ").Append(Buckets).Append("\n");
+            sb.Append("  Count: ").Append(Count).Append("\n");
+            sb.Append("  Date: ").Append(Date).Append("\n");
+            sb.Append("  Metric: ").Append(Metric).Append("\n");
             sb.Append("  Percentile: ").Append(Percentile).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -111,7 +111,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -136,14 +136,9 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
-                    this.Metric == input.Metric ||
-                    (this.Metric != null &&
-                    this.Metric.Equals(input.Metric))
-                ) && 
-                (
-                    this.Count == input.Count ||
-                    (this.Count != null &&
-                    this.Count.Equals(input.Count))
+                    this.Analysis == input.Analysis ||
+                    (this.Analysis != null &&
+                    this.Analysis.Equals(input.Analysis))
                 ) && 
                 (
                     this.Buckets == input.Buckets ||
@@ -151,14 +146,19 @@ namespace Com.Sajari.Sdk.Model
                     this.Buckets.Equals(input.Buckets))
                 ) && 
                 (
+                    this.Count == input.Count ||
+                    (this.Count != null &&
+                    this.Count.Equals(input.Count))
+                ) && 
+                (
                     this.Date == input.Date ||
                     (this.Date != null &&
                     this.Date.Equals(input.Date))
                 ) && 
                 (
-                    this.Analysis == input.Analysis ||
-                    (this.Analysis != null &&
-                    this.Analysis.Equals(input.Analysis))
+                    this.Metric == input.Metric ||
+                    (this.Metric != null &&
+                    this.Metric.Equals(input.Metric))
                 ) && 
                 (
                     this.Percentile == input.Percentile ||
@@ -176,16 +176,16 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Metric != null)
-                    hashCode = hashCode * 59 + this.Metric.GetHashCode();
-                if (this.Count != null)
-                    hashCode = hashCode * 59 + this.Count.GetHashCode();
-                if (this.Buckets != null)
-                    hashCode = hashCode * 59 + this.Buckets.GetHashCode();
-                if (this.Date != null)
-                    hashCode = hashCode * 59 + this.Date.GetHashCode();
                 if (this.Analysis != null)
                     hashCode = hashCode * 59 + this.Analysis.GetHashCode();
+                if (this.Buckets != null)
+                    hashCode = hashCode * 59 + this.Buckets.GetHashCode();
+                if (this.Count != null)
+                    hashCode = hashCode * 59 + this.Count.GetHashCode();
+                if (this.Date != null)
+                    hashCode = hashCode * 59 + this.Date.GetHashCode();
+                if (this.Metric != null)
+                    hashCode = hashCode * 59 + this.Metric.GetHashCode();
                 if (this.Percentile != null)
                     hashCode = hashCode * 59 + this.Percentile.GetHashCode();
                 return hashCode;
@@ -197,7 +197,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -62,12 +62,11 @@ docs/SendEventRequest.md
 docs/SetDefaultPipelineRequest.md
 docs/SetDefaultVersionRequest.md
 docs/Status.md
+docs/UpdateRecordRequest.md
 docs/UpsertRecordRequest.md
 docs/UpsertRecordRequestPipeline.md
 docs/UpsertRecordResponse.md
-src/Com.Sajari.Sdk.Test/Api/EventsApiTests.cs
 src/Com.Sajari.Sdk.Test/Com.Sajari.Sdk.Test.csproj
-src/Com.Sajari.Sdk.Test/Model/SendEventRequestTests.cs
 src/Com.Sajari.Sdk/Api/CollectionsApi.cs
 src/Com.Sajari.Sdk/Api/EventsApi.cs
 src/Com.Sajari.Sdk/Api/PipelinesApi.cs
@@ -146,6 +145,7 @@ src/Com.Sajari.Sdk/Model/SendEventRequest.cs
 src/Com.Sajari.Sdk/Model/SetDefaultPipelineRequest.cs
 src/Com.Sajari.Sdk/Model/SetDefaultVersionRequest.cs
 src/Com.Sajari.Sdk/Model/Status.cs
+src/Com.Sajari.Sdk/Model/UpdateRecordRequest.cs
 src/Com.Sajari.Sdk/Model/UpsertRecordRequest.cs
 src/Com.Sajari.Sdk/Model/UpsertRecordRequestPipeline.cs
 src/Com.Sajari.Sdk/Model/UpsertRecordResponse.cs

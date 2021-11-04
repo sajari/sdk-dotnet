@@ -1,4 +1,5 @@
 # Com.Sajari.Sdk.Model.QueryAggregateResultDate
+
 ## Properties
 
 Name | Type | Description | Notes

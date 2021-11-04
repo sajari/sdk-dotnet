@@ -1,4 +1,5 @@
 # Com.Sajari.Sdk.Model.GetDefaultPipelineResponse
+
 ## Properties
 
 Name | Type | Description | Notes

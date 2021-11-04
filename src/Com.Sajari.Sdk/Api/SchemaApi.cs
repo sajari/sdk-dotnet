@@ -54,7 +54,7 @@ namespace Com.Sajari.Sdk.Api
         /// Create schema field
         /// </summary>
         /// <remarks>
-        /// Create a new field in your collection&#39;s schema.
+        /// Create a new field in a collection&#39;s schema.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a schema field in, e.g. &#x60;my-collection&#x60;.</param>
@@ -66,7 +66,7 @@ namespace Com.Sajari.Sdk.Api
         /// Create schema field
         /// </summary>
         /// <remarks>
-        /// Create a new field in your collection&#39;s schema.
+        /// Create a new field in a collection&#39;s schema.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a schema field in, e.g. &#x60;my-collection&#x60;.</param>
@@ -77,7 +77,7 @@ namespace Com.Sajari.Sdk.Api
         /// List schema fields
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of schema fields in the collection.
+        /// Retrieve a list of schema fields in a collection.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
@@ -90,7 +90,7 @@ namespace Com.Sajari.Sdk.Api
         /// List schema fields
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of schema fields in the collection.
+        /// Retrieve a list of schema fields in a collection.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
@@ -136,7 +136,7 @@ namespace Com.Sajari.Sdk.Api
         /// Create schema field
         /// </summary>
         /// <remarks>
-        /// Create a new field in your collection&#39;s schema.
+        /// Create a new field in a collection&#39;s schema.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a schema field in, e.g. &#x60;my-collection&#x60;.</param>
@@ -149,7 +149,7 @@ namespace Com.Sajari.Sdk.Api
         /// Create schema field
         /// </summary>
         /// <remarks>
-        /// Create a new field in your collection&#39;s schema.
+        /// Create a new field in a collection&#39;s schema.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a schema field in, e.g. &#x60;my-collection&#x60;.</param>
@@ -161,7 +161,7 @@ namespace Com.Sajari.Sdk.Api
         /// List schema fields
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of schema fields in the collection.
+        /// Retrieve a list of schema fields in a collection.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
@@ -175,7 +175,7 @@ namespace Com.Sajari.Sdk.Api
         /// List schema fields
         /// </summary>
         /// <remarks>
-        /// Retrieve a list of schema fields in the collection.
+        /// Retrieve a list of schema fields in a collection.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
@@ -214,7 +214,7 @@ namespace Com.Sajari.Sdk.Api
         /// Initializes a new instance of the <see cref="SchemaApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public SchemaApi(String basePath)
+        public SchemaApi(string basePath)
         {
             this.Configuration = Com.Sajari.Sdk.Client.Configuration.MergeConfigurations(
                 Com.Sajari.Sdk.Client.GlobalConfiguration.Instance,
@@ -277,7 +277,7 @@ namespace Com.Sajari.Sdk.Api
         /// Gets the base path of the API client.
         /// </summary>
         /// <value>The base path</value>
-        public String GetBasePath()
+        public string GetBasePath()
         {
             return this.Configuration.BasePath;
         }
@@ -336,12 +336,12 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -356,7 +356,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -408,12 +408,12 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -429,7 +429,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -448,7 +448,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Create schema field Create a new field in your collection&#39;s schema.
+        /// Create schema field Create a new field in a collection&#39;s schema.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a schema field in, e.g. &#x60;my-collection&#x60;.</param>
@@ -461,7 +461,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Create schema field Create a new field in your collection&#39;s schema.
+        /// Create schema field Create a new field in a collection&#39;s schema.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a schema field in, e.g. &#x60;my-collection&#x60;.</param>
@@ -479,12 +479,12 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -499,7 +499,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -517,7 +517,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Create schema field Create a new field in your collection&#39;s schema.
+        /// Create schema field Create a new field in a collection&#39;s schema.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a schema field in, e.g. &#x60;my-collection&#x60;.</param>
@@ -531,7 +531,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Create schema field Create a new field in your collection&#39;s schema.
+        /// Create schema field Create a new field in a collection&#39;s schema.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a schema field in, e.g. &#x60;my-collection&#x60;.</param>
@@ -551,12 +551,12 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
                 "application/json"
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -572,7 +572,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -591,7 +591,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// List schema fields Retrieve a list of schema fields in the collection.
+        /// List schema fields Retrieve a list of schema fields in a collection.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
@@ -605,7 +605,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// List schema fields Retrieve a list of schema fields in the collection.
+        /// List schema fields Retrieve a list of schema fields in a collection.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
@@ -620,11 +620,11 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -646,7 +646,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -664,7 +664,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// List schema fields Retrieve a list of schema fields in the collection.
+        /// List schema fields Retrieve a list of schema fields in a collection.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
@@ -679,7 +679,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// List schema fields Retrieve a list of schema fields in the collection.
+        /// List schema fields Retrieve a list of schema fields in a collection.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
@@ -696,11 +696,11 @@ namespace Com.Sajari.Sdk.Api
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
-            String[] _contentTypes = new String[] {
+            string[] _contentTypes = new string[] {
             };
 
             // to determine the Accept header
-            String[] _accepts = new String[] {
+            string[] _accepts = new string[] {
                 "application/json"
             };
 
@@ -723,7 +723,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!String.IsNullOrEmpty(this.Configuration.Username) || !String.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }

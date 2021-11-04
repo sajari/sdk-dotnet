@@ -35,20 +35,13 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BatchCreateSchemaFieldsResponse" /> class.
         /// </summary>
-        /// <param name="fields">Schema fields created..</param>
         /// <param name="errors">Errors that occurred..</param>
-        public BatchCreateSchemaFieldsResponse(List<SchemaField> fields = default(List<SchemaField>), List<BatchCreateSchemaFieldsResponseError> errors = default(List<BatchCreateSchemaFieldsResponseError>))
+        /// <param name="fields">Schema fields created..</param>
+        public BatchCreateSchemaFieldsResponse(List<BatchCreateSchemaFieldsResponseError> errors = default(List<BatchCreateSchemaFieldsResponseError>), List<SchemaField> fields = default(List<SchemaField>))
         {
-            this.Fields = fields;
             this.Errors = errors;
+            this.Fields = fields;
         }
-
-        /// <summary>
-        /// Schema fields created.
-        /// </summary>
-        /// <value>Schema fields created.</value>
-        [DataMember(Name = "fields", EmitDefaultValue = false)]
-        public List<SchemaField> Fields { get; set; }
 
         /// <summary>
         /// Errors that occurred.
@@ -58,6 +51,13 @@ namespace Com.Sajari.Sdk.Model
         public List<BatchCreateSchemaFieldsResponseError> Errors { get; set; }
 
         /// <summary>
+        /// Schema fields created.
+        /// </summary>
+        /// <value>Schema fields created.</value>
+        [DataMember(Name = "fields", EmitDefaultValue = false)]
+        public List<SchemaField> Fields { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,8 +65,8 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class BatchCreateSchemaFieldsResponse {\n");
-            sb.Append("  Fields: ").Append(Fields).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
+            sb.Append("  Fields: ").Append(Fields).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,7 +77,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -102,16 +102,16 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
-                    this.Fields == input.Fields ||
-                    this.Fields != null &&
-                    input.Fields != null &&
-                    this.Fields.SequenceEqual(input.Fields)
-                ) && 
-                (
                     this.Errors == input.Errors ||
                     this.Errors != null &&
                     input.Errors != null &&
                     this.Errors.SequenceEqual(input.Errors)
+                ) && 
+                (
+                    this.Fields == input.Fields ||
+                    this.Fields != null &&
+                    input.Fields != null &&
+                    this.Fields.SequenceEqual(input.Fields)
                 );
         }
 
@@ -124,10 +124,10 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Fields != null)
-                    hashCode = hashCode * 59 + this.Fields.GetHashCode();
                 if (this.Errors != null)
                     hashCode = hashCode * 59 + this.Errors.GetHashCode();
+                if (this.Fields != null)
+                    hashCode = hashCode * 59 + this.Fields.GetHashCode();
                 return hashCode;
             }
         }
@@ -137,7 +137,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

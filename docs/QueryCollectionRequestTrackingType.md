@@ -1,5 +1,6 @@
 # Com.Sajari.Sdk.Model.QueryCollectionRequestTrackingType
  - TYPE_UNSPECIFIED: The default / unset value. The API defaults to `NONE` tracking.  - NONE: No tracking.  - CLICK: Click tracking.  A click token will be generated for each result. Results which do not receive clicks will fall down rankings, and similarly low-ranked records which receive clicks will be moved up the rankings.  - POS_NEG: Pos/neg tracking.  Pos/neg tokens will be generated for each result. Each record in the result set can be marked with pos/neg value for the search. This is then fed back into the ranking algorithm to improve future results. Unlike `CLICK`, if no tokens are reported for records then no action is taken.
+
 ## Properties
 
 Name | Type | Description | Notes

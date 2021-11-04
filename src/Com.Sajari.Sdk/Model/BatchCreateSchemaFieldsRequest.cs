@@ -44,7 +44,10 @@ namespace Com.Sajari.Sdk.Model
         public BatchCreateSchemaFieldsRequest(List<SchemaField> fields = default(List<SchemaField>))
         {
             // to ensure "fields" is required (not null)
-            this.Fields = fields ?? throw new ArgumentNullException("fields is a required property for BatchCreateSchemaFieldsRequest and cannot be null");
+            if (fields == null) {
+                throw new ArgumentNullException("fields is a required property for BatchCreateSchemaFieldsRequest and cannot be null");
+            }
+            this.Fields = fields;
         }
 
         /// <summary>
@@ -73,7 +76,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -125,7 +128,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

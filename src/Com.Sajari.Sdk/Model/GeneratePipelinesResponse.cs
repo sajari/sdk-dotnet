@@ -35,21 +35,21 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GeneratePipelinesResponse" /> class.
         /// </summary>
-        /// <param name="recordPipeline">recordPipeline.</param>
-        /// <param name="queryPipeline">queryPipeline.</param>
         /// <param name="autocompletePipeline">autocompletePipeline.</param>
-        public GeneratePipelinesResponse(Pipeline recordPipeline = default(Pipeline), Pipeline queryPipeline = default(Pipeline), Pipeline autocompletePipeline = default(Pipeline))
+        /// <param name="queryPipeline">queryPipeline.</param>
+        /// <param name="recordPipeline">recordPipeline.</param>
+        public GeneratePipelinesResponse(Pipeline autocompletePipeline = default(Pipeline), Pipeline queryPipeline = default(Pipeline), Pipeline recordPipeline = default(Pipeline))
         {
-            this.RecordPipeline = recordPipeline;
-            this.QueryPipeline = queryPipeline;
             this.AutocompletePipeline = autocompletePipeline;
+            this.QueryPipeline = queryPipeline;
+            this.RecordPipeline = recordPipeline;
         }
 
         /// <summary>
-        /// Gets or Sets RecordPipeline
+        /// Gets or Sets AutocompletePipeline
         /// </summary>
-        [DataMember(Name = "record_pipeline", EmitDefaultValue = false)]
-        public Pipeline RecordPipeline { get; set; }
+        [DataMember(Name = "autocomplete_pipeline", EmitDefaultValue = false)]
+        public Pipeline AutocompletePipeline { get; set; }
 
         /// <summary>
         /// Gets or Sets QueryPipeline
@@ -58,10 +58,10 @@ namespace Com.Sajari.Sdk.Model
         public Pipeline QueryPipeline { get; set; }
 
         /// <summary>
-        /// Gets or Sets AutocompletePipeline
+        /// Gets or Sets RecordPipeline
         /// </summary>
-        [DataMember(Name = "autocomplete_pipeline", EmitDefaultValue = false)]
-        public Pipeline AutocompletePipeline { get; set; }
+        [DataMember(Name = "record_pipeline", EmitDefaultValue = false)]
+        public Pipeline RecordPipeline { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -71,9 +71,9 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class GeneratePipelinesResponse {\n");
-            sb.Append("  RecordPipeline: ").Append(RecordPipeline).Append("\n");
-            sb.Append("  QueryPipeline: ").Append(QueryPipeline).Append("\n");
             sb.Append("  AutocompletePipeline: ").Append(AutocompletePipeline).Append("\n");
+            sb.Append("  QueryPipeline: ").Append(QueryPipeline).Append("\n");
+            sb.Append("  RecordPipeline: ").Append(RecordPipeline).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,7 +84,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -109,9 +109,9 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
-                    this.RecordPipeline == input.RecordPipeline ||
-                    (this.RecordPipeline != null &&
-                    this.RecordPipeline.Equals(input.RecordPipeline))
+                    this.AutocompletePipeline == input.AutocompletePipeline ||
+                    (this.AutocompletePipeline != null &&
+                    this.AutocompletePipeline.Equals(input.AutocompletePipeline))
                 ) && 
                 (
                     this.QueryPipeline == input.QueryPipeline ||
@@ -119,9 +119,9 @@ namespace Com.Sajari.Sdk.Model
                     this.QueryPipeline.Equals(input.QueryPipeline))
                 ) && 
                 (
-                    this.AutocompletePipeline == input.AutocompletePipeline ||
-                    (this.AutocompletePipeline != null &&
-                    this.AutocompletePipeline.Equals(input.AutocompletePipeline))
+                    this.RecordPipeline == input.RecordPipeline ||
+                    (this.RecordPipeline != null &&
+                    this.RecordPipeline.Equals(input.RecordPipeline))
                 );
         }
 
@@ -134,12 +134,12 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.RecordPipeline != null)
-                    hashCode = hashCode * 59 + this.RecordPipeline.GetHashCode();
-                if (this.QueryPipeline != null)
-                    hashCode = hashCode * 59 + this.QueryPipeline.GetHashCode();
                 if (this.AutocompletePipeline != null)
                     hashCode = hashCode * 59 + this.AutocompletePipeline.GetHashCode();
+                if (this.QueryPipeline != null)
+                    hashCode = hashCode * 59 + this.QueryPipeline.GetHashCode();
+                if (this.RecordPipeline != null)
+                    hashCode = hashCode * 59 + this.RecordPipeline.GetHashCode();
                 return hashCode;
             }
         }
@@ -149,7 +149,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

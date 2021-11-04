@@ -35,17 +35,24 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryResult" /> class.
         /// </summary>
+        /// <param name="indexScore">Index score..</param>
         /// <param name="record">An object made up of field-value pairs that contains the record data..</param>
         /// <param name="score">The normalized score attributed to this record. Combines the index score and feature score..</param>
-        /// <param name="indexScore">Index score..</param>
         /// <param name="token">token.</param>
-        public QueryResult(Object record = default(Object), double score = default(double), double indexScore = default(double), QueryResultToken token = default(QueryResultToken))
+        public QueryResult(double indexScore = default(double), Object record = default(Object), double score = default(double), QueryResultToken token = default(QueryResultToken))
         {
+            this.IndexScore = indexScore;
             this.Record = record;
             this.Score = score;
-            this.IndexScore = indexScore;
             this.Token = token;
         }
+
+        /// <summary>
+        /// Index score.
+        /// </summary>
+        /// <value>Index score.</value>
+        [DataMember(Name = "index_score", EmitDefaultValue = false)]
+        public double IndexScore { get; set; }
 
         /// <summary>
         /// An object made up of field-value pairs that contains the record data.
@@ -62,13 +69,6 @@ namespace Com.Sajari.Sdk.Model
         public double Score { get; set; }
 
         /// <summary>
-        /// Index score.
-        /// </summary>
-        /// <value>Index score.</value>
-        [DataMember(Name = "index_score", EmitDefaultValue = false)]
-        public double IndexScore { get; set; }
-
-        /// <summary>
         /// Gets or Sets Token
         /// </summary>
         [DataMember(Name = "token", EmitDefaultValue = false)]
@@ -82,9 +82,9 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class QueryResult {\n");
+            sb.Append("  IndexScore: ").Append(IndexScore).Append("\n");
             sb.Append("  Record: ").Append(Record).Append("\n");
             sb.Append("  Score: ").Append(Score).Append("\n");
-            sb.Append("  IndexScore: ").Append(IndexScore).Append("\n");
             sb.Append("  Token: ").Append(Token).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -96,7 +96,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -121,6 +121,10 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
+                    this.IndexScore == input.IndexScore ||
+                    this.IndexScore.Equals(input.IndexScore)
+                ) && 
+                (
                     this.Record == input.Record ||
                     (this.Record != null &&
                     this.Record.Equals(input.Record))
@@ -128,10 +132,6 @@ namespace Com.Sajari.Sdk.Model
                 (
                     this.Score == input.Score ||
                     this.Score.Equals(input.Score)
-                ) && 
-                (
-                    this.IndexScore == input.IndexScore ||
-                    this.IndexScore.Equals(input.IndexScore)
                 ) && 
                 (
                     this.Token == input.Token ||
@@ -149,10 +149,10 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.IndexScore.GetHashCode();
                 if (this.Record != null)
                     hashCode = hashCode * 59 + this.Record.GetHashCode();
                 hashCode = hashCode * 59 + this.Score.GetHashCode();
-                hashCode = hashCode * 59 + this.IndexScore.GetHashCode();
                 if (this.Token != null)
                     hashCode = hashCode * 59 + this.Token.GetHashCode();
                 return hashCode;
@@ -164,7 +164,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

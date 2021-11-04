@@ -30,9 +30,7 @@ namespace Com.Sajari.Sdk.Model
     ///  - TYPE_UNSPECIFIED: Pipeline type not specified.  - RECORD: Record pipeline.  - QUERY: Query pipeline.
     /// </summary>
     /// <value> - TYPE_UNSPECIFIED: Pipeline type not specified.  - RECORD: Record pipeline.  - QUERY: Query pipeline.</value>
-    
     [JsonConverter(typeof(StringEnumConverter))]
-    
     public enum PipelineType
     {
         /// <summary>

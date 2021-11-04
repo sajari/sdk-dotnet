@@ -1,5 +1,6 @@
 # Com.Sajari.Sdk.Model.SchemaFieldType
 Type represents the underlying data type of the field.   - TYPE_UNSPECIFIED: Type not specified.  - STRING: String values.  - INTEGER: Integer values (64-bit).  - FLOAT: Floating point values (32-bit).  - DOUBLE: Double floating point values (64-bit).  - BOOLEAN: Boolean values.  - TIMESTAMP: Timestamp values.
+
 ## Properties
 
 Name | Type | Description | Notes

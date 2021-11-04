@@ -32,6 +32,7 @@ namespace Com.Sajari.Sdk.Model
     [DataContract(Name = "QueryCollectionRequestTracking")]
     public partial class QueryCollectionRequestTracking : IEquatable<QueryCollectionRequestTracking>, IValidatableObject
     {
+
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
@@ -40,19 +41,33 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryCollectionRequestTracking" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
+        /// <param name="data">Custom values to be included in tracking data..</param>
+        /// <param name="field">Tracking field used to identify records in the collection.  Must be unique schema field..</param>
         /// <param name="queryId">Query ID of the query. If this is empty, then one is generated..</param>
         /// <param name="sequence">Sequence number of query..</param>
-        /// <param name="field">Tracking field used to identify records in the collection.  Must be unique schema field..</param>
-        /// <param name="data">Custom values to be included in tracking data..</param>
-        public QueryCollectionRequestTracking(QueryCollectionRequestTrackingType? type = default(QueryCollectionRequestTrackingType?), string queryId = default(string), int sequence = default(int), string field = default(string), Dictionary<string, string> data = default(Dictionary<string, string>))
+        /// <param name="type">type.</param>
+        public QueryCollectionRequestTracking(Dictionary<string, string> data = default(Dictionary<string, string>), string field = default(string), string queryId = default(string), int sequence = default(int), QueryCollectionRequestTrackingType? type = default(QueryCollectionRequestTrackingType?))
         {
-            this.Type = type;
+            this.Data = data;
+            this.Field = field;
             this.QueryId = queryId;
             this.Sequence = sequence;
-            this.Field = field;
-            this.Data = data;
+            this.Type = type;
         }
+
+        /// <summary>
+        /// Custom values to be included in tracking data.
+        /// </summary>
+        /// <value>Custom values to be included in tracking data.</value>
+        [DataMember(Name = "data", EmitDefaultValue = false)]
+        public Dictionary<string, string> Data { get; set; }
+
+        /// <summary>
+        /// Tracking field used to identify records in the collection.  Must be unique schema field.
+        /// </summary>
+        /// <value>Tracking field used to identify records in the collection.  Must be unique schema field.</value>
+        [DataMember(Name = "field", EmitDefaultValue = false)]
+        public string Field { get; set; }
 
         /// <summary>
         /// Query ID of the query. If this is empty, then one is generated.
@@ -69,20 +84,6 @@ namespace Com.Sajari.Sdk.Model
         public int Sequence { get; set; }
 
         /// <summary>
-        /// Tracking field used to identify records in the collection.  Must be unique schema field.
-        /// </summary>
-        /// <value>Tracking field used to identify records in the collection.  Must be unique schema field.</value>
-        [DataMember(Name = "field", EmitDefaultValue = false)]
-        public string Field { get; set; }
-
-        /// <summary>
-        /// Custom values to be included in tracking data.
-        /// </summary>
-        /// <value>Custom values to be included in tracking data.</value>
-        [DataMember(Name = "data", EmitDefaultValue = false)]
-        public Dictionary<string, string> Data { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,11 +91,11 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class QueryCollectionRequestTracking {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  Field: ").Append(Field).Append("\n");
             sb.Append("  QueryId: ").Append(QueryId).Append("\n");
             sb.Append("  Sequence: ").Append(Sequence).Append("\n");
-            sb.Append("  Field: ").Append(Field).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -105,7 +106,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -130,8 +131,15 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
+                    this.Data == input.Data ||
+                    this.Data != null &&
+                    input.Data != null &&
+                    this.Data.SequenceEqual(input.Data)
+                ) && 
+                (
+                    this.Field == input.Field ||
+                    (this.Field != null &&
+                    this.Field.Equals(input.Field))
                 ) && 
                 (
                     this.QueryId == input.QueryId ||
@@ -143,15 +151,8 @@ namespace Com.Sajari.Sdk.Model
                     this.Sequence.Equals(input.Sequence)
                 ) && 
                 (
-                    this.Field == input.Field ||
-                    (this.Field != null &&
-                    this.Field.Equals(input.Field))
-                ) && 
-                (
-                    this.Data == input.Data ||
-                    this.Data != null &&
-                    input.Data != null &&
-                    this.Data.SequenceEqual(input.Data)
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
                 );
         }
 
@@ -164,14 +165,14 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Field != null)
+                    hashCode = hashCode * 59 + this.Field.GetHashCode();
                 if (this.QueryId != null)
                     hashCode = hashCode * 59 + this.QueryId.GetHashCode();
                 hashCode = hashCode * 59 + this.Sequence.GetHashCode();
-                if (this.Field != null)
-                    hashCode = hashCode * 59 + this.Field.GetHashCode();
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
                 return hashCode;
             }
         }
@@ -181,7 +182,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

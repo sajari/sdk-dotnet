@@ -1,4 +1,5 @@
 # Com.Sajari.Sdk.Model.BatchCreateSchemaFieldsResponseError
+
 ## Properties
 
 Name | Type | Description | Notes

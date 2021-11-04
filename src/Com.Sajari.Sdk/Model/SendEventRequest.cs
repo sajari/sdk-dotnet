@@ -40,19 +40,32 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SendEventRequest" /> class.
         /// </summary>
+        /// <param name="metadata">An object made up of field-value pairs that contains additional metadata to record with the event.  Every value in the object must be one of the following primitive types:  - boolean - number - string.</param>
         /// <param name="name">The name of event, e.g. &#x60;click&#x60;, &#x60;purchase&#x60;. (required).</param>
         /// <param name="token">The token corresponding to the search result that was interacted with, e.g. &#x60;eyJ...&#x60;. (required).</param>
         /// <param name="weight">The weight assigned to the event.  Generally a sensible weight is 1. If you want to weight an event in a certain way you can use a value other than 1. For example, if you want to capture profit in an event, you could set the weight to a value that represents the profit..</param>
-        /// <param name="metadata">An object made up of field-value pairs that contains additional metadata to record with the event.  Every value in the object must be one of the following primitive types:  - boolean - number - string.</param>
-        public SendEventRequest(string name = default(string), string token = default(string), int weight = default(int), Dictionary<string, Object> metadata = default(Dictionary<string, Object>))
+        public SendEventRequest(Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string name = default(string), string token = default(string), int weight = default(int))
         {
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for SendEventRequest and cannot be null");
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for SendEventRequest and cannot be null");
+            }
+            this.Name = name;
             // to ensure "token" is required (not null)
-            this.Token = token ?? throw new ArgumentNullException("token is a required property for SendEventRequest and cannot be null");
-            this.Weight = weight;
+            if (token == null) {
+                throw new ArgumentNullException("token is a required property for SendEventRequest and cannot be null");
+            }
+            this.Token = token;
             this.Metadata = metadata;
+            this.Weight = weight;
         }
+
+        /// <summary>
+        /// An object made up of field-value pairs that contains additional metadata to record with the event.  Every value in the object must be one of the following primitive types:  - boolean - number - string
+        /// </summary>
+        /// <value>An object made up of field-value pairs that contains additional metadata to record with the event.  Every value in the object must be one of the following primitive types:  - boolean - number - string</value>
+        [DataMember(Name = "metadata", EmitDefaultValue = false)]
+        public Dictionary<string, Object> Metadata { get; set; }
 
         /// <summary>
         /// The name of event, e.g. &#x60;click&#x60;, &#x60;purchase&#x60;.
@@ -76,13 +89,6 @@ namespace Com.Sajari.Sdk.Model
         public int Weight { get; set; }
 
         /// <summary>
-        /// An object made up of field-value pairs that contains additional metadata to record with the event.  Every value in the object must be one of the following primitive types:  - boolean - number - string
-        /// </summary>
-        /// <value>An object made up of field-value pairs that contains additional metadata to record with the event.  Every value in the object must be one of the following primitive types:  - boolean - number - string</value>
-        [DataMember(Name = "metadata", EmitDefaultValue = false)]
-        public Dictionary<string, Object> Metadata { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -90,10 +96,10 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class SendEventRequest {\n");
+            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Token: ").Append(Token).Append("\n");
             sb.Append("  Weight: ").Append(Weight).Append("\n");
-            sb.Append("  Metadata: ").Append(Metadata).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,7 +110,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -129,6 +135,12 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
+                    this.Metadata == input.Metadata ||
+                    this.Metadata != null &&
+                    input.Metadata != null &&
+                    this.Metadata.SequenceEqual(input.Metadata)
+                ) && 
+                (
                     this.Name == input.Name ||
                     (this.Name != null &&
                     this.Name.Equals(input.Name))
@@ -141,12 +153,6 @@ namespace Com.Sajari.Sdk.Model
                 (
                     this.Weight == input.Weight ||
                     this.Weight.Equals(input.Weight)
-                ) && 
-                (
-                    this.Metadata == input.Metadata ||
-                    this.Metadata != null &&
-                    input.Metadata != null &&
-                    this.Metadata.SequenceEqual(input.Metadata)
                 );
         }
 
@@ -159,13 +165,13 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Metadata != null)
+                    hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 if (this.Name != null)
                     hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Token != null)
                     hashCode = hashCode * 59 + this.Token.GetHashCode();
                 hashCode = hashCode * 59 + this.Weight.GetHashCode();
-                if (this.Metadata != null)
-                    hashCode = hashCode * 59 + this.Metadata.GetHashCode();
                 return hashCode;
             }
         }
@@ -175,7 +181,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

@@ -1,4 +1,5 @@
 # Com.Sajari.Sdk.Model.BatchUpsertRecordsResponseError
+
 ## Properties
 
 Name | Type | Description | Notes

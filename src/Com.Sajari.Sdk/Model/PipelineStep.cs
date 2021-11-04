@@ -40,57 +40,25 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PipelineStep" /> class.
         /// </summary>
-        /// <param name="id">ID of the step template. (required).</param>
-        /// <param name="title">Title for the step. Overrides the default title..</param>
-        /// <param name="description">Description for the step. Overrides the default description..</param>
-        /// <param name="_params">Bindings for the step parameters..</param>
-        /// <param name="condition">Condition expression to determine if the step should be run.  This is a filter expression much like the query filter expression, but it acts upon the pipeline variables.  For example, to only run the step if the pipeline &#x60;q&#x60; variable is not empty, set this to &#x60;q !&#x3D; &#39;&#39;&#x60;..</param>
         /// <param name="annotations">Annotations added to the request when the step is run..</param>
-        public PipelineStep(string id = default(string), string title = default(string), string description = default(string), Dictionary<string, PipelineStepParamBinding> _params = default(Dictionary<string, PipelineStepParamBinding>), string condition = default(string), List<string> annotations = default(List<string>))
+        /// <param name="condition">Condition expression to determine if the step should be run.  This is a filter expression much like the query filter expression, but it acts upon the pipeline variables.  For example, to only run the step if the pipeline &#x60;q&#x60; variable is not empty, set this to &#x60;q !&#x3D; &#39;&#39;&#x60;..</param>
+        /// <param name="description">Description for the step. Overrides the default description..</param>
+        /// <param name="id">ID of the step template. (required).</param>
+        /// <param name="_params">Bindings for the step parameters..</param>
+        /// <param name="title">Title for the step. Overrides the default title..</param>
+        public PipelineStep(List<string> annotations = default(List<string>), string condition = default(string), string description = default(string), string id = default(string), Dictionary<string, PipelineStepParamBinding> _params = default(Dictionary<string, PipelineStepParamBinding>), string title = default(string))
         {
             // to ensure "id" is required (not null)
-            this.Id = id ?? throw new ArgumentNullException("id is a required property for PipelineStep and cannot be null");
-            this.Title = title;
+            if (id == null) {
+                throw new ArgumentNullException("id is a required property for PipelineStep and cannot be null");
+            }
+            this.Id = id;
+            this.Annotations = annotations;
+            this.Condition = condition;
             this.Description = description;
             this.Params = _params;
-            this.Condition = condition;
-            this.Annotations = annotations;
+            this.Title = title;
         }
-
-        /// <summary>
-        /// ID of the step template.
-        /// </summary>
-        /// <value>ID of the step template.</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Title for the step. Overrides the default title.
-        /// </summary>
-        /// <value>Title for the step. Overrides the default title.</value>
-        [DataMember(Name = "title", EmitDefaultValue = false)]
-        public string Title { get; set; }
-
-        /// <summary>
-        /// Description for the step. Overrides the default description.
-        /// </summary>
-        /// <value>Description for the step. Overrides the default description.</value>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Bindings for the step parameters.
-        /// </summary>
-        /// <value>Bindings for the step parameters.</value>
-        [DataMember(Name = "params", EmitDefaultValue = false)]
-        public Dictionary<string, PipelineStepParamBinding> Params { get; set; }
-
-        /// <summary>
-        /// Condition expression to determine if the step should be run.  This is a filter expression much like the query filter expression, but it acts upon the pipeline variables.  For example, to only run the step if the pipeline &#x60;q&#x60; variable is not empty, set this to &#x60;q !&#x3D; &#39;&#39;&#x60;.
-        /// </summary>
-        /// <value>Condition expression to determine if the step should be run.  This is a filter expression much like the query filter expression, but it acts upon the pipeline variables.  For example, to only run the step if the pipeline &#x60;q&#x60; variable is not empty, set this to &#x60;q !&#x3D; &#39;&#39;&#x60;.</value>
-        [DataMember(Name = "condition", EmitDefaultValue = false)]
-        public string Condition { get; set; }
 
         /// <summary>
         /// Annotations added to the request when the step is run.
@@ -100,6 +68,41 @@ namespace Com.Sajari.Sdk.Model
         public List<string> Annotations { get; set; }
 
         /// <summary>
+        /// Condition expression to determine if the step should be run.  This is a filter expression much like the query filter expression, but it acts upon the pipeline variables.  For example, to only run the step if the pipeline &#x60;q&#x60; variable is not empty, set this to &#x60;q !&#x3D; &#39;&#39;&#x60;.
+        /// </summary>
+        /// <value>Condition expression to determine if the step should be run.  This is a filter expression much like the query filter expression, but it acts upon the pipeline variables.  For example, to only run the step if the pipeline &#x60;q&#x60; variable is not empty, set this to &#x60;q !&#x3D; &#39;&#39;&#x60;.</value>
+        [DataMember(Name = "condition", EmitDefaultValue = false)]
+        public string Condition { get; set; }
+
+        /// <summary>
+        /// Description for the step. Overrides the default description.
+        /// </summary>
+        /// <value>Description for the step. Overrides the default description.</value>
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// ID of the step template.
+        /// </summary>
+        /// <value>ID of the step template.</value>
+        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = false)]
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Bindings for the step parameters.
+        /// </summary>
+        /// <value>Bindings for the step parameters.</value>
+        [DataMember(Name = "params", EmitDefaultValue = false)]
+        public Dictionary<string, PipelineStepParamBinding> Params { get; set; }
+
+        /// <summary>
+        /// Title for the step. Overrides the default title.
+        /// </summary>
+        /// <value>Title for the step. Overrides the default title.</value>
+        [DataMember(Name = "title", EmitDefaultValue = false)]
+        public string Title { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -107,12 +110,12 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class PipelineStep {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  Title: ").Append(Title).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  Params: ").Append(Params).Append("\n");
-            sb.Append("  Condition: ").Append(Condition).Append("\n");
             sb.Append("  Annotations: ").Append(Annotations).Append("\n");
+            sb.Append("  Condition: ").Append(Condition).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  Params: ").Append(Params).Append("\n");
+            sb.Append("  Title: ").Append(Title).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,7 +126,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -148,19 +151,25 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Annotations == input.Annotations ||
+                    this.Annotations != null &&
+                    input.Annotations != null &&
+                    this.Annotations.SequenceEqual(input.Annotations)
                 ) && 
                 (
-                    this.Title == input.Title ||
-                    (this.Title != null &&
-                    this.Title.Equals(input.Title))
+                    this.Condition == input.Condition ||
+                    (this.Condition != null &&
+                    this.Condition.Equals(input.Condition))
                 ) && 
                 (
                     this.Description == input.Description ||
                     (this.Description != null &&
                     this.Description.Equals(input.Description))
+                ) && 
+                (
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
                     this.Params == input.Params ||
@@ -169,15 +178,9 @@ namespace Com.Sajari.Sdk.Model
                     this.Params.SequenceEqual(input.Params)
                 ) && 
                 (
-                    this.Condition == input.Condition ||
-                    (this.Condition != null &&
-                    this.Condition.Equals(input.Condition))
-                ) && 
-                (
-                    this.Annotations == input.Annotations ||
-                    this.Annotations != null &&
-                    input.Annotations != null &&
-                    this.Annotations.SequenceEqual(input.Annotations)
+                    this.Title == input.Title ||
+                    (this.Title != null &&
+                    this.Title.Equals(input.Title))
                 );
         }
 
@@ -190,18 +193,18 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
-                if (this.Title != null)
-                    hashCode = hashCode * 59 + this.Title.GetHashCode();
-                if (this.Description != null)
-                    hashCode = hashCode * 59 + this.Description.GetHashCode();
-                if (this.Params != null)
-                    hashCode = hashCode * 59 + this.Params.GetHashCode();
-                if (this.Condition != null)
-                    hashCode = hashCode * 59 + this.Condition.GetHashCode();
                 if (this.Annotations != null)
                     hashCode = hashCode * 59 + this.Annotations.GetHashCode();
+                if (this.Condition != null)
+                    hashCode = hashCode * 59 + this.Condition.GetHashCode();
+                if (this.Description != null)
+                    hashCode = hashCode * 59 + this.Description.GetHashCode();
+                if (this.Id != null)
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                if (this.Params != null)
+                    hashCode = hashCode * 59 + this.Params.GetHashCode();
+                if (this.Title != null)
+                    hashCode = hashCode * 59 + this.Title.GetHashCode();
                 return hashCode;
             }
         }
@@ -211,7 +214,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

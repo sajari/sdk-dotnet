@@ -32,6 +32,7 @@ namespace Com.Sajari.Sdk.Model
     [DataContract(Name = "Pipeline")]
     public partial class Pipeline : IEquatable<Pipeline>, IValidatableObject
     {
+
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
@@ -45,28 +46,49 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Pipeline" /> class.
         /// </summary>
-        /// <param name="type">type (required).</param>
-        /// <param name="name">The pipeline&#39;s name.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;. (required).</param>
-        /// <param name="version">The pipeline&#39;s version.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;. (required).</param>
         /// <param name="description">Description of the pipeline..</param>
-        /// <param name="preSteps">Pre-steps are run before an indexing operation or query request is sent to the search index..</param>
+        /// <param name="name">The pipeline&#39;s name.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;. (required).</param>
         /// <param name="postSteps">Post-steps are run after an indexing operation or query request has been sent to the search index.  For indexing operations, the post-steps only run when creating new records. They do not run when updating records.  For querying, the post-steps have access to the result-set. This makes it possible to act on the results before sending them back to the caller..</param>
-        public Pipeline(PipelineType type = default(PipelineType), string name = default(string), string version = default(string), string description = default(string), List<PipelineStep> preSteps = default(List<PipelineStep>), List<PipelineStep> postSteps = default(List<PipelineStep>))
+        /// <param name="preSteps">Pre-steps are run before an indexing operation or query request is sent to the search index..</param>
+        /// <param name="type">type (required).</param>
+        /// <param name="version">The pipeline&#39;s version.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;. (required).</param>
+        public Pipeline(string description = default(string), string name = default(string), List<PipelineStep> postSteps = default(List<PipelineStep>), List<PipelineStep> preSteps = default(List<PipelineStep>), PipelineType type = default(PipelineType), string version = default(string))
         {
-            this.Type = type;
             // to ensure "name" is required (not null)
-            this.Name = name ?? throw new ArgumentNullException("name is a required property for Pipeline and cannot be null");
+            if (name == null) {
+                throw new ArgumentNullException("name is a required property for Pipeline and cannot be null");
+            }
+            this.Name = name;
+            this.Type = type;
             // to ensure "version" is required (not null)
-            this.Version = version ?? throw new ArgumentNullException("version is a required property for Pipeline and cannot be null");
+            if (version == null) {
+                throw new ArgumentNullException("version is a required property for Pipeline and cannot be null");
+            }
+            this._Version = version;
             this.Description = description;
-            this.PreSteps = preSteps;
             this.PostSteps = postSteps;
+            this.PreSteps = preSteps;
         }
 
         /// <summary>
-        /// Output only. Creation time of the pipeline.
+        /// Output only. Indicates if the pipeline is the collection default pipeline.
         /// </summary>
-        /// <value>Output only. Creation time of the pipeline.</value>
+        /// <value>Output only. Indicates if the pipeline is the collection default pipeline.</value>
+        [DataMember(Name = "collection_default", EmitDefaultValue = true)]
+        public bool CollectionDefault { get; private set; }
+
+        /// <summary>
+        /// Returns false as CollectionDefault should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeCollectionDefault()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Output only. Time the pipeline was created.
+        /// </summary>
+        /// <value>Output only. Time the pipeline was created.</value>
         [DataMember(Name = "create_time", EmitDefaultValue = false)]
         public DateTime CreateTime { get; private set; }
 
@@ -78,63 +100,11 @@ namespace Com.Sajari.Sdk.Model
         {
             return false;
         }
-
-        /// <summary>
-        /// The pipeline&#39;s name.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;.
-        /// </summary>
-        /// <value>The pipeline&#39;s name.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;.</value>
-        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// The pipeline&#39;s version.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;.
-        /// </summary>
-        /// <value>The pipeline&#39;s version.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;.</value>
-        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = false)]
-        public string Version { get; set; }
-
-        /// <summary>
-        /// Description of the pipeline.
-        /// </summary>
-        /// <value>Description of the pipeline.</value>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Pre-steps are run before an indexing operation or query request is sent to the search index.
-        /// </summary>
-        /// <value>Pre-steps are run before an indexing operation or query request is sent to the search index.</value>
-        [DataMember(Name = "pre_steps", EmitDefaultValue = false)]
-        public List<PipelineStep> PreSteps { get; set; }
-
-        /// <summary>
-        /// Post-steps are run after an indexing operation or query request has been sent to the search index.  For indexing operations, the post-steps only run when creating new records. They do not run when updating records.  For querying, the post-steps have access to the result-set. This makes it possible to act on the results before sending them back to the caller.
-        /// </summary>
-        /// <value>Post-steps are run after an indexing operation or query request has been sent to the search index.  For indexing operations, the post-steps only run when creating new records. They do not run when updating records.  For querying, the post-steps have access to the result-set. This makes it possible to act on the results before sending them back to the caller.</value>
-        [DataMember(Name = "post_steps", EmitDefaultValue = false)]
-        public List<PipelineStep> PostSteps { get; set; }
-
-        /// <summary>
-        /// Output only. Indicates if the pipeline is the collection default pipeline.
-        /// </summary>
-        /// <value>Output only. Indicates if the pipeline is the collection default pipeline.</value>
-        [DataMember(Name = "collection_default", EmitDefaultValue = false)]
-        public bool CollectionDefault { get; private set; }
-
-        /// <summary>
-        /// Returns false as CollectionDefault should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeCollectionDefault()
-        {
-            return false;
-        }
-
         /// <summary>
         /// Output only. Indicates if the pipeline is the default version.
         /// </summary>
         /// <value>Output only. Indicates if the pipeline is the default version.</value>
-        [DataMember(Name = "default_version", EmitDefaultValue = false)]
+        [DataMember(Name = "default_version", EmitDefaultValue = true)]
         public bool DefaultVersion { get; private set; }
 
         /// <summary>
@@ -145,6 +115,40 @@ namespace Com.Sajari.Sdk.Model
         {
             return false;
         }
+        /// <summary>
+        /// Description of the pipeline.
+        /// </summary>
+        /// <value>Description of the pipeline.</value>
+        [DataMember(Name = "description", EmitDefaultValue = false)]
+        public string Description { get; set; }
+
+        /// <summary>
+        /// The pipeline&#39;s name.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;.
+        /// </summary>
+        /// <value>The pipeline&#39;s name.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;.</value>
+        [DataMember(Name = "name", IsRequired = true, EmitDefaultValue = false)]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Post-steps are run after an indexing operation or query request has been sent to the search index.  For indexing operations, the post-steps only run when creating new records. They do not run when updating records.  For querying, the post-steps have access to the result-set. This makes it possible to act on the results before sending them back to the caller.
+        /// </summary>
+        /// <value>Post-steps are run after an indexing operation or query request has been sent to the search index.  For indexing operations, the post-steps only run when creating new records. They do not run when updating records.  For querying, the post-steps have access to the result-set. This makes it possible to act on the results before sending them back to the caller.</value>
+        [DataMember(Name = "post_steps", EmitDefaultValue = false)]
+        public List<PipelineStep> PostSteps { get; set; }
+
+        /// <summary>
+        /// Pre-steps are run before an indexing operation or query request is sent to the search index.
+        /// </summary>
+        /// <value>Pre-steps are run before an indexing operation or query request is sent to the search index.</value>
+        [DataMember(Name = "pre_steps", EmitDefaultValue = false)]
+        public List<PipelineStep> PreSteps { get; set; }
+
+        /// <summary>
+        /// The pipeline&#39;s version.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;.
+        /// </summary>
+        /// <value>The pipeline&#39;s version.  Must start with an alphanumeric character followed by one or more alphanumeric, &#x60;_&#x60;, &#x60;-&#x60; or &#x60;.&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[a-zA-Z0-9][a-zA-Z0-9_\\-\\.]+$&#x60;.</value>
+        [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = false)]
+        public string _Version { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -154,15 +158,15 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Pipeline {\n");
-            sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Version: ").Append(Version).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
-            sb.Append("  PreSteps: ").Append(PreSteps).Append("\n");
-            sb.Append("  PostSteps: ").Append(PostSteps).Append("\n");
             sb.Append("  CollectionDefault: ").Append(CollectionDefault).Append("\n");
+            sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
             sb.Append("  DefaultVersion: ").Append(DefaultVersion).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  PostSteps: ").Append(PostSteps).Append("\n");
+            sb.Append("  PreSteps: ").Append(PreSteps).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  _Version: ").Append(_Version).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -173,7 +177,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -198,23 +202,17 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
+                    this.CollectionDefault == input.CollectionDefault ||
+                    this.CollectionDefault.Equals(input.CollectionDefault)
+                ) && 
+                (
                     this.CreateTime == input.CreateTime ||
                     (this.CreateTime != null &&
                     this.CreateTime.Equals(input.CreateTime))
                 ) && 
                 (
-                    this.Type == input.Type ||
-                    this.Type.Equals(input.Type)
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
+                    this.DefaultVersion == input.DefaultVersion ||
+                    this.DefaultVersion.Equals(input.DefaultVersion)
                 ) && 
                 (
                     this.Description == input.Description ||
@@ -222,10 +220,9 @@ namespace Com.Sajari.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
-                    this.PreSteps == input.PreSteps ||
-                    this.PreSteps != null &&
-                    input.PreSteps != null &&
-                    this.PreSteps.SequenceEqual(input.PreSteps)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
                     this.PostSteps == input.PostSteps ||
@@ -234,12 +231,19 @@ namespace Com.Sajari.Sdk.Model
                     this.PostSteps.SequenceEqual(input.PostSteps)
                 ) && 
                 (
-                    this.CollectionDefault == input.CollectionDefault ||
-                    this.CollectionDefault.Equals(input.CollectionDefault)
+                    this.PreSteps == input.PreSteps ||
+                    this.PreSteps != null &&
+                    input.PreSteps != null &&
+                    this.PreSteps.SequenceEqual(input.PreSteps)
                 ) && 
                 (
-                    this.DefaultVersion == input.DefaultVersion ||
-                    this.DefaultVersion.Equals(input.DefaultVersion)
+                    this.Type == input.Type ||
+                    this.Type.Equals(input.Type)
+                ) && 
+                (
+                    this._Version == input._Version ||
+                    (this._Version != null &&
+                    this._Version.Equals(input._Version))
                 );
         }
 
@@ -252,21 +256,21 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                hashCode = hashCode * 59 + this.CollectionDefault.GetHashCode();
                 if (this.CreateTime != null)
                     hashCode = hashCode * 59 + this.CreateTime.GetHashCode();
-                hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
-                if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
+                hashCode = hashCode * 59 + this.DefaultVersion.GetHashCode();
                 if (this.Description != null)
                     hashCode = hashCode * 59 + this.Description.GetHashCode();
-                if (this.PreSteps != null)
-                    hashCode = hashCode * 59 + this.PreSteps.GetHashCode();
+                if (this.Name != null)
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.PostSteps != null)
                     hashCode = hashCode * 59 + this.PostSteps.GetHashCode();
-                hashCode = hashCode * 59 + this.CollectionDefault.GetHashCode();
-                hashCode = hashCode * 59 + this.DefaultVersion.GetHashCode();
+                if (this.PreSteps != null)
+                    hashCode = hashCode * 59 + this.PreSteps.GetHashCode();
+                hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this._Version != null)
+                    hashCode = hashCode * 59 + this._Version.GetHashCode();
                 return hashCode;
             }
         }
@@ -276,7 +280,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }

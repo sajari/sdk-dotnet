@@ -35,20 +35,13 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ListPipelinesResponse" /> class.
         /// </summary>
-        /// <param name="pipelines">The pipelines from the specified collection..</param>
         /// <param name="nextPageToken">A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages..</param>
-        public ListPipelinesResponse(List<Pipeline> pipelines = default(List<Pipeline>), string nextPageToken = default(string))
+        /// <param name="pipelines">The pipelines from the specified collection..</param>
+        public ListPipelinesResponse(string nextPageToken = default(string), List<Pipeline> pipelines = default(List<Pipeline>))
         {
-            this.Pipelines = pipelines;
             this.NextPageToken = nextPageToken;
+            this.Pipelines = pipelines;
         }
-
-        /// <summary>
-        /// The pipelines from the specified collection.
-        /// </summary>
-        /// <value>The pipelines from the specified collection.</value>
-        [DataMember(Name = "pipelines", EmitDefaultValue = false)]
-        public List<Pipeline> Pipelines { get; set; }
 
         /// <summary>
         /// A token, which can be sent as &#x60;page_token&#x60; to retrieve the next page.  If this field is omitted, there are no subsequent pages.
@@ -58,6 +51,13 @@ namespace Com.Sajari.Sdk.Model
         public string NextPageToken { get; set; }
 
         /// <summary>
+        /// The pipelines from the specified collection.
+        /// </summary>
+        /// <value>The pipelines from the specified collection.</value>
+        [DataMember(Name = "pipelines", EmitDefaultValue = false)]
+        public List<Pipeline> Pipelines { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,8 +65,8 @@ namespace Com.Sajari.Sdk.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ListPipelinesResponse {\n");
-            sb.Append("  Pipelines: ").Append(Pipelines).Append("\n");
             sb.Append("  NextPageToken: ").Append(NextPageToken).Append("\n");
+            sb.Append("  Pipelines: ").Append(Pipelines).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -77,7 +77,7 @@ namespace Com.Sajari.Sdk.Model
         /// <returns>JSON string presentation of the object</returns>
         public virtual string ToJson()
         {
-            return JsonConvert.SerializeObject(this, Formatting.Indented);
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, Newtonsoft.Json.Formatting.Indented);
         }
 
         /// <summary>
@@ -102,15 +102,15 @@ namespace Com.Sajari.Sdk.Model
 
             return 
                 (
+                    this.NextPageToken == input.NextPageToken ||
+                    (this.NextPageToken != null &&
+                    this.NextPageToken.Equals(input.NextPageToken))
+                ) && 
+                (
                     this.Pipelines == input.Pipelines ||
                     this.Pipelines != null &&
                     input.Pipelines != null &&
                     this.Pipelines.SequenceEqual(input.Pipelines)
-                ) && 
-                (
-                    this.NextPageToken == input.NextPageToken ||
-                    (this.NextPageToken != null &&
-                    this.NextPageToken.Equals(input.NextPageToken))
                 );
         }
 
@@ -123,10 +123,10 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Pipelines != null)
-                    hashCode = hashCode * 59 + this.Pipelines.GetHashCode();
                 if (this.NextPageToken != null)
                     hashCode = hashCode * 59 + this.NextPageToken.GetHashCode();
+                if (this.Pipelines != null)
+                    hashCode = hashCode * 59 + this.Pipelines.GetHashCode();
                 return hashCode;
             }
         }
@@ -136,7 +136,7 @@ namespace Com.Sajari.Sdk.Model
         /// </summary>
         /// <param name="validationContext">Validation context</param>
         /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        public IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> Validate(ValidationContext validationContext)
         {
             yield break;
         }
