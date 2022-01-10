@@ -1,6 +1,6 @@
 # Com.Sajari.Sdk.Api.PipelinesApi
 
-All URIs are relative to *https://api-gateway.sajari.com*
+All URIs are relative to *https://api.search.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -37,7 +37,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api-gateway.sajari.com";
+            config.BasePath = "https://api.search.io";
             // Configure HTTP basic authorization: BasicAuth
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -119,7 +119,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api-gateway.sajari.com";
+            config.BasePath = "https://api.search.io";
             // Configure HTTP basic authorization: BasicAuth
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -201,7 +201,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api-gateway.sajari.com";
+            config.BasePath = "https://api.search.io";
             // Configure HTTP basic authorization: BasicAuth
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -283,7 +283,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api-gateway.sajari.com";
+            config.BasePath = "https://api.search.io";
             // Configure HTTP basic authorization: BasicAuth
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -369,7 +369,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api-gateway.sajari.com";
+            config.BasePath = "https://api.search.io";
             // Configure HTTP basic authorization: BasicAuth
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -457,7 +457,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api-gateway.sajari.com";
+            config.BasePath = "https://api.search.io";
             // Configure HTTP basic authorization: BasicAuth
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -543,7 +543,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api-gateway.sajari.com";
+            config.BasePath = "https://api.search.io";
             // Configure HTTP basic authorization: BasicAuth
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -625,7 +625,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api-gateway.sajari.com";
+            config.BasePath = "https://api.search.io";
             // Configure HTTP basic authorization: BasicAuth
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";

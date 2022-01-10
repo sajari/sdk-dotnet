@@ -1,15 +1,98 @@
 # Com.Sajari.Sdk.Api.RecordsApi
 
-All URIs are relative to *https://api-gateway.sajari.com*
+All URIs are relative to *https://api.search.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**BatchUpdateRecords**](RecordsApi.md#batchupdaterecords) | **POST** /v4/collections/{collection_id}/records:batchUpdate | Batch update records
 [**BatchUpsertRecords**](RecordsApi.md#batchupsertrecords) | **POST** /v4/collections/{collection_id}/records:batchUpsert | Batch upsert records
 [**DeleteRecord**](RecordsApi.md#deleterecord) | **POST** /v4/collections/{collection_id}/records:delete | Delete record
 [**GetRecord**](RecordsApi.md#getrecord) | **POST** /v4/collections/{collection_id}/records:get | Get record
 [**UpdateRecord**](RecordsApi.md#updaterecord) | **POST** /v4/collections/{collection_id}/records:update | Update record
 [**UpsertRecord**](RecordsApi.md#upsertrecord) | **POST** /v4/collections/{collection_id}/records:upsert | Upsert record
 
+
+<a name="batchupdaterecords"></a>
+# **BatchUpdateRecords**
+> BatchUpdateRecordsResponse BatchUpdateRecords (string collectionId, BatchUpdateRecordsRequest batchUpdateRecordsRequest)
+
+Batch update records
+
+The batch version of the [UpdateRecord](/api#operation/UpdateRecord) call.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Com.Sajari.Sdk.Api;
+using Com.Sajari.Sdk.Client;
+using Com.Sajari.Sdk.Model;
+
+namespace Example
+{
+    public class BatchUpdateRecordsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://api.search.io";
+            // Configure HTTP basic authorization: BasicAuth
+            config.Username = "YOUR_USERNAME";
+            config.Password = "YOUR_PASSWORD";
+
+            var apiInstance = new RecordsApi(config);
+            var collectionId = collectionId_example;  // string | The collection that contains the records to update, e.g. `my-collection`.
+            var batchUpdateRecordsRequest = new BatchUpdateRecordsRequest(); // BatchUpdateRecordsRequest | 
+
+            try
+            {
+                // Batch update records
+                BatchUpdateRecordsResponse result = apiInstance.BatchUpdateRecords(collectionId, batchUpdateRecordsRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling RecordsApi.BatchUpdateRecords: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collectionId** | **string**| The collection that contains the records to update, e.g. &#x60;my-collection&#x60;. | 
+ **batchUpdateRecordsRequest** | [**BatchUpdateRecordsRequest**](BatchUpdateRecordsRequest.md)|  | 
+
+### Return type
+
+[**BatchUpdateRecordsResponse**](BatchUpdateRecordsResponse.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | A successful response. |  -  |
+| **401** | Returned when the request does not have valid authentication credentials. |  -  |
+| **403** | Returned when the user does not have permission to access the resource. |  -  |
+| **404** | Returned when the resource does not exist. |  -  |
+| **500** | Returned when the API encounters an internal error. |  -  |
+| **0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="batchupsertrecords"></a>
 # **BatchUpsertRecords**
@@ -34,7 +117,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api-gateway.sajari.com";
+            config.BasePath = "https://api.search.io";
             // Configure HTTP basic authorization: BasicAuth
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -116,7 +199,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api-gateway.sajari.com";
+            config.BasePath = "https://api.search.io";
             // Configure HTTP basic authorization: BasicAuth
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -198,7 +281,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api-gateway.sajari.com";
+            config.BasePath = "https://api.search.io";
             // Configure HTTP basic authorization: BasicAuth
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -280,7 +363,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api-gateway.sajari.com";
+            config.BasePath = "https://api.search.io";
             // Configure HTTP basic authorization: BasicAuth
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
@@ -362,7 +445,7 @@ namespace Example
         public static void Main()
         {
             Configuration config = new Configuration();
-            config.BasePath = "https://api-gateway.sajari.com";
+            config.BasePath = "https://api.search.io";
             // Configure HTTP basic authorization: BasicAuth
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
