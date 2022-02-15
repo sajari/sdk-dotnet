@@ -36,6 +36,9 @@ namespace Example
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
 
+            Dictionary<string, string> accountIdHeader = new Dictionary<string, string> {{"Account-Id", "YOUR_ACCOUNT_ID"}};
+            config.DefaultHeaders = accountIdHeader;
+
             var apiInstance = new EventsApi(config);
             var sendEventRequest = new SendEventRequest(); // SendEventRequest | 
 
@@ -116,6 +119,9 @@ namespace Example
             // Configure HTTP basic authorization: BasicAuth
             config.Username = "YOUR_USERNAME";
             config.Password = "YOUR_PASSWORD";
+            
+            Dictionary<string, string> accountIdHeader = new Dictionary<string, string> {{"Account-Id", "YOUR_ACCOUNT_ID"}};
+            config.DefaultHeaders = accountIdHeader;
 
             var apiInstance = new EventsApi(config);
             var sendEventRequest = new SendEventRequest(); // SendEventRequest | 
