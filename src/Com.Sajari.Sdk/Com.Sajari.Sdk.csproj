@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo><!-- setting GenerateAssemblyInfo to false causes this bug https://github.com/dotnet/project-system/issues/3934 -->
     <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Com.Sajari.Sdk</AssemblyName>
     <PackageId>Com.Sajari.Sdk</PackageId>
@@ -12,7 +12,7 @@
     <Description>A library generated from a OpenAPI doc</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>Com.Sajari.Sdk</RootNamespace>
-    <Version>4.3.0</Version>
+    <Version>5.0.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Com.Sajari.Sdk.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/sajari/GIT_USER_ID/sdk-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>

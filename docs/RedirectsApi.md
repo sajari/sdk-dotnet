@@ -40,7 +40,7 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new RedirectsApi(config);
-            var collectionId = collectionId_example;  // string | The collection to create a redirect in, e.g. `my-collection`.
+            var collectionId = "collectionId_example";  // string | The collection to create a redirect in, e.g. `my-collection`.
             var redirect = new Redirect(); // Redirect | The redirect to create.
 
             try
@@ -122,8 +122,8 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new RedirectsApi(config);
-            var collectionId = collectionId_example;  // string | The collection the redirect belongs to, e.g. `my-collection`.
-            var redirectId = redirectId_example;  // string | The redirect to delete, e.g. `1234`.
+            var collectionId = "collectionId_example";  // string | The collection the redirect belongs to, e.g. `my-collection`.
+            var redirectId = "redirectId_example";  // string | The redirect to delete, e.g. `1234`.
 
             try
             {
@@ -204,8 +204,8 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new RedirectsApi(config);
-            var collectionId = collectionId_example;  // string | The collection that owns the redirect, e.g. `my-collection`.
-            var redirectId = redirectId_example;  // string | The redirect to retrieve, e.g. `1234`.
+            var collectionId = "collectionId_example";  // string | The collection that owns the redirect, e.g. `my-collection`.
+            var redirectId = "redirectId_example";  // string | The redirect to retrieve, e.g. `1234`.
 
             try
             {
@@ -286,9 +286,9 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new RedirectsApi(config);
-            var collectionId = collectionId_example;  // string | The collection that owns this set of redirects, e.g. `my-collection`.
+            var collectionId = "collectionId_example";  // string | The collection that owns this set of redirects, e.g. `my-collection`.
             var pageSize = 56;  // int? | The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional) 
-            var pageToken = pageToken_example;  // string | A page token, received from a previous [ListRedirects](/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/api#operation/ListRedirects) must match the call that provided the page token. (optional) 
+            var pageToken = "pageToken_example";  // string | A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional) 
 
             try
             {
@@ -313,7 +313,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **string**| The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. | 
  **pageSize** | **int?**| The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional] 
- **pageToken** | **string**| A page token, received from a previous [ListRedirects](/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/api#operation/ListRedirects) must match the call that provided the page token. | [optional] 
+ **pageToken** | **string**| A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. | [optional] 
 
 ### Return type
 
@@ -370,9 +370,9 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new RedirectsApi(config);
-            var collectionId = collectionId_example;  // string | The collection the redirect belongs to, e.g. `my-collection`.
-            var redirectId = redirectId_example;  // string | The redirect to update, e.g. `1234`.
-            var updateMask = updateMask_example;  // string | The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  Each field should be in snake case, e.g. `condition`, `target`.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value.
+            var collectionId = "collectionId_example";  // string | The collection the redirect belongs to, e.g. `my-collection`.
+            var redirectId = "redirectId_example";  // string | The redirect to update, e.g. `1234`.
+            var updateMask = "updateMask_example";  // string | The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  Each field should be in snake case, e.g. `condition`, `target`.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value.
             var redirect = new Redirect(); // Redirect | Details of the redirect to update.
 
             try

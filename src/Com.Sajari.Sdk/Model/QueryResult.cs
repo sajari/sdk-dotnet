@@ -35,21 +35,31 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryResult" /> class.
         /// </summary>
+        /// <param name="banner">banner.</param>
         /// <param name="featureScore">The feature score of the result.  This is a value between 0 and 1 representing the business-specific ranking of the result as determined by the ranking adjustments. See [Ranking adjustments](https://docs.search.io/documentation/fundamentals/search-settings/ranking-adjustments) for more information..</param>
         /// <param name="indexScore">The index score of the result.  This is a value between 0 and 1 representing the relevance of the result using traditional keyword search. The higher the score the more relevant the result is..</param>
         /// <param name="neuralScore">The neural score of the result.  This is a value between 0 and 1 representing the relevance of the result using Neuralsearch®, using AI-based search..</param>
         /// <param name="record">An object made up of field-value pairs that contains the record data..</param>
+        /// <param name="relevanceScore">The relevance score of the result.  This is the best of &#x60;index_score&#x60; and &#x60;neural_score&#x60; with any index boosts applied on top..</param>
         /// <param name="score">The overall relevance of the result.  This is a value between 0 and 1 that combines the index, neural and feature scores. The higher the score the more relevant the result is..</param>
         /// <param name="token">token.</param>
-        public QueryResult(double featureScore = default(double), double indexScore = default(double), double neuralScore = default(double), Object record = default(Object), double score = default(double), QueryResultToken token = default(QueryResultToken))
+        public QueryResult(Banner banner = default(Banner), double featureScore = default(double), double indexScore = default(double), double neuralScore = default(double), Object record = default(Object), double relevanceScore = default(double), double score = default(double), QueryResultToken token = default(QueryResultToken))
         {
+            this.Banner = banner;
             this.FeatureScore = featureScore;
             this.IndexScore = indexScore;
             this.NeuralScore = neuralScore;
             this.Record = record;
+            this.RelevanceScore = relevanceScore;
             this.Score = score;
             this.Token = token;
         }
+
+        /// <summary>
+        /// Gets or Sets Banner
+        /// </summary>
+        [DataMember(Name = "banner", EmitDefaultValue = false)]
+        public Banner Banner { get; set; }
 
         /// <summary>
         /// The feature score of the result.  This is a value between 0 and 1 representing the business-specific ranking of the result as determined by the ranking adjustments. See [Ranking adjustments](https://docs.search.io/documentation/fundamentals/search-settings/ranking-adjustments) for more information.
@@ -80,6 +90,13 @@ namespace Com.Sajari.Sdk.Model
         public Object Record { get; set; }
 
         /// <summary>
+        /// The relevance score of the result.  This is the best of &#x60;index_score&#x60; and &#x60;neural_score&#x60; with any index boosts applied on top.
+        /// </summary>
+        /// <value>The relevance score of the result.  This is the best of &#x60;index_score&#x60; and &#x60;neural_score&#x60; with any index boosts applied on top.</value>
+        [DataMember(Name = "relevance_score", EmitDefaultValue = false)]
+        public double RelevanceScore { get; set; }
+
+        /// <summary>
         /// The overall relevance of the result.  This is a value between 0 and 1 that combines the index, neural and feature scores. The higher the score the more relevant the result is.
         /// </summary>
         /// <value>The overall relevance of the result.  This is a value between 0 and 1 that combines the index, neural and feature scores. The higher the score the more relevant the result is.</value>
@@ -100,10 +117,12 @@ namespace Com.Sajari.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class QueryResult {\n");
+            sb.Append("  Banner: ").Append(Banner).Append("\n");
             sb.Append("  FeatureScore: ").Append(FeatureScore).Append("\n");
             sb.Append("  IndexScore: ").Append(IndexScore).Append("\n");
             sb.Append("  NeuralScore: ").Append(NeuralScore).Append("\n");
             sb.Append("  Record: ").Append(Record).Append("\n");
+            sb.Append("  RelevanceScore: ").Append(RelevanceScore).Append("\n");
             sb.Append("  Score: ").Append(Score).Append("\n");
             sb.Append("  Token: ").Append(Token).Append("\n");
             sb.Append("}\n");
@@ -142,6 +161,11 @@ namespace Com.Sajari.Sdk.Model
             }
             return 
                 (
+                    this.Banner == input.Banner ||
+                    (this.Banner != null &&
+                    this.Banner.Equals(input.Banner))
+                ) && 
+                (
                     this.FeatureScore == input.FeatureScore ||
                     this.FeatureScore.Equals(input.FeatureScore)
                 ) && 
@@ -157,6 +181,10 @@ namespace Com.Sajari.Sdk.Model
                     this.Record == input.Record ||
                     (this.Record != null &&
                     this.Record.Equals(input.Record))
+                ) && 
+                (
+                    this.RelevanceScore == input.RelevanceScore ||
+                    this.RelevanceScore.Equals(input.RelevanceScore)
                 ) && 
                 (
                     this.Score == input.Score ||
@@ -178,6 +206,10 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Banner != null)
+                {
+                    hashCode = (hashCode * 59) + this.Banner.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.FeatureScore.GetHashCode();
                 hashCode = (hashCode * 59) + this.IndexScore.GetHashCode();
                 hashCode = (hashCode * 59) + this.NeuralScore.GetHashCode();
@@ -185,6 +217,7 @@ namespace Com.Sajari.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Record.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.RelevanceScore.GetHashCode();
                 hashCode = (hashCode * 59) + this.Score.GetHashCode();
                 if (this.Token != null)
                 {

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Com.Sajari.Sdk.Client.OpenAPIDateConverter;
 namespace Com.Sajari.Sdk.Model
 {
     /// <summary>
-    /// ActivePromotion is a promotion that is active for a given search.
+    /// A promotion that is active for a given search.
     /// </summary>
     [DataContract(Name = "ActivePromotion")]
     public partial class ActivePromotion : IEquatable<ActivePromotion>, IValidatableObject

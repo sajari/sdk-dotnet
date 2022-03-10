@@ -5,6 +5,7 @@ Promotion contains a trigger, determining which searches it should be active for
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Banners** | [**List&lt;Banner&gt;**](Banner.md) | The banners that are injected into the result set when the promotion is triggered. | [optional] 
 **CollectionId** | **string** | Output only. The ID of the collection that owns this promotion. | [optional] [readonly] 
 **Condition** | **string** | A condition expression applied to a search request that determines which searches the promotion is active for.  For example, to apply the promotion&#39;s pins and boosts whenever a user searches for &#39;shoes&#39; set condition to &#x60;q &#x3D; &#39;shoes&#39;&#x60;. | 
 **CreateTime** | **DateTime** | Output only. Time the promotion was created. | [optional] [readonly] 

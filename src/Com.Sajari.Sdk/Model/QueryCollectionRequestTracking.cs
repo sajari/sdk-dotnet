@@ -41,10 +41,10 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="QueryCollectionRequestTracking" /> class.
         /// </summary>
-        /// <param name="data">Custom values to be included in tracking data..</param>
-        /// <param name="field">Tracking field used to identify records in the collection.  Must be unique schema field..</param>
-        /// <param name="queryId">Query ID of the query. If this is empty, then one is generated..</param>
-        /// <param name="sequence">Sequence number of query..</param>
+        /// <param name="data">A set of custom values to be included in tracking data..</param>
+        /// <param name="field">The tracking field used to identify records in the collection.  Must be unique schema field..</param>
+        /// <param name="queryId">The query ID of the query. If this is empty, then one is generated..</param>
+        /// <param name="sequence">The sequence number of query..</param>
         /// <param name="type">type.</param>
         public QueryCollectionRequestTracking(Dictionary<string, string> data = default(Dictionary<string, string>), string field = default(string), string queryId = default(string), int sequence = default(int), QueryCollectionRequestTrackingType? type = default(QueryCollectionRequestTrackingType?))
         {
@@ -56,30 +56,30 @@ namespace Com.Sajari.Sdk.Model
         }
 
         /// <summary>
-        /// Custom values to be included in tracking data.
+        /// A set of custom values to be included in tracking data.
         /// </summary>
-        /// <value>Custom values to be included in tracking data.</value>
+        /// <value>A set of custom values to be included in tracking data.</value>
         [DataMember(Name = "data", EmitDefaultValue = false)]
         public Dictionary<string, string> Data { get; set; }
 
         /// <summary>
-        /// Tracking field used to identify records in the collection.  Must be unique schema field.
+        /// The tracking field used to identify records in the collection.  Must be unique schema field.
         /// </summary>
-        /// <value>Tracking field used to identify records in the collection.  Must be unique schema field.</value>
+        /// <value>The tracking field used to identify records in the collection.  Must be unique schema field.</value>
         [DataMember(Name = "field", EmitDefaultValue = false)]
         public string Field { get; set; }
 
         /// <summary>
-        /// Query ID of the query. If this is empty, then one is generated.
+        /// The query ID of the query. If this is empty, then one is generated.
         /// </summary>
-        /// <value>Query ID of the query. If this is empty, then one is generated.</value>
+        /// <value>The query ID of the query. If this is empty, then one is generated.</value>
         [DataMember(Name = "query_id", EmitDefaultValue = false)]
         public string QueryId { get; set; }
 
         /// <summary>
-        /// Sequence number of query.
+        /// The sequence number of query.
         /// </summary>
-        /// <value>Sequence number of query.</value>
+        /// <value>The sequence number of query.</value>
         [DataMember(Name = "sequence", EmitDefaultValue = false)]
         public int Sequence { get; set; }
 

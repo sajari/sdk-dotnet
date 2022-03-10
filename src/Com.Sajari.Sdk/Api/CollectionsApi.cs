@@ -72,6 +72,29 @@ namespace Com.Sajari.Sdk.Api
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> DeleteCollectionWithHttpInfo(string collectionId);
         /// <summary>
+        /// Experiment
+        /// </summary>
+        /// <remarks>
+        /// Run a query on a collection with a hypothetical configuration to see what kinds of results it produces.  Saved promotions with a start date in the future are enabled during the experiment, unless they are explicitly disabled.  The following example demonstrates how to run a simple experiment for a string, against a pipeline and with a proposed promotion:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: { \&quot;name\&quot;: \&quot;my-pipeline\&quot; },   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; },   \&quot;promotions\&quot;: [{     \&quot;id\&quot;: \&quot;1234\&quot;,     \&quot;condition\&quot;: \&quot;q &#x3D; &#39;search terms&#39;\&quot;,     \&quot;pins\&quot;: [{       \&quot;key\&quot;: { \&quot;field\&quot;: \&quot;id\&quot;, \&quot;value\&quot;: \&quot;54hdc7h2334h\&quot; },       \&quot;position\&quot;: 1     }]   }] } &#x60;&#x60;&#x60;
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="experimentRequest"></param>
+        /// <returns>ExperimentResponse</returns>
+        ExperimentResponse Experiment(string collectionId, ExperimentRequest experimentRequest);
+
+        /// <summary>
+        /// Experiment
+        /// </summary>
+        /// <remarks>
+        /// Run a query on a collection with a hypothetical configuration to see what kinds of results it produces.  Saved promotions with a start date in the future are enabled during the experiment, unless they are explicitly disabled.  The following example demonstrates how to run a simple experiment for a string, against a pipeline and with a proposed promotion:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: { \&quot;name\&quot;: \&quot;my-pipeline\&quot; },   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; },   \&quot;promotions\&quot;: [{     \&quot;id\&quot;: \&quot;1234\&quot;,     \&quot;condition\&quot;: \&quot;q &#x3D; &#39;search terms&#39;\&quot;,     \&quot;pins\&quot;: [{       \&quot;key\&quot;: { \&quot;field\&quot;: \&quot;id\&quot;, \&quot;value\&quot;: \&quot;54hdc7h2334h\&quot; },       \&quot;position\&quot;: 1     }]   }] } &#x60;&#x60;&#x60;
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="experimentRequest"></param>
+        /// <returns>ApiResponse of ExperimentResponse</returns>
+        ApiResponse<ExperimentResponse> ExperimentWithHttpInfo(string collectionId, ExperimentRequest experimentRequest);
+        /// <summary>
         /// Get collection
         /// </summary>
         /// <remarks>
@@ -100,7 +123,7 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
         /// <returns>ListCollectionsResponse</returns>
         ListCollectionsResponse ListCollections(int? pageSize = default(int?), string pageToken = default(string));
 
@@ -112,37 +135,39 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
         /// <returns>ApiResponse of ListCollectionsResponse</returns>
         ApiResponse<ListCollectionsResponse> ListCollectionsWithHttpInfo(int? pageSize = default(int?), string pageToken = default(string));
         /// <summary>
         /// Query collection
         /// </summary>
         /// <remarks>
-        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="queryCollectionRequest"></param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.  Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID. (optional)</param>
         /// <returns>QueryCollectionResponse</returns>
-        QueryCollectionResponse QueryCollection(string collectionId, QueryCollectionRequest queryCollectionRequest);
+        QueryCollectionResponse QueryCollection(string collectionId, QueryCollectionRequest queryCollectionRequest, string accountId = default(string));
 
         /// <summary>
         /// Query collection
         /// </summary>
         /// <remarks>
-        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="queryCollectionRequest"></param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.  Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID. (optional)</param>
         /// <returns>ApiResponse of QueryCollectionResponse</returns>
-        ApiResponse<QueryCollectionResponse> QueryCollectionWithHttpInfo(string collectionId, QueryCollectionRequest queryCollectionRequest);
+        ApiResponse<QueryCollectionResponse> QueryCollectionWithHttpInfo(string collectionId, QueryCollectionRequest queryCollectionRequest, string accountId = default(string));
         /// <summary>
         /// Query collection
         /// </summary>
         /// <remarks>
-        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
@@ -155,7 +180,7 @@ namespace Com.Sajari.Sdk.Api
         /// Query collection
         /// </summary>
         /// <remarks>
-        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
@@ -164,6 +189,31 @@ namespace Com.Sajari.Sdk.Api
         [Obsolete]
         ApiResponse<QueryCollectionResponse> QueryCollection2WithHttpInfo(string collectionId, QueryCollectionRequest queryCollectionRequest);
         /// <summary>
+        /// Track event
+        /// </summary>
+        /// <remarks>
+        /// Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
+        /// <param name="collectionId">The collection to track the event against, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="_event">The details of the event to track.</param>
+        /// <returns>Object</returns>
+        Object TrackEvent(string accountId, string collectionId, Event _event);
+
+        /// <summary>
+        /// Track event
+        /// </summary>
+        /// <remarks>
+        /// Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
+        /// <param name="collectionId">The collection to track the event against, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="_event">The details of the event to track.</param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> TrackEventWithHttpInfo(string accountId, string collectionId, Event _event);
+        /// <summary>
         /// Update collection
         /// </summary>
         /// <remarks>
@@ -171,10 +221,10 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
-        /// <param name="collection">Details of the collection to update.</param>
+        /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <returns>Collection</returns>
-        Collection UpdateCollection(string collectionId, string updateMask, Collection collection);
+        Collection UpdateCollection(string collectionId, Collection collection, string updateMask = default(string));
 
         /// <summary>
         /// Update collection
@@ -184,10 +234,10 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
-        /// <param name="collection">Details of the collection to update.</param>
+        /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <returns>ApiResponse of Collection</returns>
-        ApiResponse<Collection> UpdateCollectionWithHttpInfo(string collectionId, string updateMask, Collection collection);
+        ApiResponse<Collection> UpdateCollectionWithHttpInfo(string collectionId, Collection collection, string updateMask = default(string));
         #endregion Synchronous Operations
     }
 
@@ -246,6 +296,31 @@ namespace Com.Sajari.Sdk.Api
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCollectionWithHttpInfoAsync(string collectionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Experiment
+        /// </summary>
+        /// <remarks>
+        /// Run a query on a collection with a hypothetical configuration to see what kinds of results it produces.  Saved promotions with a start date in the future are enabled during the experiment, unless they are explicitly disabled.  The following example demonstrates how to run a simple experiment for a string, against a pipeline and with a proposed promotion:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: { \&quot;name\&quot;: \&quot;my-pipeline\&quot; },   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; },   \&quot;promotions\&quot;: [{     \&quot;id\&quot;: \&quot;1234\&quot;,     \&quot;condition\&quot;: \&quot;q &#x3D; &#39;search terms&#39;\&quot;,     \&quot;pins\&quot;: [{       \&quot;key\&quot;: { \&quot;field\&quot;: \&quot;id\&quot;, \&quot;value\&quot;: \&quot;54hdc7h2334h\&quot; },       \&quot;position\&quot;: 1     }]   }] } &#x60;&#x60;&#x60;
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="experimentRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ExperimentResponse</returns>
+        System.Threading.Tasks.Task<ExperimentResponse> ExperimentAsync(string collectionId, ExperimentRequest experimentRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Experiment
+        /// </summary>
+        /// <remarks>
+        /// Run a query on a collection with a hypothetical configuration to see what kinds of results it produces.  Saved promotions with a start date in the future are enabled during the experiment, unless they are explicitly disabled.  The following example demonstrates how to run a simple experiment for a string, against a pipeline and with a proposed promotion:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: { \&quot;name\&quot;: \&quot;my-pipeline\&quot; },   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; },   \&quot;promotions\&quot;: [{     \&quot;id\&quot;: \&quot;1234\&quot;,     \&quot;condition\&quot;: \&quot;q &#x3D; &#39;search terms&#39;\&quot;,     \&quot;pins\&quot;: [{       \&quot;key\&quot;: { \&quot;field\&quot;: \&quot;id\&quot;, \&quot;value\&quot;: \&quot;54hdc7h2334h\&quot; },       \&quot;position\&quot;: 1     }]   }] } &#x60;&#x60;&#x60;
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="experimentRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ExperimentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ExperimentResponse>> ExperimentWithHttpInfoAsync(string collectionId, ExperimentRequest experimentRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Get collection
         /// </summary>
         /// <remarks>
@@ -276,7 +351,7 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListCollectionsResponse</returns>
         System.Threading.Tasks.Task<ListCollectionsResponse> ListCollectionsAsync(int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -289,7 +364,7 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListCollectionsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ListCollectionsResponse>> ListCollectionsWithHttpInfoAsync(int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -297,32 +372,34 @@ namespace Com.Sajari.Sdk.Api
         /// Query collection
         /// </summary>
         /// <remarks>
-        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="queryCollectionRequest"></param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.  Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of QueryCollectionResponse</returns>
-        System.Threading.Tasks.Task<QueryCollectionResponse> QueryCollectionAsync(string collectionId, QueryCollectionRequest queryCollectionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<QueryCollectionResponse> QueryCollectionAsync(string collectionId, QueryCollectionRequest queryCollectionRequest, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Query collection
         /// </summary>
         /// <remarks>
-        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="queryCollectionRequest"></param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.  Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (QueryCollectionResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<QueryCollectionResponse>> QueryCollectionWithHttpInfoAsync(string collectionId, QueryCollectionRequest queryCollectionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<QueryCollectionResponse>> QueryCollectionWithHttpInfoAsync(string collectionId, QueryCollectionRequest queryCollectionRequest, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Query collection
         /// </summary>
         /// <remarks>
-        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
@@ -336,7 +413,7 @@ namespace Com.Sajari.Sdk.Api
         /// Query collection
         /// </summary>
         /// <remarks>
-        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
@@ -346,6 +423,33 @@ namespace Com.Sajari.Sdk.Api
         [Obsolete]
         System.Threading.Tasks.Task<ApiResponse<QueryCollectionResponse>> QueryCollection2WithHttpInfoAsync(string collectionId, QueryCollectionRequest queryCollectionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Track event
+        /// </summary>
+        /// <remarks>
+        /// Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
+        /// <param name="collectionId">The collection to track the event against, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="_event">The details of the event to track.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> TrackEventAsync(string accountId, string collectionId, Event _event, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Track event
+        /// </summary>
+        /// <remarks>
+        /// Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
+        /// <param name="collectionId">The collection to track the event against, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="_event">The details of the event to track.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> TrackEventWithHttpInfoAsync(string accountId, string collectionId, Event _event, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// Update collection
         /// </summary>
         /// <remarks>
@@ -353,11 +457,11 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
-        /// <param name="collection">Details of the collection to update.</param>
+        /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Collection</returns>
-        System.Threading.Tasks.Task<Collection> UpdateCollectionAsync(string collectionId, string updateMask, Collection collection, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Collection> UpdateCollectionAsync(string collectionId, Collection collection, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update collection
@@ -367,11 +471,11 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
-        /// <param name="collection">Details of the collection to update.</param>
+        /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Collection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Collection>> UpdateCollectionWithHttpInfoAsync(string collectionId, string updateMask, Collection collection, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Collection>> UpdateCollectionWithHttpInfoAsync(string collectionId, Collection collection, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -554,7 +658,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -638,7 +742,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -710,7 +814,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -784,7 +888,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -795,6 +899,172 @@ namespace Com.Sajari.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("DeleteCollection", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Experiment Run a query on a collection with a hypothetical configuration to see what kinds of results it produces.  Saved promotions with a start date in the future are enabled during the experiment, unless they are explicitly disabled.  The following example demonstrates how to run a simple experiment for a string, against a pipeline and with a proposed promotion:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: { \&quot;name\&quot;: \&quot;my-pipeline\&quot; },   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; },   \&quot;promotions\&quot;: [{     \&quot;id\&quot;: \&quot;1234\&quot;,     \&quot;condition\&quot;: \&quot;q &#x3D; &#39;search terms&#39;\&quot;,     \&quot;pins\&quot;: [{       \&quot;key\&quot;: { \&quot;field\&quot;: \&quot;id\&quot;, \&quot;value\&quot;: \&quot;54hdc7h2334h\&quot; },       \&quot;position\&quot;: 1     }]   }] } &#x60;&#x60;&#x60;
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="experimentRequest"></param>
+        /// <returns>ExperimentResponse</returns>
+        public ExperimentResponse Experiment(string collectionId, ExperimentRequest experimentRequest)
+        {
+            Com.Sajari.Sdk.Client.ApiResponse<ExperimentResponse> localVarResponse = ExperimentWithHttpInfo(collectionId, experimentRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Experiment Run a query on a collection with a hypothetical configuration to see what kinds of results it produces.  Saved promotions with a start date in the future are enabled during the experiment, unless they are explicitly disabled.  The following example demonstrates how to run a simple experiment for a string, against a pipeline and with a proposed promotion:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: { \&quot;name\&quot;: \&quot;my-pipeline\&quot; },   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; },   \&quot;promotions\&quot;: [{     \&quot;id\&quot;: \&quot;1234\&quot;,     \&quot;condition\&quot;: \&quot;q &#x3D; &#39;search terms&#39;\&quot;,     \&quot;pins\&quot;: [{       \&quot;key\&quot;: { \&quot;field\&quot;: \&quot;id\&quot;, \&quot;value\&quot;: \&quot;54hdc7h2334h\&quot; },       \&quot;position\&quot;: 1     }]   }] } &#x60;&#x60;&#x60;
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="experimentRequest"></param>
+        /// <returns>ApiResponse of ExperimentResponse</returns>
+        public Com.Sajari.Sdk.Client.ApiResponse<ExperimentResponse> ExperimentWithHttpInfo(string collectionId, ExperimentRequest experimentRequest)
+        {
+            // verify the required parameter 'collectionId' is set
+            if (collectionId == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->Experiment");
+            }
+
+            // verify the required parameter 'experimentRequest' is set
+            if (experimentRequest == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'experimentRequest' when calling CollectionsApi->Experiment");
+            }
+
+            Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            localVarRequestOptions.Data = experimentRequest;
+
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ExperimentResponse>("/v4/collections/{collection_id}:experiment", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Experiment", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Experiment Run a query on a collection with a hypothetical configuration to see what kinds of results it produces.  Saved promotions with a start date in the future are enabled during the experiment, unless they are explicitly disabled.  The following example demonstrates how to run a simple experiment for a string, against a pipeline and with a proposed promotion:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: { \&quot;name\&quot;: \&quot;my-pipeline\&quot; },   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; },   \&quot;promotions\&quot;: [{     \&quot;id\&quot;: \&quot;1234\&quot;,     \&quot;condition\&quot;: \&quot;q &#x3D; &#39;search terms&#39;\&quot;,     \&quot;pins\&quot;: [{       \&quot;key\&quot;: { \&quot;field\&quot;: \&quot;id\&quot;, \&quot;value\&quot;: \&quot;54hdc7h2334h\&quot; },       \&quot;position\&quot;: 1     }]   }] } &#x60;&#x60;&#x60;
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="experimentRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ExperimentResponse</returns>
+        public async System.Threading.Tasks.Task<ExperimentResponse> ExperimentAsync(string collectionId, ExperimentRequest experimentRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Com.Sajari.Sdk.Client.ApiResponse<ExperimentResponse> localVarResponse = await ExperimentWithHttpInfoAsync(collectionId, experimentRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Experiment Run a query on a collection with a hypothetical configuration to see what kinds of results it produces.  Saved promotions with a start date in the future are enabled during the experiment, unless they are explicitly disabled.  The following example demonstrates how to run a simple experiment for a string, against a pipeline and with a proposed promotion:  &#x60;&#x60;&#x60;json {   \&quot;pipeline\&quot;: { \&quot;name\&quot;: \&quot;my-pipeline\&quot; },   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; },   \&quot;promotions\&quot;: [{     \&quot;id\&quot;: \&quot;1234\&quot;,     \&quot;condition\&quot;: \&quot;q &#x3D; &#39;search terms&#39;\&quot;,     \&quot;pins\&quot;: [{       \&quot;key\&quot;: { \&quot;field\&quot;: \&quot;id\&quot;, \&quot;value\&quot;: \&quot;54hdc7h2334h\&quot; },       \&quot;position\&quot;: 1     }]   }] } &#x60;&#x60;&#x60;
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="experimentRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (ExperimentResponse)</returns>
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<ExperimentResponse>> ExperimentWithHttpInfoAsync(string collectionId, ExperimentRequest experimentRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'collectionId' is set
+            if (collectionId == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->Experiment");
+            }
+
+            // verify the required parameter 'experimentRequest' is set
+            if (experimentRequest == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'experimentRequest' when calling CollectionsApi->Experiment");
+            }
+
+
+            Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            localVarRequestOptions.Data = experimentRequest;
+
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ExperimentResponse>("/v4/collections/{collection_id}:experiment", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Experiment", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -856,7 +1126,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -930,7 +1200,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -955,7 +1225,7 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
         /// <returns>ListCollectionsResponse</returns>
         public ListCollectionsResponse ListCollections(int? pageSize = default(int?), string pageToken = default(string))
         {
@@ -968,7 +1238,7 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
         /// <returns>ApiResponse of ListCollectionsResponse</returns>
         public Com.Sajari.Sdk.Client.ApiResponse<ListCollectionsResponse> ListCollectionsWithHttpInfo(int? pageSize = default(int?), string pageToken = default(string))
         {
@@ -1005,7 +1275,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1029,7 +1299,7 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListCollectionsResponse</returns>
         public async System.Threading.Tasks.Task<ListCollectionsResponse> ListCollectionsAsync(int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1043,7 +1313,7 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListCollectionsResponse)</returns>
         public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<ListCollectionsResponse>> ListCollectionsWithHttpInfoAsync(int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1082,7 +1352,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1103,26 +1373,28 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="queryCollectionRequest"></param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.  Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID. (optional)</param>
         /// <returns>QueryCollectionResponse</returns>
-        public QueryCollectionResponse QueryCollection(string collectionId, QueryCollectionRequest queryCollectionRequest)
+        public QueryCollectionResponse QueryCollection(string collectionId, QueryCollectionRequest queryCollectionRequest, string accountId = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<QueryCollectionResponse> localVarResponse = QueryCollectionWithHttpInfo(collectionId, queryCollectionRequest);
+            Com.Sajari.Sdk.Client.ApiResponse<QueryCollectionResponse> localVarResponse = QueryCollectionWithHttpInfo(collectionId, queryCollectionRequest, accountId);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="queryCollectionRequest"></param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.  Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID. (optional)</param>
         /// <returns>ApiResponse of QueryCollectionResponse</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<QueryCollectionResponse> QueryCollectionWithHttpInfo(string collectionId, QueryCollectionRequest queryCollectionRequest)
+        public Com.Sajari.Sdk.Client.ApiResponse<QueryCollectionResponse> QueryCollectionWithHttpInfo(string collectionId, QueryCollectionRequest queryCollectionRequest, string accountId = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -1160,11 +1432,15 @@ namespace Com.Sajari.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
             localVarRequestOptions.Data = queryCollectionRequest;
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1184,28 +1460,30 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="queryCollectionRequest"></param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.  Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of QueryCollectionResponse</returns>
-        public async System.Threading.Tasks.Task<QueryCollectionResponse> QueryCollectionAsync(string collectionId, QueryCollectionRequest queryCollectionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<QueryCollectionResponse> QueryCollectionAsync(string collectionId, QueryCollectionRequest queryCollectionRequest, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<QueryCollectionResponse> localVarResponse = await QueryCollectionWithHttpInfoAsync(collectionId, queryCollectionRequest, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<QueryCollectionResponse> localVarResponse = await QueryCollectionWithHttpInfoAsync(collectionId, queryCollectionRequest, accountId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="queryCollectionRequest"></param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.  Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (QueryCollectionResponse)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<QueryCollectionResponse>> QueryCollectionWithHttpInfoAsync(string collectionId, QueryCollectionRequest queryCollectionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<QueryCollectionResponse>> QueryCollectionWithHttpInfoAsync(string collectionId, QueryCollectionRequest queryCollectionRequest, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -1244,11 +1522,15 @@ namespace Com.Sajari.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
             localVarRequestOptions.Data = queryCollectionRequest;
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1269,7 +1551,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
@@ -1283,7 +1565,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
@@ -1332,7 +1614,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1352,7 +1634,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
@@ -1367,7 +1649,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+        /// Query collection Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  &#x60;&#x60;&#x60;json {   \&quot;variables\&quot;: { \&quot;q\&quot;: \&quot;search terms\&quot; } } &#x60;&#x60;&#x60;  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to query, e.g. &#x60;my-collection&#x60;.</param>
@@ -1418,7 +1700,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1439,16 +1721,200 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
+        /// Track event Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
+        /// <param name="collectionId">The collection to track the event against, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="_event">The details of the event to track.</param>
+        /// <returns>Object</returns>
+        public Object TrackEvent(string accountId, string collectionId, Event _event)
+        {
+            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = TrackEventWithHttpInfo(accountId, collectionId, _event);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Track event Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
+        /// <param name="collectionId">The collection to track the event against, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="_event">The details of the event to track.</param>
+        /// <returns>ApiResponse of Object</returns>
+        public Com.Sajari.Sdk.Client.ApiResponse<Object> TrackEventWithHttpInfo(string accountId, string collectionId, Event _event)
+        {
+            // verify the required parameter 'accountId' is set
+            if (accountId == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'accountId' when calling CollectionsApi->TrackEvent");
+            }
+
+            // verify the required parameter 'collectionId' is set
+            if (collectionId == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->TrackEvent");
+            }
+
+            // verify the required parameter '_event' is set
+            if (_event == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter '_event' when calling CollectionsApi->TrackEvent");
+            }
+
+            Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            localVarRequestOptions.Data = _event;
+
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/v4/collections/{collection_id}:trackEvent", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TrackEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Track event Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
+        /// <param name="collectionId">The collection to track the event against, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="_event">The details of the event to track.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> TrackEventAsync(string accountId, string collectionId, Event _event, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = await TrackEventWithHttpInfoAsync(accountId, collectionId, _event, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Track event Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
+        /// <param name="collectionId">The collection to track the event against, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="_event">The details of the event to track.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Object>> TrackEventWithHttpInfoAsync(string accountId, string collectionId, Event _event, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'accountId' is set
+            if (accountId == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'accountId' when calling CollectionsApi->TrackEvent");
+            }
+
+            // verify the required parameter 'collectionId' is set
+            if (collectionId == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->TrackEvent");
+            }
+
+            // verify the required parameter '_event' is set
+            if (_event == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter '_event' when calling CollectionsApi->TrackEvent");
+            }
+
+
+            Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            localVarRequestOptions.Data = _event;
+
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/v4/collections/{collection_id}:trackEvent", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TrackEvent", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Update collection Update the details of a collection.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
-        /// <param name="collection">Details of the collection to update.</param>
+        /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <returns>Collection</returns>
-        public Collection UpdateCollection(string collectionId, string updateMask, Collection collection)
+        public Collection UpdateCollection(string collectionId, Collection collection, string updateMask = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = UpdateCollectionWithHttpInfo(collectionId, updateMask, collection);
+            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = UpdateCollectionWithHttpInfo(collectionId, collection, updateMask);
             return localVarResponse.Data;
         }
 
@@ -1457,21 +1923,15 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
-        /// <param name="collection">Details of the collection to update.</param>
+        /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <returns>ApiResponse of Collection</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<Collection> UpdateCollectionWithHttpInfo(string collectionId, string updateMask, Collection collection)
+        public Com.Sajari.Sdk.Client.ApiResponse<Collection> UpdateCollectionWithHttpInfo(string collectionId, Collection collection, string updateMask = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
             {
                 throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->UpdateCollection");
-            }
-
-            // verify the required parameter 'updateMask' is set
-            if (updateMask == null)
-            {
-                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'updateMask' when calling CollectionsApi->UpdateCollection");
             }
 
             // verify the required parameter 'collection' is set
@@ -1504,12 +1964,15 @@ namespace Com.Sajari.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
+            if (updateMask != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
+            }
             localVarRequestOptions.Data = collection;
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1533,13 +1996,13 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
-        /// <param name="collection">Details of the collection to update.</param>
+        /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Collection</returns>
-        public async System.Threading.Tasks.Task<Collection> UpdateCollectionAsync(string collectionId, string updateMask, Collection collection, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Collection> UpdateCollectionAsync(string collectionId, Collection collection, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = await UpdateCollectionWithHttpInfoAsync(collectionId, updateMask, collection, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = await UpdateCollectionWithHttpInfoAsync(collectionId, collection, updateMask, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1548,22 +2011,16 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
-        /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.</param>
-        /// <param name="collection">Details of the collection to update.</param>
+        /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Collection)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Collection>> UpdateCollectionWithHttpInfoAsync(string collectionId, string updateMask, Collection collection, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Collection>> UpdateCollectionWithHttpInfoAsync(string collectionId, Collection collection, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
             {
                 throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling CollectionsApi->UpdateCollection");
-            }
-
-            // verify the required parameter 'updateMask' is set
-            if (updateMask == null)
-            {
-                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'updateMask' when calling CollectionsApi->UpdateCollection");
             }
 
             // verify the required parameter 'collection' is set
@@ -1597,12 +2054,15 @@ namespace Com.Sajari.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
-            localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
+            if (updateMask != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
+            }
             localVarRequestOptions.Data = collection;
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }

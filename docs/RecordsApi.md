@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Batch update records
 
-The batch version of the [UpdateRecord](/api#operation/UpdateRecord) call.
+The batch version of the [UpdateRecord](/docs/api#operation/UpdateRecord) call.
 
 ### Example
 ```csharp
@@ -41,7 +41,7 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new RecordsApi(config);
-            var collectionId = collectionId_example;  // string | The collection that contains the records to update, e.g. `my-collection`.
+            var collectionId = "collectionId_example";  // string | The collection that contains the records to update, e.g. `my-collection`.
             var batchUpdateRecordsRequest = new BatchUpdateRecordsRequest(); // BatchUpdateRecordsRequest | 
 
             try
@@ -100,7 +100,7 @@ Name | Type | Description  | Notes
 
 Batch upsert records
 
-The batch version of the [UpsertRecord](/api#operation/UpsertRecord) call.
+The batch version of the [UpsertRecord](/docs/api#operation/UpsertRecord) call.
 
 ### Example
 ```csharp
@@ -123,7 +123,7 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new RecordsApi(config);
-            var collectionId = collectionId_example;  // string | The collection to upsert the records in, e.g. `my-collection`.
+            var collectionId = "collectionId_example";  // string | The collection to upsert the records in, e.g. `my-collection`.
             var batchUpsertRecordsRequest = new BatchUpsertRecordsRequest(); // BatchUpsertRecordsRequest | 
 
             try
@@ -205,7 +205,7 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new RecordsApi(config);
-            var collectionId = collectionId_example;  // string | The collection that contains the record to delete, e.g. `my-collection`.
+            var collectionId = "collectionId_example";  // string | The collection that contains the record to delete, e.g. `my-collection`.
             var deleteRecordRequest = new DeleteRecordRequest(); // DeleteRecordRequest | 
 
             try
@@ -287,7 +287,7 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new RecordsApi(config);
-            var collectionId = collectionId_example;  // string | The collection that contains the record to retrieve, e.g. `my-collection`.
+            var collectionId = "collectionId_example";  // string | The collection that contains the record to retrieve, e.g. `my-collection`.
             var getRecordRequest = new GetRecordRequest(); // GetRecordRequest | 
 
             try
@@ -346,7 +346,7 @@ Name | Type | Description  | Notes
 
 Update record
 
-Add or update specific fields within a record with the given values. The updated record is returned in the response.  To replace all fields in a record, you should use the [UpsertRecord](/api#operation/UpsertRecord) call.  Note that the update record call cannot be used to add or update indexed or unique fields. For this case use the [UpsertRecord](/api#operation/UpsertRecord) call.
+Add or update specific fields within a record with the given values. The updated record is returned in the response.  To replace all fields in a record, you should use the [UpsertRecord](/docs/api#operation/UpsertRecord) call.  Note that the update record call cannot be used to add or update indexed or unique fields. For this case use the [UpsertRecord](/docs/api#operation/UpsertRecord) call.
 
 ### Example
 ```csharp
@@ -369,7 +369,7 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new RecordsApi(config);
-            var collectionId = collectionId_example;  // string | The collection that contains the record to update, e.g. `my-collection`.
+            var collectionId = "collectionId_example";  // string | The collection that contains the record to update, e.g. `my-collection`.
             var updateRecordRequest = new UpdateRecordRequest(); // UpdateRecordRequest | 
 
             try
@@ -451,7 +451,7 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new RecordsApi(config);
-            var collectionId = collectionId_example;  // string | The collection to upsert the record in, e.g. `my-collection`.
+            var collectionId = "collectionId_example";  // string | The collection to upsert the record in, e.g. `my-collection`.
             var upsertRecordRequest = new UpsertRecordRequest(); // UpsertRecordRequest | 
 
             try

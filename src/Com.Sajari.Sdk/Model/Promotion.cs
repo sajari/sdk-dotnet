@@ -40,6 +40,7 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Promotion" /> class.
         /// </summary>
+        /// <param name="banners">The banners that are injected into the result set when the promotion is triggered..</param>
         /// <param name="condition">A condition expression applied to a search request that determines which searches the promotion is active for.  For example, to apply the promotion&#39;s pins and boosts whenever a user searches for &#39;shoes&#39; set condition to &#x60;q &#x3D; &#39;shoes&#39;&#x60;. (required).</param>
         /// <param name="disabled">If disabled, the promotion is never triggered..</param>
         /// <param name="displayName">The promotion&#39;s display name. (required).</param>
@@ -51,7 +52,7 @@ namespace Com.Sajari.Sdk.Model
         /// <param name="pins">The items to fix to specific positions in the search results..</param>
         /// <param name="rangeBoosts">The range boosts to apply to searches, if the promotion is enabled..</param>
         /// <param name="startTime">If specified, the promotion is considered disabled before this time..</param>
-        public Promotion(string condition = default(string), bool disabled = default(bool), string displayName = default(string), DateTime endTime = default(DateTime), List<PromotionExclusion> exclusions = default(List<PromotionExclusion>), List<PromotionFilterBoost> filterBoosts = default(List<PromotionFilterBoost>), List<PromotionFilterCondition> filterConditions = default(List<PromotionFilterCondition>), string id = default(string), List<PromotionPin> pins = default(List<PromotionPin>), List<PromotionRangeBoost> rangeBoosts = default(List<PromotionRangeBoost>), DateTime startTime = default(DateTime))
+        public Promotion(List<Banner> banners = default(List<Banner>), string condition = default(string), bool disabled = default(bool), string displayName = default(string), DateTime endTime = default(DateTime), List<PromotionExclusion> exclusions = default(List<PromotionExclusion>), List<PromotionFilterBoost> filterBoosts = default(List<PromotionFilterBoost>), List<PromotionFilterCondition> filterConditions = default(List<PromotionFilterCondition>), string id = default(string), List<PromotionPin> pins = default(List<PromotionPin>), List<PromotionRangeBoost> rangeBoosts = default(List<PromotionRangeBoost>), DateTime startTime = default(DateTime))
         {
             // to ensure "condition" is required (not null)
             if (condition == null) {
@@ -63,6 +64,7 @@ namespace Com.Sajari.Sdk.Model
                 throw new ArgumentNullException("displayName is a required property for Promotion and cannot be null");
             }
             this.DisplayName = displayName;
+            this.Banners = banners;
             this.Disabled = disabled;
             this.EndTime = endTime;
             this.Exclusions = exclusions;
@@ -73,6 +75,13 @@ namespace Com.Sajari.Sdk.Model
             this.RangeBoosts = rangeBoosts;
             this.StartTime = startTime;
         }
+
+        /// <summary>
+        /// The banners that are injected into the result set when the promotion is triggered.
+        /// </summary>
+        /// <value>The banners that are injected into the result set when the promotion is triggered.</value>
+        [DataMember(Name = "banners", EmitDefaultValue = false)]
+        public List<Banner> Banners { get; set; }
 
         /// <summary>
         /// Output only. The ID of the collection that owns this promotion.
@@ -204,6 +213,7 @@ namespace Com.Sajari.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Promotion {\n");
+            sb.Append("  Banners: ").Append(Banners).Append("\n");
             sb.Append("  CollectionId: ").Append(CollectionId).Append("\n");
             sb.Append("  Condition: ").Append(Condition).Append("\n");
             sb.Append("  CreateTime: ").Append(CreateTime).Append("\n");
@@ -253,6 +263,12 @@ namespace Com.Sajari.Sdk.Model
                 return false;
             }
             return 
+                (
+                    this.Banners == input.Banners ||
+                    this.Banners != null &&
+                    input.Banners != null &&
+                    this.Banners.SequenceEqual(input.Banners)
+                ) && 
                 (
                     this.CollectionId == input.CollectionId ||
                     (this.CollectionId != null &&
@@ -338,6 +354,10 @@ namespace Com.Sajari.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.Banners != null)
+                {
+                    hashCode = (hashCode * 59) + this.Banners.GetHashCode();
+                }
                 if (this.CollectionId != null)
                 {
                     hashCode = (hashCode * 59) + this.CollectionId.GetHashCode();
