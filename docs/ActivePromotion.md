@@ -1,5 +1,5 @@
 # Com.Sajari.Sdk.Model.ActivePromotion
-ActivePromotion is a promotion that is active for a given search.
+A promotion that is active for a given search.
 
 ## Properties
 

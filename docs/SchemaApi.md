@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Batch create schema fields
 
-The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
+The batch version of the [CreateSchemaField](/docs/api#operation/CreateSchemaField) call.
 
 ### Example
 ```csharp
@@ -38,7 +38,7 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new SchemaApi(config);
-            var collectionId = collectionId_example;  // string | The collection to create the schema fields in, e.g. `my-collection`.
+            var collectionId = "collectionId_example";  // string | The collection to create the schema fields in, e.g. `my-collection`.
             var batchCreateSchemaFieldsRequest = new BatchCreateSchemaFieldsRequest(); // BatchCreateSchemaFieldsRequest | 
 
             try
@@ -120,7 +120,7 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new SchemaApi(config);
-            var collectionId = collectionId_example;  // string | The collection to create a schema field in, e.g. `my-collection`.
+            var collectionId = "collectionId_example";  // string | The collection to create a schema field in, e.g. `my-collection`.
             var schemaField = new SchemaField(); // SchemaField | The schema field to create.
 
             try
@@ -202,9 +202,9 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new SchemaApi(config);
-            var collectionId = collectionId_example;  // string | The collection that owns this set of schema fields, e.g. `my-collection`.
+            var collectionId = "collectionId_example";  // string | The collection that owns this set of schema fields, e.g. `my-collection`.
             var pageSize = 56;  // int? | The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional) 
-            var pageToken = pageToken_example;  // string | A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional) 
+            var pageToken = "pageToken_example";  // string | A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional) 
 
             try
             {
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **string**| The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. | 
  **pageSize** | **int?**| The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional] 
- **pageToken** | **string**| A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. | [optional] 
+ **pageToken** | **string**| A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. | [optional] 
 
 ### Return type
 

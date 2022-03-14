@@ -105,9 +105,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <returns>ListPromotionsResponse</returns>
-        ListPromotionsResponse ListPromotions(string collectionId, int? pageSize = default(int?), string pageToken = default(string));
+        ListPromotionsResponse ListPromotions(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string));
 
         /// <summary>
         /// List promotions
@@ -118,9 +119,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <returns>ApiResponse of ListPromotionsResponse</returns>
-        ApiResponse<ListPromotionsResponse> ListPromotionsWithHttpInfo(string collectionId, int? pageSize = default(int?), string pageToken = default(string));
+        ApiResponse<ListPromotionsResponse> ListPromotionsWithHttpInfo(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string));
         /// <summary>
         /// Update promotion
         /// </summary>
@@ -241,10 +243,11 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListPromotionsResponse</returns>
-        System.Threading.Tasks.Task<ListPromotionsResponse> ListPromotionsAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListPromotionsResponse> ListPromotionsAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List promotions
@@ -255,10 +258,11 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListPromotionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListPromotionsResponse>> ListPromotionsWithHttpInfoAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListPromotionsResponse>> ListPromotionsWithHttpInfoAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update promotion
         /// </summary>
@@ -470,7 +474,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -554,7 +558,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -635,7 +639,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -718,7 +722,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -799,7 +803,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -882,7 +886,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -908,11 +912,12 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <returns>ListPromotionsResponse</returns>
-        public ListPromotionsResponse ListPromotions(string collectionId, int? pageSize = default(int?), string pageToken = default(string))
+        public ListPromotionsResponse ListPromotions(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse> localVarResponse = ListPromotionsWithHttpInfo(collectionId, pageSize, pageToken);
+            Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse> localVarResponse = ListPromotionsWithHttpInfo(collectionId, pageSize, pageToken, view);
             return localVarResponse.Data;
         }
 
@@ -922,9 +927,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <returns>ApiResponse of ListPromotionsResponse</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse> ListPromotionsWithHttpInfo(string collectionId, int? pageSize = default(int?), string pageToken = default(string))
+        public Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse> ListPromotionsWithHttpInfo(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -963,10 +969,14 @@ namespace Com.Sajari.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page_token", pageToken));
             }
+            if (view != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "view", view));
+            }
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -991,12 +1001,13 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListPromotionsResponse</returns>
-        public async System.Threading.Tasks.Task<ListPromotionsResponse> ListPromotionsAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListPromotionsResponse> ListPromotionsAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse> localVarResponse = await ListPromotionsWithHttpInfoAsync(collectionId, pageSize, pageToken, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse> localVarResponse = await ListPromotionsWithHttpInfoAsync(collectionId, pageSize, pageToken, view, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1006,10 +1017,11 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListPromotionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse>> ListPromotionsWithHttpInfoAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse>> ListPromotionsWithHttpInfoAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -1049,10 +1061,14 @@ namespace Com.Sajari.Sdk.Api
             {
                 localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page_token", pageToken));
             }
+            if (view != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "view", view));
+            }
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1152,7 +1168,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1254,7 +1270,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }

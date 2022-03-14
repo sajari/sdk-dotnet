@@ -31,7 +31,7 @@ namespace Com.Sajari.Sdk.Api
         /// Batch create schema fields
         /// </summary>
         /// <remarks>
-        /// The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
+        /// The batch version of the [CreateSchemaField](/docs/api#operation/CreateSchemaField) call.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;.</param>
@@ -43,7 +43,7 @@ namespace Com.Sajari.Sdk.Api
         /// Batch create schema fields
         /// </summary>
         /// <remarks>
-        /// The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
+        /// The batch version of the [CreateSchemaField](/docs/api#operation/CreateSchemaField) call.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;.</param>
@@ -82,7 +82,7 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
         /// <returns>ListSchemaFieldsResponse</returns>
         ListSchemaFieldsResponse ListSchemaFields(string collectionId, int? pageSize = default(int?), string pageToken = default(string));
 
@@ -95,7 +95,7 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
         /// <returns>ApiResponse of ListSchemaFieldsResponse</returns>
         ApiResponse<ListSchemaFieldsResponse> ListSchemaFieldsWithHttpInfo(string collectionId, int? pageSize = default(int?), string pageToken = default(string));
         #endregion Synchronous Operations
@@ -111,7 +111,7 @@ namespace Com.Sajari.Sdk.Api
         /// Batch create schema fields
         /// </summary>
         /// <remarks>
-        /// The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
+        /// The batch version of the [CreateSchemaField](/docs/api#operation/CreateSchemaField) call.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;.</param>
@@ -124,7 +124,7 @@ namespace Com.Sajari.Sdk.Api
         /// Batch create schema fields
         /// </summary>
         /// <remarks>
-        /// The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
+        /// The batch version of the [CreateSchemaField](/docs/api#operation/CreateSchemaField) call.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;.</param>
@@ -166,7 +166,7 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListSchemaFieldsResponse</returns>
         System.Threading.Tasks.Task<ListSchemaFieldsResponse> ListSchemaFieldsAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -180,7 +180,7 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListSchemaFieldsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ListSchemaFieldsResponse>> ListSchemaFieldsWithHttpInfoAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -305,7 +305,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Batch create schema fields The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
+        /// Batch create schema fields The batch version of the [CreateSchemaField](/docs/api#operation/CreateSchemaField) call.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;.</param>
@@ -318,7 +318,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Batch create schema fields The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
+        /// Batch create schema fields The batch version of the [CreateSchemaField](/docs/api#operation/CreateSchemaField) call.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;.</param>
@@ -366,7 +366,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -386,7 +386,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Batch create schema fields The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
+        /// Batch create schema fields The batch version of the [CreateSchemaField](/docs/api#operation/CreateSchemaField) call.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;.</param>
@@ -400,7 +400,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Batch create schema fields The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
+        /// Batch create schema fields The batch version of the [CreateSchemaField](/docs/api#operation/CreateSchemaField) call.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;.</param>
@@ -450,7 +450,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -532,7 +532,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -616,7 +616,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -642,7 +642,7 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
         /// <returns>ListSchemaFieldsResponse</returns>
         public ListSchemaFieldsResponse ListSchemaFields(string collectionId, int? pageSize = default(int?), string pageToken = default(string))
         {
@@ -656,7 +656,7 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
         /// <returns>ApiResponse of ListSchemaFieldsResponse</returns>
         public Com.Sajari.Sdk.Client.ApiResponse<ListSchemaFieldsResponse> ListSchemaFieldsWithHttpInfo(string collectionId, int? pageSize = default(int?), string pageToken = default(string))
         {
@@ -700,7 +700,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -725,7 +725,7 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListSchemaFieldsResponse</returns>
         public async System.Threading.Tasks.Task<ListSchemaFieldsResponse> ListSchemaFieldsAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -740,7 +740,7 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListSchemaFieldsResponse)</returns>
         public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<ListSchemaFieldsResponse>> ListSchemaFieldsWithHttpInfoAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -786,7 +786,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }

@@ -32,14 +32,22 @@ namespace Com.Sajari.Sdk.Model
     [DataContract(Name = "PromotionPin")]
     public partial class PromotionPin : IEquatable<PromotionPin>, IValidatableObject
     {
+
+        /// <summary>
+        /// Gets or Sets Mode
+        /// </summary>
+        [DataMember(Name = "mode", EmitDefaultValue = false)]
+        public PromotionPinMode? Mode { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PromotionPin" /> class.
         /// </summary>
         /// <param name="key">key.</param>
+        /// <param name="mode">mode.</param>
         /// <param name="position">Position the record should occupy in search results. The top position is position 1.  Doesn&#39;t need to be contiguous with other pins, i.e. there can be gaps in the pinned set that are filled with organic results.  In the case where there are insufficient search results pinned items are collapsed..</param>
-        public PromotionPin(RecordKey key = default(RecordKey), int position = default(int))
+        public PromotionPin(RecordKey key = default(RecordKey), PromotionPinMode? mode = default(PromotionPinMode?), int position = default(int))
         {
             this.Key = key;
+            this.Mode = mode;
             this.Position = position;
         }
 
@@ -65,6 +73,7 @@ namespace Com.Sajari.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class PromotionPin {\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("  Mode: ").Append(Mode).Append("\n");
             sb.Append("  Position: ").Append(Position).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -107,6 +116,10 @@ namespace Com.Sajari.Sdk.Model
                     this.Key.Equals(input.Key))
                 ) && 
                 (
+                    this.Mode == input.Mode ||
+                    this.Mode.Equals(input.Mode)
+                ) && 
+                (
                     this.Position == input.Position ||
                     this.Position.Equals(input.Position)
                 );
@@ -125,6 +138,7 @@ namespace Com.Sajari.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Key.GetHashCode();
                 }
+                hashCode = (hashCode * 59) + this.Mode.GetHashCode();
                 hashCode = (hashCode * 59) + this.Position.GetHashCode();
                 return hashCode;
             }

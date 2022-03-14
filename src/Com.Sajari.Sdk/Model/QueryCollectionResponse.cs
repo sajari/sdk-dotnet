@@ -38,21 +38,25 @@ namespace Com.Sajari.Sdk.Model
         /// <param name="activePromotions">A list of the promotions activated when running the query..</param>
         /// <param name="aggregateFilters">The aggregates run with filters..</param>
         /// <param name="aggregates">The aggregates returned by the query..</param>
+        /// <param name="banners">Banners associated with this query..</param>
         /// <param name="featureScoreWeight">The weight applied to the features in the query, used for analyzing the index, neural and feature components for results.  For each result:  &#x60;&#x60;&#x60; score &#x3D; max(index_score, neural_score) * (1 - feature_score_weight) +         feature_score * feature_score_weight &#x60;&#x60;&#x60;.</param>
         /// <param name="pipeline">pipeline.</param>
         /// <param name="processingDuration">The total time taken to perform the query..</param>
+        /// <param name="queryId">The query identifier.  This uniqely identifies the specific query it was returned on. This is used to link user interactions with a query..</param>
         /// <param name="redirects">A mapping of redirects triggered for all possible variations of the query..</param>
         /// <param name="results">The results returned by the query..</param>
         /// <param name="totalSize">The total number of results that match the query..</param>
         /// <param name="variables">The modified variables returned by the pipeline after it has finished processing..</param>
-        public QueryCollectionResponse(List<ActivePromotion> activePromotions = default(List<ActivePromotion>), Dictionary<string, QueryAggregateResult> aggregateFilters = default(Dictionary<string, QueryAggregateResult>), Dictionary<string, QueryAggregateResult> aggregates = default(Dictionary<string, QueryAggregateResult>), double featureScoreWeight = default(double), QueryCollectionResponsePipeline pipeline = default(QueryCollectionResponsePipeline), string processingDuration = default(string), Dictionary<string, RedirectResult> redirects = default(Dictionary<string, RedirectResult>), List<QueryResult> results = default(List<QueryResult>), string totalSize = default(string), Dictionary<string, Object> variables = default(Dictionary<string, Object>))
+        public QueryCollectionResponse(List<ActivePromotion> activePromotions = default(List<ActivePromotion>), Dictionary<string, QueryAggregateResult> aggregateFilters = default(Dictionary<string, QueryAggregateResult>), Dictionary<string, QueryAggregateResult> aggregates = default(Dictionary<string, QueryAggregateResult>), List<Banner> banners = default(List<Banner>), double featureScoreWeight = default(double), QueryCollectionResponsePipeline pipeline = default(QueryCollectionResponsePipeline), string processingDuration = default(string), string queryId = default(string), Dictionary<string, RedirectResult> redirects = default(Dictionary<string, RedirectResult>), List<QueryResult> results = default(List<QueryResult>), string totalSize = default(string), Dictionary<string, Object> variables = default(Dictionary<string, Object>))
         {
             this.ActivePromotions = activePromotions;
             this.AggregateFilters = aggregateFilters;
             this.Aggregates = aggregates;
+            this.Banners = banners;
             this.FeatureScoreWeight = featureScoreWeight;
             this.Pipeline = pipeline;
             this.ProcessingDuration = processingDuration;
+            this.QueryId = queryId;
             this.Redirects = redirects;
             this.Results = results;
             this.TotalSize = totalSize;
@@ -81,6 +85,13 @@ namespace Com.Sajari.Sdk.Model
         public Dictionary<string, QueryAggregateResult> Aggregates { get; set; }
 
         /// <summary>
+        /// Banners associated with this query.
+        /// </summary>
+        /// <value>Banners associated with this query.</value>
+        [DataMember(Name = "banners", EmitDefaultValue = false)]
+        public List<Banner> Banners { get; set; }
+
+        /// <summary>
         /// The weight applied to the features in the query, used for analyzing the index, neural and feature components for results.  For each result:  &#x60;&#x60;&#x60; score &#x3D; max(index_score, neural_score) * (1 - feature_score_weight) +         feature_score * feature_score_weight &#x60;&#x60;&#x60;
         /// </summary>
         /// <value>The weight applied to the features in the query, used for analyzing the index, neural and feature components for results.  For each result:  &#x60;&#x60;&#x60; score &#x3D; max(index_score, neural_score) * (1 - feature_score_weight) +         feature_score * feature_score_weight &#x60;&#x60;&#x60;</value>
@@ -99,6 +110,13 @@ namespace Com.Sajari.Sdk.Model
         /// <value>The total time taken to perform the query.</value>
         [DataMember(Name = "processing_duration", EmitDefaultValue = false)]
         public string ProcessingDuration { get; set; }
+
+        /// <summary>
+        /// The query identifier.  This uniqely identifies the specific query it was returned on. This is used to link user interactions with a query.
+        /// </summary>
+        /// <value>The query identifier.  This uniqely identifies the specific query it was returned on. This is used to link user interactions with a query.</value>
+        [DataMember(Name = "query_id", EmitDefaultValue = false)]
+        public string QueryId { get; set; }
 
         /// <summary>
         /// A mapping of redirects triggered for all possible variations of the query.
@@ -139,9 +157,11 @@ namespace Com.Sajari.Sdk.Model
             sb.Append("  ActivePromotions: ").Append(ActivePromotions).Append("\n");
             sb.Append("  AggregateFilters: ").Append(AggregateFilters).Append("\n");
             sb.Append("  Aggregates: ").Append(Aggregates).Append("\n");
+            sb.Append("  Banners: ").Append(Banners).Append("\n");
             sb.Append("  FeatureScoreWeight: ").Append(FeatureScoreWeight).Append("\n");
             sb.Append("  Pipeline: ").Append(Pipeline).Append("\n");
             sb.Append("  ProcessingDuration: ").Append(ProcessingDuration).Append("\n");
+            sb.Append("  QueryId: ").Append(QueryId).Append("\n");
             sb.Append("  Redirects: ").Append(Redirects).Append("\n");
             sb.Append("  Results: ").Append(Results).Append("\n");
             sb.Append("  TotalSize: ").Append(TotalSize).Append("\n");
@@ -200,6 +220,12 @@ namespace Com.Sajari.Sdk.Model
                     this.Aggregates.SequenceEqual(input.Aggregates)
                 ) && 
                 (
+                    this.Banners == input.Banners ||
+                    this.Banners != null &&
+                    input.Banners != null &&
+                    this.Banners.SequenceEqual(input.Banners)
+                ) && 
+                (
                     this.FeatureScoreWeight == input.FeatureScoreWeight ||
                     this.FeatureScoreWeight.Equals(input.FeatureScoreWeight)
                 ) && 
@@ -212,6 +238,11 @@ namespace Com.Sajari.Sdk.Model
                     this.ProcessingDuration == input.ProcessingDuration ||
                     (this.ProcessingDuration != null &&
                     this.ProcessingDuration.Equals(input.ProcessingDuration))
+                ) && 
+                (
+                    this.QueryId == input.QueryId ||
+                    (this.QueryId != null &&
+                    this.QueryId.Equals(input.QueryId))
                 ) && 
                 (
                     this.Redirects == input.Redirects ||
@@ -259,6 +290,10 @@ namespace Com.Sajari.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Aggregates.GetHashCode();
                 }
+                if (this.Banners != null)
+                {
+                    hashCode = (hashCode * 59) + this.Banners.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.FeatureScoreWeight.GetHashCode();
                 if (this.Pipeline != null)
                 {
@@ -267,6 +302,10 @@ namespace Com.Sajari.Sdk.Model
                 if (this.ProcessingDuration != null)
                 {
                     hashCode = (hashCode * 59) + this.ProcessingDuration.GetHashCode();
+                }
+                if (this.QueryId != null)
+                {
+                    hashCode = (hashCode * 59) + this.QueryId.GetHashCode();
                 }
                 if (this.Redirects != null)
                 {

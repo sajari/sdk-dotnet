@@ -40,7 +40,7 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new PromotionsApi(config);
-            var collectionId = collectionId_example;  // string | The collection to create a promotion in, e.g. `my-collection`.
+            var collectionId = "collectionId_example";  // string | The collection to create a promotion in, e.g. `my-collection`.
             var promotion = new Promotion(); // Promotion | The promotion to create.
 
             try
@@ -122,8 +122,8 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new PromotionsApi(config);
-            var collectionId = collectionId_example;  // string | The collection the promotion belongs to, e.g. `my-collection`.
-            var promotionId = promotionId_example;  // string | The promotion to delete, e.g. `1234`.
+            var collectionId = "collectionId_example";  // string | The collection the promotion belongs to, e.g. `my-collection`.
+            var promotionId = "promotionId_example";  // string | The promotion to delete, e.g. `1234`.
 
             try
             {
@@ -204,8 +204,8 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new PromotionsApi(config);
-            var collectionId = collectionId_example;  // string | The collection that owns the promotion, e.g. `my-collection`.
-            var promotionId = promotionId_example;  // string | The promotion to retrieve, e.g. `1234`.
+            var collectionId = "collectionId_example";  // string | The collection that owns the promotion, e.g. `my-collection`.
+            var promotionId = "promotionId_example";  // string | The promotion to retrieve, e.g. `1234`.
 
             try
             {
@@ -259,7 +259,7 @@ Name | Type | Description  | Notes
 
 <a name="listpromotions"></a>
 # **ListPromotions**
-> ListPromotionsResponse ListPromotions (string collectionId, int? pageSize = null, string pageToken = null)
+> ListPromotionsResponse ListPromotions (string collectionId, int? pageSize = null, string pageToken = null, string view = null)
 
 List promotions
 
@@ -286,14 +286,15 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new PromotionsApi(config);
-            var collectionId = collectionId_example;  // string | The collection that owns this set of promotions, e.g. `my-collection`.
+            var collectionId = "collectionId_example";  // string | The collection that owns this set of promotions, e.g. `my-collection`.
             var pageSize = 56;  // int? | The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional) 
-            var pageToken = pageToken_example;  // string | A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. (optional) 
+            var pageToken = "pageToken_example";  // string | A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional) 
+            var view = "PROMOTION_VIEW_UNSPECIFIED";  // string | The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `FULL` view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional)  (default to PROMOTION_VIEW_UNSPECIFIED)
 
             try
             {
                 // List promotions
-                ListPromotionsResponse result = apiInstance.ListPromotions(collectionId, pageSize, pageToken);
+                ListPromotionsResponse result = apiInstance.ListPromotions(collectionId, pageSize, pageToken, view);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -313,7 +314,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **string**| The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. | 
  **pageSize** | **int?**| The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional] 
- **pageToken** | **string**| A page token, received from a previous [ListPromotions](/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/api#operation/ListPromotions) must match the call that provided the page token. | [optional] 
+ **pageToken** | **string**| A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. | [optional] 
+ **view** | **string**| The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. | [optional] [default to PROMOTION_VIEW_UNSPECIFIED]
 
 ### Return type
 
@@ -370,9 +372,9 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new PromotionsApi(config);
-            var collectionId = collectionId_example;  // string | The collection the promotion belongs to, e.g. `my-collection`.
-            var promotionId = promotionId_example;  // string | The promotion to update, e.g. `1234`.
-            var updateMask = updateMask_example;  // string | The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  Each field should be in snake case, e.g. `display_name`, `filter_boosts`.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value.
+            var collectionId = "collectionId_example";  // string | The collection the promotion belongs to, e.g. `my-collection`.
+            var promotionId = "promotionId_example";  // string | The promotion to update, e.g. `1234`.
+            var updateMask = "updateMask_example";  // string | The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  Each field should be in snake case, e.g. `display_name`, `filter_boosts`.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value.
             var promotion = new Promotion(); // Promotion | Details of the promotion to update.
 
             try

@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Com.Sajari.Sdk.Client.OpenAPIDateConverter;
 namespace Com.Sajari.Sdk.Model
 {
     /// <summary>
-    /// RedirectResult indicates that a redirect has been triggered for a given query.
+    /// Indicates that a redirect has been triggered for a given query.
     /// </summary>
     [DataContract(Name = "RedirectResult")]
     public partial class RedirectResult : IEquatable<RedirectResult>, IValidatableObject

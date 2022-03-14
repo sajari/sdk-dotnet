@@ -106,7 +106,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="collectionId">The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="type">The type of the pipeline to get the default version of.</param>
         /// <param name="name">The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>Pipeline</returns>
         Pipeline GetDefaultVersion(string collectionId, string type, string name, string view = default(string));
 
@@ -120,7 +120,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="collectionId">The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="type">The type of the pipeline to get the default version of.</param>
         /// <param name="name">The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>ApiResponse of Pipeline</returns>
         ApiResponse<Pipeline> GetDefaultVersionWithHttpInfo(string collectionId, string type, string name, string view = default(string));
         /// <summary>
@@ -134,7 +134,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="type">The type of the pipeline to retrieve.</param>
         /// <param name="name">The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;.</param>
         /// <param name="version">The version of the pipeline to retrieve, e.g. &#x60;42&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>Pipeline</returns>
         Pipeline GetPipeline(string collectionId, string type, string name, string version, string view = default(string));
 
@@ -149,7 +149,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="type">The type of the pipeline to retrieve.</param>
         /// <param name="name">The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;.</param>
         /// <param name="version">The version of the pipeline to retrieve, e.g. &#x60;42&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>ApiResponse of Pipeline</returns>
         ApiResponse<Pipeline> GetPipelineWithHttpInfo(string collectionId, string type, string name, string version, string view = default(string));
         /// <summary>
@@ -161,8 +161,8 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
-        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>ListPipelinesResponse</returns>
         ListPipelinesResponse ListPipelines(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string));
 
@@ -175,8 +175,8 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
-        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>ApiResponse of ListPipelinesResponse</returns>
         ApiResponse<ListPipelinesResponse> ListPipelinesWithHttpInfo(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string));
         /// <summary>
@@ -323,7 +323,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="collectionId">The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="type">The type of the pipeline to get the default version of.</param>
         /// <param name="name">The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Pipeline</returns>
         System.Threading.Tasks.Task<Pipeline> GetDefaultVersionAsync(string collectionId, string type, string name, string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -338,7 +338,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="collectionId">The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="type">The type of the pipeline to get the default version of.</param>
         /// <param name="name">The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Pipeline)</returns>
         System.Threading.Tasks.Task<ApiResponse<Pipeline>> GetDefaultVersionWithHttpInfoAsync(string collectionId, string type, string name, string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -353,7 +353,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="type">The type of the pipeline to retrieve.</param>
         /// <param name="name">The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;.</param>
         /// <param name="version">The version of the pipeline to retrieve, e.g. &#x60;42&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Pipeline</returns>
         System.Threading.Tasks.Task<Pipeline> GetPipelineAsync(string collectionId, string type, string name, string version, string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -369,7 +369,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="type">The type of the pipeline to retrieve.</param>
         /// <param name="name">The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;.</param>
         /// <param name="version">The version of the pipeline to retrieve, e.g. &#x60;42&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Pipeline)</returns>
         System.Threading.Tasks.Task<ApiResponse<Pipeline>> GetPipelineWithHttpInfoAsync(string collectionId, string type, string name, string version, string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -382,8 +382,8 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
-        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListPipelinesResponse</returns>
         System.Threading.Tasks.Task<ListPipelinesResponse> ListPipelinesAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -397,8 +397,8 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
-        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListPipelinesResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ListPipelinesResponse>> ListPipelinesWithHttpInfoAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -640,7 +640,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -726,7 +726,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -809,7 +809,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -894,7 +894,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -975,7 +975,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1058,7 +1058,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1085,7 +1085,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="collectionId">The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="type">The type of the pipeline to get the default version of.</param>
         /// <param name="name">The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>Pipeline</returns>
         public Pipeline GetDefaultVersion(string collectionId, string type, string name, string view = default(string))
         {
@@ -1100,7 +1100,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="collectionId">The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="type">The type of the pipeline to get the default version of.</param>
         /// <param name="name">The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>ApiResponse of Pipeline</returns>
         public Com.Sajari.Sdk.Client.ApiResponse<Pipeline> GetDefaultVersionWithHttpInfo(string collectionId, string type, string name, string view = default(string))
         {
@@ -1155,7 +1155,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1181,7 +1181,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="collectionId">The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="type">The type of the pipeline to get the default version of.</param>
         /// <param name="name">The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Pipeline</returns>
         public async System.Threading.Tasks.Task<Pipeline> GetDefaultVersionAsync(string collectionId, string type, string name, string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1197,7 +1197,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="collectionId">The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="type">The type of the pipeline to get the default version of.</param>
         /// <param name="name">The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Pipeline)</returns>
         public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Pipeline>> GetDefaultVersionWithHttpInfoAsync(string collectionId, string type, string name, string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1254,7 +1254,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1282,7 +1282,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="type">The type of the pipeline to retrieve.</param>
         /// <param name="name">The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;.</param>
         /// <param name="version">The version of the pipeline to retrieve, e.g. &#x60;42&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>Pipeline</returns>
         public Pipeline GetPipeline(string collectionId, string type, string name, string version, string view = default(string))
         {
@@ -1298,7 +1298,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="type">The type of the pipeline to retrieve.</param>
         /// <param name="name">The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;.</param>
         /// <param name="version">The version of the pipeline to retrieve, e.g. &#x60;42&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>ApiResponse of Pipeline</returns>
         public Com.Sajari.Sdk.Client.ApiResponse<Pipeline> GetPipelineWithHttpInfo(string collectionId, string type, string name, string version, string view = default(string))
         {
@@ -1360,7 +1360,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1387,7 +1387,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="type">The type of the pipeline to retrieve.</param>
         /// <param name="name">The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;.</param>
         /// <param name="version">The version of the pipeline to retrieve, e.g. &#x60;42&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Pipeline</returns>
         public async System.Threading.Tasks.Task<Pipeline> GetPipelineAsync(string collectionId, string type, string name, string version, string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1404,7 +1404,7 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="type">The type of the pipeline to retrieve.</param>
         /// <param name="name">The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;.</param>
         /// <param name="version">The version of the pipeline to retrieve, e.g. &#x60;42&#x60;.</param>
-        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Pipeline)</returns>
         public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Pipeline>> GetPipelineWithHttpInfoAsync(string collectionId, string type, string name, string version, string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1468,7 +1468,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1494,8 +1494,8 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
-        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>ListPipelinesResponse</returns>
         public ListPipelinesResponse ListPipelines(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string))
         {
@@ -1509,8 +1509,8 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
-        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>ApiResponse of ListPipelinesResponse</returns>
         public Com.Sajari.Sdk.Client.ApiResponse<ListPipelinesResponse> ListPipelinesWithHttpInfo(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string))
         {
@@ -1558,7 +1558,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1583,8 +1583,8 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
-        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListPipelinesResponse</returns>
         public async System.Threading.Tasks.Task<ListPipelinesResponse> ListPipelinesAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1599,8 +1599,8 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="pageSize">The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
-        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
-        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
+        /// <param name="pageToken">A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListPipelinesResponse)</returns>
         public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<ListPipelinesResponse>> ListPipelinesWithHttpInfoAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -1650,7 +1650,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1732,7 +1732,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1816,7 +1816,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -1916,7 +1916,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }
@@ -2018,7 +2018,7 @@ namespace Com.Sajari.Sdk.Api
 
             // authentication (BasicAuth) required
             // http basic authentication required
-            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password))
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
             }

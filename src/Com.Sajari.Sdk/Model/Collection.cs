@@ -40,7 +40,7 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Collection" /> class.
         /// </summary>
-        /// <param name="authorizedQueryDomains">The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request..</param>
+        /// <param name="authorizedQueryDomains">The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/docs/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request..</param>
         /// <param name="displayName">The collection&#39;s display name. You can change this at any time. (required).</param>
         public Collection(List<string> authorizedQueryDomains = default(List<string>), string displayName = default(string))
         {
@@ -68,9 +68,9 @@ namespace Com.Sajari.Sdk.Model
             return false;
         }
         /// <summary>
-        /// The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.
+        /// The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/docs/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.
         /// </summary>
-        /// <value>The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.</value>
+        /// <value>The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/docs/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.</value>
         [DataMember(Name = "authorized_query_domains", EmitDefaultValue = false)]
         public List<string> AuthorizedQueryDomains { get; set; }
 

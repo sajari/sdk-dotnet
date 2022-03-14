@@ -40,8 +40,8 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GeneratePipelinesRequest" /> class.
         /// </summary>
-        /// <param name="queryTrainingFields">List of fields to train query suggestions from..</param>
-        /// <param name="searchableFields">Prioritized list of fields to search. (required).</param>
+        /// <param name="queryTrainingFields">A list of fields to train query suggestions from..</param>
+        /// <param name="searchableFields">A prioritized list of fields to search. (required).</param>
         public GeneratePipelinesRequest(List<string> queryTrainingFields = default(List<string>), List<string> searchableFields = default(List<string>))
         {
             // to ensure "searchableFields" is required (not null)
@@ -53,16 +53,16 @@ namespace Com.Sajari.Sdk.Model
         }
 
         /// <summary>
-        /// List of fields to train query suggestions from.
+        /// A list of fields to train query suggestions from.
         /// </summary>
-        /// <value>List of fields to train query suggestions from.</value>
+        /// <value>A list of fields to train query suggestions from.</value>
         [DataMember(Name = "query_training_fields", EmitDefaultValue = false)]
         public List<string> QueryTrainingFields { get; set; }
 
         /// <summary>
-        /// Prioritized list of fields to search.
+        /// A prioritized list of fields to search.
         /// </summary>
-        /// <value>Prioritized list of fields to search.</value>
+        /// <value>A prioritized list of fields to search.</value>
         [DataMember(Name = "searchable_fields", IsRequired = true, EmitDefaultValue = false)]
         public List<string> SearchableFields { get; set; }
 
