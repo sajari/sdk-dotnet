@@ -36,8 +36,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a redirect in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirect">The redirect to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Redirect</returns>
-        Redirect CreateRedirect(string collectionId, Redirect redirect);
+        Redirect CreateRedirect(string collectionId, Redirect redirect, string accountId = default(string));
 
         /// <summary>
         /// Create redirect
@@ -48,8 +49,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a redirect in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirect">The redirect to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Redirect</returns>
-        ApiResponse<Redirect> CreateRedirectWithHttpInfo(string collectionId, Redirect redirect);
+        ApiResponse<Redirect> CreateRedirectWithHttpInfo(string collectionId, Redirect redirect, string accountId = default(string));
         /// <summary>
         /// Delete redirect
         /// </summary>
@@ -59,8 +61,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Object</returns>
-        Object DeleteRedirect(string collectionId, string redirectId);
+        Object DeleteRedirect(string collectionId, string redirectId, string accountId = default(string));
 
         /// <summary>
         /// Delete redirect
@@ -71,8 +74,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> DeleteRedirectWithHttpInfo(string collectionId, string redirectId);
+        ApiResponse<Object> DeleteRedirectWithHttpInfo(string collectionId, string redirectId, string accountId = default(string));
         /// <summary>
         /// Get redirect
         /// </summary>
@@ -82,8 +86,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the redirect, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Redirect</returns>
-        Redirect GetRedirect(string collectionId, string redirectId);
+        Redirect GetRedirect(string collectionId, string redirectId, string accountId = default(string));
 
         /// <summary>
         /// Get redirect
@@ -94,8 +99,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the redirect, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Redirect</returns>
-        ApiResponse<Redirect> GetRedirectWithHttpInfo(string collectionId, string redirectId);
+        ApiResponse<Redirect> GetRedirectWithHttpInfo(string collectionId, string redirectId, string accountId = default(string));
         /// <summary>
         /// List redirects
         /// </summary>
@@ -104,10 +110,11 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)</param>
         /// <returns>ListRedirectsResponse</returns>
-        ListRedirectsResponse ListRedirects(string collectionId, int? pageSize = default(int?), string pageToken = default(string));
+        ListRedirectsResponse ListRedirects(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string));
 
         /// <summary>
         /// List redirects
@@ -117,10 +124,11 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)</param>
         /// <returns>ApiResponse of ListRedirectsResponse</returns>
-        ApiResponse<ListRedirectsResponse> ListRedirectsWithHttpInfo(string collectionId, int? pageSize = default(int?), string pageToken = default(string));
+        ApiResponse<ListRedirectsResponse> ListRedirectsWithHttpInfo(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string));
         /// <summary>
         /// Update redirect
         /// </summary>
@@ -132,8 +140,9 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="redirectId">The redirect to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value.</param>
         /// <param name="redirect">Details of the redirect to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Redirect</returns>
-        Redirect UpdateRedirect(string collectionId, string redirectId, string updateMask, Redirect redirect);
+        Redirect UpdateRedirect(string collectionId, string redirectId, string updateMask, Redirect redirect, string accountId = default(string));
 
         /// <summary>
         /// Update redirect
@@ -146,8 +155,9 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="redirectId">The redirect to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value.</param>
         /// <param name="redirect">Details of the redirect to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Redirect</returns>
-        ApiResponse<Redirect> UpdateRedirectWithHttpInfo(string collectionId, string redirectId, string updateMask, Redirect redirect);
+        ApiResponse<Redirect> UpdateRedirectWithHttpInfo(string collectionId, string redirectId, string updateMask, Redirect redirect, string accountId = default(string));
         #endregion Synchronous Operations
     }
 
@@ -166,9 +176,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a redirect in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirect">The redirect to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Redirect</returns>
-        System.Threading.Tasks.Task<Redirect> CreateRedirectAsync(string collectionId, Redirect redirect, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Redirect> CreateRedirectAsync(string collectionId, Redirect redirect, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create redirect
@@ -179,9 +190,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a redirect in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirect">The redirect to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Redirect)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Redirect>> CreateRedirectWithHttpInfoAsync(string collectionId, Redirect redirect, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Redirect>> CreateRedirectWithHttpInfoAsync(string collectionId, Redirect redirect, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete redirect
         /// </summary>
@@ -191,9 +203,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> DeleteRedirectAsync(string collectionId, string redirectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> DeleteRedirectAsync(string collectionId, string redirectId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete redirect
@@ -204,9 +217,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRedirectWithHttpInfoAsync(string collectionId, string redirectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteRedirectWithHttpInfoAsync(string collectionId, string redirectId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get redirect
         /// </summary>
@@ -216,9 +230,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the redirect, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Redirect</returns>
-        System.Threading.Tasks.Task<Redirect> GetRedirectAsync(string collectionId, string redirectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Redirect> GetRedirectAsync(string collectionId, string redirectId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get redirect
@@ -229,9 +244,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the redirect, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Redirect)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Redirect>> GetRedirectWithHttpInfoAsync(string collectionId, string redirectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Redirect>> GetRedirectWithHttpInfoAsync(string collectionId, string redirectId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List redirects
         /// </summary>
@@ -240,11 +256,12 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListRedirectsResponse</returns>
-        System.Threading.Tasks.Task<ListRedirectsResponse> ListRedirectsAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListRedirectsResponse> ListRedirectsAsync(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List redirects
@@ -254,11 +271,12 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListRedirectsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListRedirectsResponse>> ListRedirectsWithHttpInfoAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListRedirectsResponse>> ListRedirectsWithHttpInfoAsync(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update redirect
         /// </summary>
@@ -270,9 +288,10 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="redirectId">The redirect to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value.</param>
         /// <param name="redirect">Details of the redirect to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Redirect</returns>
-        System.Threading.Tasks.Task<Redirect> UpdateRedirectAsync(string collectionId, string redirectId, string updateMask, Redirect redirect, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Redirect> UpdateRedirectAsync(string collectionId, string redirectId, string updateMask, Redirect redirect, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update redirect
@@ -285,9 +304,10 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="redirectId">The redirect to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value.</param>
         /// <param name="redirect">Details of the redirect to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Redirect)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Redirect>> UpdateRedirectWithHttpInfoAsync(string collectionId, string redirectId, string updateMask, Redirect redirect, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Redirect>> UpdateRedirectWithHttpInfoAsync(string collectionId, string redirectId, string updateMask, Redirect redirect, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -414,10 +434,11 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a redirect in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirect">The redirect to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Redirect</returns>
-        public Redirect CreateRedirect(string collectionId, Redirect redirect)
+        public Redirect CreateRedirect(string collectionId, Redirect redirect, string accountId = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Redirect> localVarResponse = CreateRedirectWithHttpInfo(collectionId, redirect);
+            Com.Sajari.Sdk.Client.ApiResponse<Redirect> localVarResponse = CreateRedirectWithHttpInfo(collectionId, redirect, accountId);
             return localVarResponse.Data;
         }
 
@@ -427,8 +448,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a redirect in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirect">The redirect to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Redirect</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<Redirect> CreateRedirectWithHttpInfo(string collectionId, Redirect redirect)
+        public Com.Sajari.Sdk.Client.ApiResponse<Redirect> CreateRedirectWithHttpInfo(string collectionId, Redirect redirect, string accountId = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -466,6 +488,10 @@ namespace Com.Sajari.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
             localVarRequestOptions.Data = redirect;
 
             // authentication (BasicAuth) required
@@ -495,11 +521,12 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a redirect in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirect">The redirect to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Redirect</returns>
-        public async System.Threading.Tasks.Task<Redirect> CreateRedirectAsync(string collectionId, Redirect redirect, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Redirect> CreateRedirectAsync(string collectionId, Redirect redirect, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Redirect> localVarResponse = await CreateRedirectWithHttpInfoAsync(collectionId, redirect, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<Redirect> localVarResponse = await CreateRedirectWithHttpInfoAsync(collectionId, redirect, accountId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -509,9 +536,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a redirect in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirect">The redirect to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Redirect)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Redirect>> CreateRedirectWithHttpInfoAsync(string collectionId, Redirect redirect, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Redirect>> CreateRedirectWithHttpInfoAsync(string collectionId, Redirect redirect, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -550,6 +578,10 @@ namespace Com.Sajari.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
             localVarRequestOptions.Data = redirect;
 
             // authentication (BasicAuth) required
@@ -580,10 +612,11 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Object</returns>
-        public Object DeleteRedirect(string collectionId, string redirectId)
+        public Object DeleteRedirect(string collectionId, string redirectId, string accountId = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = DeleteRedirectWithHttpInfo(collectionId, redirectId);
+            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = DeleteRedirectWithHttpInfo(collectionId, redirectId, accountId);
             return localVarResponse.Data;
         }
 
@@ -593,8 +626,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<Object> DeleteRedirectWithHttpInfo(string collectionId, string redirectId)
+        public Com.Sajari.Sdk.Client.ApiResponse<Object> DeleteRedirectWithHttpInfo(string collectionId, string redirectId, string accountId = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -632,6 +666,10 @@ namespace Com.Sajari.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("redirect_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(redirectId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
 
             // authentication (BasicAuth) required
             // http basic authentication required
@@ -660,11 +698,12 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> DeleteRedirectAsync(string collectionId, string redirectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> DeleteRedirectAsync(string collectionId, string redirectId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = await DeleteRedirectWithHttpInfoAsync(collectionId, redirectId, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = await DeleteRedirectWithHttpInfoAsync(collectionId, redirectId, accountId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -674,9 +713,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Object>> DeleteRedirectWithHttpInfoAsync(string collectionId, string redirectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Object>> DeleteRedirectWithHttpInfoAsync(string collectionId, string redirectId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -715,6 +755,10 @@ namespace Com.Sajari.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("redirect_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(redirectId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
 
             // authentication (BasicAuth) required
             // http basic authentication required
@@ -744,10 +788,11 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the redirect, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Redirect</returns>
-        public Redirect GetRedirect(string collectionId, string redirectId)
+        public Redirect GetRedirect(string collectionId, string redirectId, string accountId = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Redirect> localVarResponse = GetRedirectWithHttpInfo(collectionId, redirectId);
+            Com.Sajari.Sdk.Client.ApiResponse<Redirect> localVarResponse = GetRedirectWithHttpInfo(collectionId, redirectId, accountId);
             return localVarResponse.Data;
         }
 
@@ -757,8 +802,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the redirect, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Redirect</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<Redirect> GetRedirectWithHttpInfo(string collectionId, string redirectId)
+        public Com.Sajari.Sdk.Client.ApiResponse<Redirect> GetRedirectWithHttpInfo(string collectionId, string redirectId, string accountId = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -796,6 +842,10 @@ namespace Com.Sajari.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("redirect_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(redirectId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
 
             // authentication (BasicAuth) required
             // http basic authentication required
@@ -824,11 +874,12 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the redirect, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Redirect</returns>
-        public async System.Threading.Tasks.Task<Redirect> GetRedirectAsync(string collectionId, string redirectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Redirect> GetRedirectAsync(string collectionId, string redirectId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Redirect> localVarResponse = await GetRedirectWithHttpInfoAsync(collectionId, redirectId, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<Redirect> localVarResponse = await GetRedirectWithHttpInfoAsync(collectionId, redirectId, accountId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -838,9 +889,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the redirect, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="redirectId">The redirect to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Redirect)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Redirect>> GetRedirectWithHttpInfoAsync(string collectionId, string redirectId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Redirect>> GetRedirectWithHttpInfoAsync(string collectionId, string redirectId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -879,6 +931,10 @@ namespace Com.Sajari.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("redirect_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(redirectId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
 
             // authentication (BasicAuth) required
             // http basic authentication required
@@ -907,12 +963,13 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)</param>
         /// <returns>ListRedirectsResponse</returns>
-        public ListRedirectsResponse ListRedirects(string collectionId, int? pageSize = default(int?), string pageToken = default(string))
+        public ListRedirectsResponse ListRedirects(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<ListRedirectsResponse> localVarResponse = ListRedirectsWithHttpInfo(collectionId, pageSize, pageToken);
+            Com.Sajari.Sdk.Client.ApiResponse<ListRedirectsResponse> localVarResponse = ListRedirectsWithHttpInfo(collectionId, accountId, pageSize, pageToken);
             return localVarResponse.Data;
         }
 
@@ -921,10 +978,11 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)</param>
         /// <returns>ApiResponse of ListRedirectsResponse</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<ListRedirectsResponse> ListRedirectsWithHttpInfo(string collectionId, int? pageSize = default(int?), string pageToken = default(string))
+        public Com.Sajari.Sdk.Client.ApiResponse<ListRedirectsResponse> ListRedirectsWithHttpInfo(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -962,6 +1020,10 @@ namespace Com.Sajari.Sdk.Api
             if (pageToken != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page_token", pageToken));
+            }
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
             }
 
             // authentication (BasicAuth) required
@@ -990,13 +1052,14 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListRedirectsResponse</returns>
-        public async System.Threading.Tasks.Task<ListRedirectsResponse> ListRedirectsAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListRedirectsResponse> ListRedirectsAsync(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<ListRedirectsResponse> localVarResponse = await ListRedirectsWithHttpInfoAsync(collectionId, pageSize, pageToken, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<ListRedirectsResponse> localVarResponse = await ListRedirectsWithHttpInfoAsync(collectionId, accountId, pageSize, pageToken, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1005,11 +1068,12 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListRedirectsResponse)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<ListRedirectsResponse>> ListRedirectsWithHttpInfoAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<ListRedirectsResponse>> ListRedirectsWithHttpInfoAsync(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -1048,6 +1112,10 @@ namespace Com.Sajari.Sdk.Api
             if (pageToken != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page_token", pageToken));
+            }
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
             }
 
             // authentication (BasicAuth) required
@@ -1080,10 +1148,11 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="redirectId">The redirect to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value.</param>
         /// <param name="redirect">Details of the redirect to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Redirect</returns>
-        public Redirect UpdateRedirect(string collectionId, string redirectId, string updateMask, Redirect redirect)
+        public Redirect UpdateRedirect(string collectionId, string redirectId, string updateMask, Redirect redirect, string accountId = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Redirect> localVarResponse = UpdateRedirectWithHttpInfo(collectionId, redirectId, updateMask, redirect);
+            Com.Sajari.Sdk.Client.ApiResponse<Redirect> localVarResponse = UpdateRedirectWithHttpInfo(collectionId, redirectId, updateMask, redirect, accountId);
             return localVarResponse.Data;
         }
 
@@ -1095,8 +1164,9 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="redirectId">The redirect to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value.</param>
         /// <param name="redirect">Details of the redirect to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Redirect</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<Redirect> UpdateRedirectWithHttpInfo(string collectionId, string redirectId, string updateMask, Redirect redirect)
+        public Com.Sajari.Sdk.Client.ApiResponse<Redirect> UpdateRedirectWithHttpInfo(string collectionId, string redirectId, string updateMask, Redirect redirect, string accountId = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -1148,6 +1218,10 @@ namespace Com.Sajari.Sdk.Api
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("redirect_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(redirectId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
             localVarRequestOptions.Data = redirect;
 
             // authentication (BasicAuth) required
@@ -1179,11 +1253,12 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="redirectId">The redirect to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value.</param>
         /// <param name="redirect">Details of the redirect to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Redirect</returns>
-        public async System.Threading.Tasks.Task<Redirect> UpdateRedirectAsync(string collectionId, string redirectId, string updateMask, Redirect redirect, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Redirect> UpdateRedirectAsync(string collectionId, string redirectId, string updateMask, Redirect redirect, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Redirect> localVarResponse = await UpdateRedirectWithHttpInfoAsync(collectionId, redirectId, updateMask, redirect, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<Redirect> localVarResponse = await UpdateRedirectWithHttpInfoAsync(collectionId, redirectId, updateMask, redirect, accountId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1195,9 +1270,10 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="redirectId">The redirect to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value.</param>
         /// <param name="redirect">Details of the redirect to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Redirect)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Redirect>> UpdateRedirectWithHttpInfoAsync(string collectionId, string redirectId, string updateMask, Redirect redirect, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Redirect>> UpdateRedirectWithHttpInfoAsync(string collectionId, string redirectId, string updateMask, Redirect redirect, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -1250,6 +1326,10 @@ namespace Com.Sajari.Sdk.Api
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("redirect_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(redirectId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
             localVarRequestOptions.Data = redirect;
 
             // authentication (BasicAuth) required

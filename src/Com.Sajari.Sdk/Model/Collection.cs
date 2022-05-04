@@ -75,9 +75,9 @@ namespace Com.Sajari.Sdk.Model
         public List<string> AuthorizedQueryDomains { get; set; }
 
         /// <summary>
-        /// Output only. Time the collection was created.
+        /// Output only. The time the collection was created.
         /// </summary>
-        /// <value>Output only. Time the collection was created.</value>
+        /// <value>Output only. The time the collection was created.</value>
         [DataMember(Name = "create_time", EmitDefaultValue = false)]
         public DateTime CreateTime { get; private set; }
 

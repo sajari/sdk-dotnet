@@ -47,7 +47,7 @@ namespace Com.Sajari.Sdk.Model
         /// <param name="endTime">If specified, the promotion is considered disabled after this time..</param>
         /// <param name="exclusions">The records to exclude from search results, if the promotion is enabled..</param>
         /// <param name="filterBoosts">The filter boosts to apply to searches, if the promotion is enabled..</param>
-        /// <param name="filterConditions">The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion..</param>
+        /// <param name="filterConditions">The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion. A filter condition is comprised of a set of filters of the form &#x60;field &#x3D; value&#x60; and matches a query if all of those filters are present in the query.  For example, a query with the filter &#x60;productType &#x3D; &#39;shirt&#39; AND size &#x3D; &#39;medium&#39;&#x60; triggers a promotion with the filter condition &#x60;productType &#x3D; &#39;shirt&#39;&#x60;, but not one with both &#x60;productType &#x3D; &#39;shirt&#39;, and &#x60;size &#x3D; &#39;small&#39;&#x60;..</param>
         /// <param name="id">The promotion&#39;s ID..</param>
         /// <param name="pins">The items to fix to specific positions in the search results..</param>
         /// <param name="rangeBoosts">The range boosts to apply to searches, if the promotion is enabled..</param>
@@ -156,9 +156,9 @@ namespace Com.Sajari.Sdk.Model
         public List<PromotionFilterBoost> FilterBoosts { get; set; }
 
         /// <summary>
-        /// The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion.
+        /// The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion. A filter condition is comprised of a set of filters of the form &#x60;field &#x3D; value&#x60; and matches a query if all of those filters are present in the query.  For example, a query with the filter &#x60;productType &#x3D; &#39;shirt&#39; AND size &#x3D; &#39;medium&#39;&#x60; triggers a promotion with the filter condition &#x60;productType &#x3D; &#39;shirt&#39;&#x60;, but not one with both &#x60;productType &#x3D; &#39;shirt&#39;, and &#x60;size &#x3D; &#39;small&#39;&#x60;.
         /// </summary>
-        /// <value>The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion.</value>
+        /// <value>The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion. A filter condition is comprised of a set of filters of the form &#x60;field &#x3D; value&#x60; and matches a query if all of those filters are present in the query.  For example, a query with the filter &#x60;productType &#x3D; &#39;shirt&#39; AND size &#x3D; &#39;medium&#39;&#x60; triggers a promotion with the filter condition &#x60;productType &#x3D; &#39;shirt&#39;&#x60;, but not one with both &#x60;productType &#x3D; &#39;shirt&#39;, and &#x60;size &#x3D; &#39;small&#39;&#x60;.</value>
         [DataMember(Name = "filter_conditions", EmitDefaultValue = false)]
         public List<PromotionFilterCondition> FilterConditions { get; set; }
 

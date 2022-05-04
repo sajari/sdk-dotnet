@@ -36,8 +36,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;.</param>
         /// <param name="collection">Details of the collection to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Collection</returns>
-        Collection CreateCollection(string collectionId, Collection collection);
+        Collection CreateCollection(string collectionId, Collection collection, string accountId = default(string));
 
         /// <summary>
         /// Create collection
@@ -48,8 +49,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;.</param>
         /// <param name="collection">Details of the collection to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Collection</returns>
-        ApiResponse<Collection> CreateCollectionWithHttpInfo(string collectionId, Collection collection);
+        ApiResponse<Collection> CreateCollectionWithHttpInfo(string collectionId, Collection collection, string accountId = default(string));
         /// <summary>
         /// Delete collection
         /// </summary>
@@ -58,8 +60,9 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Object</returns>
-        Object DeleteCollection(string collectionId);
+        Object DeleteCollection(string collectionId, string accountId = default(string));
 
         /// <summary>
         /// Delete collection
@@ -69,8 +72,9 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> DeleteCollectionWithHttpInfo(string collectionId);
+        ApiResponse<Object> DeleteCollectionWithHttpInfo(string collectionId, string accountId = default(string));
         /// <summary>
         /// Experiment
         /// </summary>
@@ -102,8 +106,10 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to retrieve, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>Collection</returns>
-        Collection GetCollection(string collectionId);
+        Collection GetCollection(string collectionId, string accountId = default(string), string view = default(string));
 
         /// <summary>
         /// Get collection
@@ -113,8 +119,10 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to retrieve, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>ApiResponse of Collection</returns>
-        ApiResponse<Collection> GetCollectionWithHttpInfo(string collectionId);
+        ApiResponse<Collection> GetCollectionWithHttpInfo(string collectionId, string accountId = default(string), string view = default(string));
         /// <summary>
         /// List collections
         /// </summary>
@@ -122,10 +130,12 @@ namespace Com.Sajari.Sdk.Api
         /// Retrieve a list of collections in an account.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>ListCollectionsResponse</returns>
-        ListCollectionsResponse ListCollections(int? pageSize = default(int?), string pageToken = default(string));
+        ListCollectionsResponse ListCollections(string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string));
 
         /// <summary>
         /// List collections
@@ -134,10 +144,12 @@ namespace Com.Sajari.Sdk.Api
         /// Retrieve a list of collections in an account.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>ApiResponse of ListCollectionsResponse</returns>
-        ApiResponse<ListCollectionsResponse> ListCollectionsWithHttpInfo(int? pageSize = default(int?), string pageToken = default(string));
+        ApiResponse<ListCollectionsResponse> ListCollectionsWithHttpInfo(string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string));
         /// <summary>
         /// Query collection
         /// </summary>
@@ -192,7 +204,7 @@ namespace Com.Sajari.Sdk.Api
         /// Track event
         /// </summary>
         /// <remarks>
-        /// Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set &#x60;type&#x60; to &#x60;redirect&#x60;.  Note: You must pass an &#x60;Account-Id&#x60; header.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
@@ -205,7 +217,7 @@ namespace Com.Sajari.Sdk.Api
         /// Track event
         /// </summary>
         /// <remarks>
-        /// Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set &#x60;type&#x60; to &#x60;redirect&#x60;.  Note: You must pass an &#x60;Account-Id&#x60; header.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
@@ -222,9 +234,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <returns>Collection</returns>
-        Collection UpdateCollection(string collectionId, Collection collection, string updateMask = default(string));
+        Collection UpdateCollection(string collectionId, Collection collection, string accountId = default(string), string updateMask = default(string));
 
         /// <summary>
         /// Update collection
@@ -235,9 +248,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <returns>ApiResponse of Collection</returns>
-        ApiResponse<Collection> UpdateCollectionWithHttpInfo(string collectionId, Collection collection, string updateMask = default(string));
+        ApiResponse<Collection> UpdateCollectionWithHttpInfo(string collectionId, Collection collection, string accountId = default(string), string updateMask = default(string));
         #endregion Synchronous Operations
     }
 
@@ -256,9 +270,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;.</param>
         /// <param name="collection">Details of the collection to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Collection</returns>
-        System.Threading.Tasks.Task<Collection> CreateCollectionAsync(string collectionId, Collection collection, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Collection> CreateCollectionAsync(string collectionId, Collection collection, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create collection
@@ -269,9 +284,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;.</param>
         /// <param name="collection">Details of the collection to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Collection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Collection>> CreateCollectionWithHttpInfoAsync(string collectionId, Collection collection, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Collection>> CreateCollectionWithHttpInfoAsync(string collectionId, Collection collection, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete collection
         /// </summary>
@@ -280,9 +296,10 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> DeleteCollectionAsync(string collectionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> DeleteCollectionAsync(string collectionId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete collection
@@ -292,9 +309,10 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCollectionWithHttpInfoAsync(string collectionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCollectionWithHttpInfoAsync(string collectionId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Experiment
         /// </summary>
@@ -328,9 +346,11 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to retrieve, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Collection</returns>
-        System.Threading.Tasks.Task<Collection> GetCollectionAsync(string collectionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Collection> GetCollectionAsync(string collectionId, string accountId = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get collection
@@ -340,9 +360,11 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to retrieve, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Collection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Collection>> GetCollectionWithHttpInfoAsync(string collectionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Collection>> GetCollectionWithHttpInfoAsync(string collectionId, string accountId = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List collections
         /// </summary>
@@ -350,11 +372,13 @@ namespace Com.Sajari.Sdk.Api
         /// Retrieve a list of collections in an account.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListCollectionsResponse</returns>
-        System.Threading.Tasks.Task<ListCollectionsResponse> ListCollectionsAsync(int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListCollectionsResponse> ListCollectionsAsync(string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List collections
@@ -363,11 +387,13 @@ namespace Com.Sajari.Sdk.Api
         /// Retrieve a list of collections in an account.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListCollectionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListCollectionsResponse>> ListCollectionsWithHttpInfoAsync(int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListCollectionsResponse>> ListCollectionsWithHttpInfoAsync(string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Query collection
         /// </summary>
@@ -426,7 +452,7 @@ namespace Com.Sajari.Sdk.Api
         /// Track event
         /// </summary>
         /// <remarks>
-        /// Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set &#x60;type&#x60; to &#x60;redirect&#x60;.  Note: You must pass an &#x60;Account-Id&#x60; header.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
@@ -440,7 +466,7 @@ namespace Com.Sajari.Sdk.Api
         /// Track event
         /// </summary>
         /// <remarks>
-        /// Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set &#x60;type&#x60; to &#x60;redirect&#x60;.  Note: You must pass an &#x60;Account-Id&#x60; header.
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
@@ -458,10 +484,11 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Collection</returns>
-        System.Threading.Tasks.Task<Collection> UpdateCollectionAsync(string collectionId, Collection collection, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Collection> UpdateCollectionAsync(string collectionId, Collection collection, string accountId = default(string), string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update collection
@@ -472,10 +499,11 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Collection)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Collection>> UpdateCollectionWithHttpInfoAsync(string collectionId, Collection collection, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Collection>> UpdateCollectionWithHttpInfoAsync(string collectionId, Collection collection, string accountId = default(string), string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -602,10 +630,11 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;.</param>
         /// <param name="collection">Details of the collection to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Collection</returns>
-        public Collection CreateCollection(string collectionId, Collection collection)
+        public Collection CreateCollection(string collectionId, Collection collection, string accountId = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = CreateCollectionWithHttpInfo(collectionId, collection);
+            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = CreateCollectionWithHttpInfo(collectionId, collection, accountId);
             return localVarResponse.Data;
         }
 
@@ -615,8 +644,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;.</param>
         /// <param name="collection">Details of the collection to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Collection</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<Collection> CreateCollectionWithHttpInfo(string collectionId, Collection collection)
+        public Com.Sajari.Sdk.Client.ApiResponse<Collection> CreateCollectionWithHttpInfo(string collectionId, Collection collection, string accountId = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -654,6 +684,10 @@ namespace Com.Sajari.Sdk.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "collection_id", collectionId));
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
             localVarRequestOptions.Data = collection;
 
             // authentication (BasicAuth) required
@@ -683,11 +717,12 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;.</param>
         /// <param name="collection">Details of the collection to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Collection</returns>
-        public async System.Threading.Tasks.Task<Collection> CreateCollectionAsync(string collectionId, Collection collection, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Collection> CreateCollectionAsync(string collectionId, Collection collection, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = await CreateCollectionWithHttpInfoAsync(collectionId, collection, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = await CreateCollectionWithHttpInfoAsync(collectionId, collection, accountId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -697,9 +732,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;.</param>
         /// <param name="collection">Details of the collection to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Collection)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Collection>> CreateCollectionWithHttpInfoAsync(string collectionId, Collection collection, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Collection>> CreateCollectionWithHttpInfoAsync(string collectionId, Collection collection, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -738,6 +774,10 @@ namespace Com.Sajari.Sdk.Api
             }
 
             localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "collection_id", collectionId));
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
             localVarRequestOptions.Data = collection;
 
             // authentication (BasicAuth) required
@@ -767,10 +807,11 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Object</returns>
-        public Object DeleteCollection(string collectionId)
+        public Object DeleteCollection(string collectionId, string accountId = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = DeleteCollectionWithHttpInfo(collectionId);
+            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = DeleteCollectionWithHttpInfo(collectionId, accountId);
             return localVarResponse.Data;
         }
 
@@ -779,8 +820,9 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<Object> DeleteCollectionWithHttpInfo(string collectionId)
+        public Com.Sajari.Sdk.Client.ApiResponse<Object> DeleteCollectionWithHttpInfo(string collectionId, string accountId = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -811,6 +853,10 @@ namespace Com.Sajari.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
 
             // authentication (BasicAuth) required
             // http basic authentication required
@@ -838,11 +884,12 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> DeleteCollectionAsync(string collectionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> DeleteCollectionAsync(string collectionId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = await DeleteCollectionWithHttpInfoAsync(collectionId, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = await DeleteCollectionWithHttpInfoAsync(collectionId, accountId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -851,9 +898,10 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to delete, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Object>> DeleteCollectionWithHttpInfoAsync(string collectionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Object>> DeleteCollectionWithHttpInfoAsync(string collectionId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -885,6 +933,10 @@ namespace Com.Sajari.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
 
             // authentication (BasicAuth) required
             // http basic authentication required
@@ -1079,10 +1131,12 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to retrieve, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>Collection</returns>
-        public Collection GetCollection(string collectionId)
+        public Collection GetCollection(string collectionId, string accountId = default(string), string view = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = GetCollectionWithHttpInfo(collectionId);
+            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = GetCollectionWithHttpInfo(collectionId, accountId, view);
             return localVarResponse.Data;
         }
 
@@ -1091,8 +1145,10 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to retrieve, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>ApiResponse of Collection</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<Collection> GetCollectionWithHttpInfo(string collectionId)
+        public Com.Sajari.Sdk.Client.ApiResponse<Collection> GetCollectionWithHttpInfo(string collectionId, string accountId = default(string), string view = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -1123,6 +1179,14 @@ namespace Com.Sajari.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            if (view != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "view", view));
+            }
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
 
             // authentication (BasicAuth) required
             // http basic authentication required
@@ -1150,11 +1214,13 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to retrieve, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Collection</returns>
-        public async System.Threading.Tasks.Task<Collection> GetCollectionAsync(string collectionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Collection> GetCollectionAsync(string collectionId, string accountId = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = await GetCollectionWithHttpInfoAsync(collectionId, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = await GetCollectionWithHttpInfoAsync(collectionId, accountId, view, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1163,9 +1229,11 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to retrieve, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
+        /// <param name="view">The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Collection)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Collection>> GetCollectionWithHttpInfoAsync(string collectionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Collection>> GetCollectionWithHttpInfoAsync(string collectionId, string accountId = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -1197,6 +1265,14 @@ namespace Com.Sajari.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            if (view != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "view", view));
+            }
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
 
             // authentication (BasicAuth) required
             // http basic authentication required
@@ -1224,12 +1300,14 @@ namespace Com.Sajari.Sdk.Api
         /// List collections Retrieve a list of collections in an account.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>ListCollectionsResponse</returns>
-        public ListCollectionsResponse ListCollections(int? pageSize = default(int?), string pageToken = default(string))
+        public ListCollectionsResponse ListCollections(string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<ListCollectionsResponse> localVarResponse = ListCollectionsWithHttpInfo(pageSize, pageToken);
+            Com.Sajari.Sdk.Client.ApiResponse<ListCollectionsResponse> localVarResponse = ListCollectionsWithHttpInfo(accountId, pageSize, pageToken, view);
             return localVarResponse.Data;
         }
 
@@ -1237,10 +1315,12 @@ namespace Com.Sajari.Sdk.Api
         /// List collections Retrieve a list of collections in an account.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <returns>ApiResponse of ListCollectionsResponse</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<ListCollectionsResponse> ListCollectionsWithHttpInfo(int? pageSize = default(int?), string pageToken = default(string))
+        public Com.Sajari.Sdk.Client.ApiResponse<ListCollectionsResponse> ListCollectionsWithHttpInfo(string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string))
         {
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
 
@@ -1271,6 +1351,14 @@ namespace Com.Sajari.Sdk.Api
             if (pageToken != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page_token", pageToken));
+            }
+            if (view != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "view", view));
+            }
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
             }
 
             // authentication (BasicAuth) required
@@ -1298,13 +1386,15 @@ namespace Com.Sajari.Sdk.Api
         /// List collections Retrieve a list of collections in an account.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListCollectionsResponse</returns>
-        public async System.Threading.Tasks.Task<ListCollectionsResponse> ListCollectionsAsync(int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListCollectionsResponse> ListCollectionsAsync(string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<ListCollectionsResponse> localVarResponse = await ListCollectionsWithHttpInfoAsync(pageSize, pageToken, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<ListCollectionsResponse> localVarResponse = await ListCollectionsWithHttpInfoAsync(accountId, pageSize, pageToken, view, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1312,11 +1402,13 @@ namespace Com.Sajari.Sdk.Api
         /// List collections Retrieve a list of collections in an account.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="accountId">The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)</param>
+        /// <param name="view">The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. (optional, default to VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListCollectionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<ListCollectionsResponse>> ListCollectionsWithHttpInfoAsync(int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<ListCollectionsResponse>> ListCollectionsWithHttpInfoAsync(string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
@@ -1348,6 +1440,14 @@ namespace Com.Sajari.Sdk.Api
             if (pageToken != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page_token", pageToken));
+            }
+            if (view != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "view", view));
+            }
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
             }
 
             // authentication (BasicAuth) required
@@ -1721,7 +1821,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Track event Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// Track event Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set &#x60;type&#x60; to &#x60;redirect&#x60;.  Note: You must pass an &#x60;Account-Id&#x60; header.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
@@ -1735,7 +1835,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Track event Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// Track event Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set &#x60;type&#x60; to &#x60;redirect&#x60;.  Note: You must pass an &#x60;Account-Id&#x60; header.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
@@ -1811,7 +1911,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Track event Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// Track event Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set &#x60;type&#x60; to &#x60;redirect&#x60;.  Note: You must pass an &#x60;Account-Id&#x60; header.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
@@ -1826,7 +1926,7 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
-        /// Track event Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an &#x60;Account-Id&#x60; header.
+        /// Track event Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set &#x60;type&#x60; to &#x60;redirect&#x60;.  Note: You must pass an &#x60;Account-Id&#x60; header.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.</param>
@@ -1910,11 +2010,12 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <returns>Collection</returns>
-        public Collection UpdateCollection(string collectionId, Collection collection, string updateMask = default(string))
+        public Collection UpdateCollection(string collectionId, Collection collection, string accountId = default(string), string updateMask = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = UpdateCollectionWithHttpInfo(collectionId, collection, updateMask);
+            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = UpdateCollectionWithHttpInfo(collectionId, collection, accountId, updateMask);
             return localVarResponse.Data;
         }
 
@@ -1924,9 +2025,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <returns>ApiResponse of Collection</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<Collection> UpdateCollectionWithHttpInfo(string collectionId, Collection collection, string updateMask = default(string))
+        public Com.Sajari.Sdk.Client.ApiResponse<Collection> UpdateCollectionWithHttpInfo(string collectionId, Collection collection, string accountId = default(string), string updateMask = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -1967,6 +2069,10 @@ namespace Com.Sajari.Sdk.Api
             if (updateMask != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
+            }
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
             }
             localVarRequestOptions.Data = collection;
 
@@ -1997,12 +2103,13 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Collection</returns>
-        public async System.Threading.Tasks.Task<Collection> UpdateCollectionAsync(string collectionId, Collection collection, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Collection> UpdateCollectionAsync(string collectionId, Collection collection, string accountId = default(string), string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = await UpdateCollectionWithHttpInfoAsync(collectionId, collection, updateMask, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<Collection> localVarResponse = await UpdateCollectionWithHttpInfoAsync(collectionId, collection, accountId, updateMask, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2012,10 +2119,11 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to update, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="collection">The details of the collection to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Collection)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Collection>> UpdateCollectionWithHttpInfoAsync(string collectionId, Collection collection, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Collection>> UpdateCollectionWithHttpInfoAsync(string collectionId, Collection collection, string accountId = default(string), string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -2057,6 +2165,10 @@ namespace Com.Sajari.Sdk.Api
             if (updateMask != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
+            }
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
             }
             localVarRequestOptions.Data = collection;
 

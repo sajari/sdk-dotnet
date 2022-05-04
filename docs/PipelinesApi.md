@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 <a name="createpipeline"></a>
 # **CreatePipeline**
-> Pipeline CreatePipeline (string collectionId, Pipeline pipeline)
+> Pipeline CreatePipeline (string collectionId, Pipeline pipeline, string accountId = null)
 
 Create pipeline
 
@@ -45,11 +45,12 @@ namespace Example
             var apiInstance = new PipelinesApi(config);
             var collectionId = "collectionId_example";  // string | The collection to create the pipeline in, e.g. `my-collection`.
             var pipeline = new Pipeline(); // Pipeline | The pipeline to create.
+            var accountId = "accountId_example";  // string | The account that owns the collection, e.g. `1618535966441231024`. (optional) 
 
             try
             {
                 // Create pipeline
-                Pipeline result = apiInstance.CreatePipeline(collectionId, pipeline);
+                Pipeline result = apiInstance.CreatePipeline(collectionId, pipeline, accountId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -69,6 +70,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **string**| The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. | 
  **pipeline** | [**Pipeline**](Pipeline.md)| The pipeline to create. | 
+ **accountId** | **string**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] 
 
 ### Return type
 
@@ -262,7 +264,7 @@ Name | Type | Description  | Notes
 
 <a name="getdefaultversion"></a>
 # **GetDefaultVersion**
-> Pipeline GetDefaultVersion (string collectionId, string type, string name, string view = null)
+> Pipeline GetDefaultVersion (string collectionId, string type, string name, string accountId = null, string view = null)
 
 Get default pipeline version
 
@@ -292,12 +294,13 @@ namespace Example
             var collectionId = "collectionId_example";  // string | The collection that owns the pipeline to get the default version of, e.g. `my-collection`.
             var type = "TYPE_UNSPECIFIED";  // string | The type of the pipeline to get the default version of.
             var name = "name_example";  // string | The name of the pipeline to get the default version of, e.g. `my-pipeline`.
+            var accountId = "accountId_example";  // string | The account that owns the collection, e.g. `1618535966441231024`. (optional) 
             var view = "VIEW_UNSPECIFIED";  // string | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional)  (default to VIEW_UNSPECIFIED)
 
             try
             {
                 // Get default pipeline version
-                Pipeline result = apiInstance.GetDefaultVersion(collectionId, type, name, view);
+                Pipeline result = apiInstance.GetDefaultVersion(collectionId, type, name, accountId, view);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -318,6 +321,7 @@ Name | Type | Description  | Notes
  **collectionId** | **string**| The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. | 
  **type** | **string**| The type of the pipeline to get the default version of. | 
  **name** | **string**| The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. | 
+ **accountId** | **string**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] 
  **view** | **string**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to VIEW_UNSPECIFIED]
 
 ### Return type
@@ -348,7 +352,7 @@ Name | Type | Description  | Notes
 
 <a name="getpipeline"></a>
 # **GetPipeline**
-> Pipeline GetPipeline (string collectionId, string type, string name, string version, string view = null)
+> Pipeline GetPipeline (string collectionId, string type, string name, string version, string accountId = null, string view = null)
 
 Get pipeline
 
@@ -379,12 +383,13 @@ namespace Example
             var type = "TYPE_UNSPECIFIED";  // string | The type of the pipeline to retrieve.
             var name = "name_example";  // string | The name of the pipeline to retrieve, e.g. `my-pipeline`.
             var version = "version_example";  // string | The version of the pipeline to retrieve, e.g. `42`.
+            var accountId = "accountId_example";  // string | The account that owns the collection, e.g. `1618535966441231024`. (optional) 
             var view = "VIEW_UNSPECIFIED";  // string | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional)  (default to VIEW_UNSPECIFIED)
 
             try
             {
                 // Get pipeline
-                Pipeline result = apiInstance.GetPipeline(collectionId, type, name, version, view);
+                Pipeline result = apiInstance.GetPipeline(collectionId, type, name, version, accountId, view);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -406,6 +411,7 @@ Name | Type | Description  | Notes
  **type** | **string**| The type of the pipeline to retrieve. | 
  **name** | **string**| The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. | 
  **version** | **string**| The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. | 
+ **accountId** | **string**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] 
  **view** | **string**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to VIEW_UNSPECIFIED]
 
 ### Return type
@@ -436,7 +442,7 @@ Name | Type | Description  | Notes
 
 <a name="listpipelines"></a>
 # **ListPipelines**
-> ListPipelinesResponse ListPipelines (string collectionId, int? pageSize = null, string pageToken = null, string view = null)
+> ListPipelinesResponse ListPipelines (string collectionId, string accountId = null, int? pageSize = null, string pageToken = null, string view = null)
 
 List pipelines
 
@@ -464,6 +470,7 @@ namespace Example
 
             var apiInstance = new PipelinesApi(config);
             var collectionId = "collectionId_example";  // string | The collection that owns this set of pipelines, e.g. `my-collection`.
+            var accountId = "accountId_example";  // string | The account that owns the collection, e.g. `1618535966441231024`. (optional) 
             var pageSize = 56;  // int? | The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional) 
             var pageToken = "pageToken_example";  // string | A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional) 
             var view = "VIEW_UNSPECIFIED";  // string | The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional)  (default to VIEW_UNSPECIFIED)
@@ -471,7 +478,7 @@ namespace Example
             try
             {
                 // List pipelines
-                ListPipelinesResponse result = apiInstance.ListPipelines(collectionId, pageSize, pageToken, view);
+                ListPipelinesResponse result = apiInstance.ListPipelines(collectionId, accountId, pageSize, pageToken, view);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -490,6 +497,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **string**| The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. | 
+ **accountId** | **string**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] 
  **pageSize** | **int?**| The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional] 
  **pageToken** | **string**| A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. | [optional] 
  **view** | **string**| The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] [default to VIEW_UNSPECIFIED]

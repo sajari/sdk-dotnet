@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 <a name="createcollection"></a>
 # **CreateCollection**
-> Collection CreateCollection (string collectionId, Collection collection)
+> Collection CreateCollection (string collectionId, Collection collection, string accountId = null)
 
 Create collection
 
@@ -46,11 +46,12 @@ namespace Example
             var apiInstance = new CollectionsApi(config);
             var collectionId = "collectionId_example";  // string | The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or `-` characters. Strictly speaking, it must match the regular expression: `^[A-Za-z][A-Za-z0-9\\-]*$`.
             var collection = new Collection(); // Collection | Details of the collection to create.
+            var accountId = "accountId_example";  // string | The account that owns the collection, e.g. `1618535966441231024`. (optional) 
 
             try
             {
                 // Create collection
-                Collection result = apiInstance.CreateCollection(collectionId, collection);
+                Collection result = apiInstance.CreateCollection(collectionId, collection, accountId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -70,6 +71,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **string**| The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. | 
  **collection** | [**Collection**](Collection.md)| Details of the collection to create. | 
+ **accountId** | **string**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] 
 
 ### Return type
 
@@ -101,7 +103,7 @@ Name | Type | Description  | Notes
 
 <a name="deletecollection"></a>
 # **DeleteCollection**
-> Object DeleteCollection (string collectionId)
+> Object DeleteCollection (string collectionId, string accountId = null)
 
 Delete collection
 
@@ -129,11 +131,12 @@ namespace Example
 
             var apiInstance = new CollectionsApi(config);
             var collectionId = "collectionId_example";  // string | The collection to delete, e.g. `my-collection`.
+            var accountId = "accountId_example";  // string | The account that owns the collection, e.g. `1618535966441231024`. (optional) 
 
             try
             {
                 // Delete collection
-                Object result = apiInstance.DeleteCollection(collectionId);
+                Object result = apiInstance.DeleteCollection(collectionId, accountId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -152,6 +155,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **string**| The collection to delete, e.g. &#x60;my-collection&#x60;. | 
+ **accountId** | **string**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] 
 
 ### Return type
 
@@ -263,7 +267,7 @@ Name | Type | Description  | Notes
 
 <a name="getcollection"></a>
 # **GetCollection**
-> Collection GetCollection (string collectionId)
+> Collection GetCollection (string collectionId, string accountId = null, string view = null)
 
 Get collection
 
@@ -291,11 +295,13 @@ namespace Example
 
             var apiInstance = new CollectionsApi(config);
             var collectionId = "collectionId_example";  // string | The collection to retrieve, e.g. `my-collection`.
+            var accountId = "accountId_example";  // string | The account that owns the collection, e.g. `1618535966441231024`. (optional) 
+            var view = "VIEW_UNSPECIFIED";  // string | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage. (optional)  (default to VIEW_UNSPECIFIED)
 
             try
             {
                 // Get collection
-                Collection result = apiInstance.GetCollection(collectionId);
+                Collection result = apiInstance.GetCollection(collectionId, accountId, view);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -314,6 +320,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **string**| The collection to retrieve, e.g. &#x60;my-collection&#x60;. | 
+ **accountId** | **string**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] 
+ **view** | **string**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. | [optional] [default to VIEW_UNSPECIFIED]
 
 ### Return type
 
@@ -343,7 +351,7 @@ Name | Type | Description  | Notes
 
 <a name="listcollections"></a>
 # **ListCollections**
-> ListCollectionsResponse ListCollections (int? pageSize = null, string pageToken = null)
+> ListCollectionsResponse ListCollections (string accountId = null, int? pageSize = null, string pageToken = null, string view = null)
 
 List collections
 
@@ -370,13 +378,15 @@ namespace Example
             config.Password = "YOUR_PASSWORD";
 
             var apiInstance = new CollectionsApi(config);
+            var accountId = "accountId_example";  // string | The account that owns this set of collections, e.g. `1618535966441231024`. (optional) 
             var pageSize = 56;  // int? | The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional) 
             var pageToken = "pageToken_example";  // string | A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional) 
+            var view = "VIEW_UNSPECIFIED";  // string | The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage. (optional)  (default to VIEW_UNSPECIFIED)
 
             try
             {
                 // List collections
-                ListCollectionsResponse result = apiInstance.ListCollections(pageSize, pageToken);
+                ListCollectionsResponse result = apiInstance.ListCollections(accountId, pageSize, pageToken, view);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -394,8 +404,10 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **accountId** | **string**| The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. | [optional] 
  **pageSize** | **int?**| The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. | [optional] 
  **pageToken** | **string**| A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. | [optional] 
+ **view** | **string**| The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. | [optional] [default to VIEW_UNSPECIFIED]
 
 ### Return type
 
@@ -595,7 +607,7 @@ Name | Type | Description  | Notes
 
 Track event
 
-Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an `Account-Id` header.
+Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set `type` to `redirect`.  Note: You must pass an `Account-Id` header.
 
 ### Example
 ```csharp
@@ -675,7 +687,7 @@ Name | Type | Description  | Notes
 
 <a name="updatecollection"></a>
 # **UpdateCollection**
-> Collection UpdateCollection (string collectionId, Collection collection, string updateMask = null)
+> Collection UpdateCollection (string collectionId, Collection collection, string accountId = null, string updateMask = null)
 
 Update collection
 
@@ -704,12 +716,13 @@ namespace Example
             var apiInstance = new CollectionsApi(config);
             var collectionId = "collectionId_example";  // string | The collection to update, e.g. `my-collection`.
             var collection = new Collection(); // Collection | The details of the collection to update.
+            var accountId = "accountId_example";  // string | The account that owns the collection, e.g. `1618535966441231024`. (optional) 
             var updateMask = "updateMask_example";  // string | The list of fields to update, separated by a comma, e.g. `authorized_query_domains,display_name`.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional) 
 
             try
             {
                 // Update collection
-                Collection result = apiInstance.UpdateCollection(collectionId, collection, updateMask);
+                Collection result = apiInstance.UpdateCollection(collectionId, collection, accountId, updateMask);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -729,6 +742,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **string**| The collection to update, e.g. &#x60;my-collection&#x60;. | 
  **collection** | [**Collection**](Collection.md)| The details of the collection to update. | 
+ **accountId** | **string**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] 
  **updateMask** | **string**| The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. | [optional] 
 
 ### Return type

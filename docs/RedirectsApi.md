@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 <a name="createredirect"></a>
 # **CreateRedirect**
-> Redirect CreateRedirect (string collectionId, Redirect redirect)
+> Redirect CreateRedirect (string collectionId, Redirect redirect, string accountId = null)
 
 Create redirect
 
@@ -42,11 +42,12 @@ namespace Example
             var apiInstance = new RedirectsApi(config);
             var collectionId = "collectionId_example";  // string | The collection to create a redirect in, e.g. `my-collection`.
             var redirect = new Redirect(); // Redirect | The redirect to create.
+            var accountId = "accountId_example";  // string | The account that owns the collection, e.g. `1618535966441231024`. (optional) 
 
             try
             {
                 // Create redirect
-                Redirect result = apiInstance.CreateRedirect(collectionId, redirect);
+                Redirect result = apiInstance.CreateRedirect(collectionId, redirect, accountId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -66,6 +67,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **string**| The collection to create a redirect in, e.g. &#x60;my-collection&#x60;. | 
  **redirect** | [**Redirect**](Redirect.md)| The redirect to create. | 
+ **accountId** | **string**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] 
 
 ### Return type
 
@@ -95,7 +97,7 @@ Name | Type | Description  | Notes
 
 <a name="deleteredirect"></a>
 # **DeleteRedirect**
-> Object DeleteRedirect (string collectionId, string redirectId)
+> Object DeleteRedirect (string collectionId, string redirectId, string accountId = null)
 
 Delete redirect
 
@@ -124,11 +126,12 @@ namespace Example
             var apiInstance = new RedirectsApi(config);
             var collectionId = "collectionId_example";  // string | The collection the redirect belongs to, e.g. `my-collection`.
             var redirectId = "redirectId_example";  // string | The redirect to delete, e.g. `1234`.
+            var accountId = "accountId_example";  // string | The account that owns the collection, e.g. `1618535966441231024`. (optional) 
 
             try
             {
                 // Delete redirect
-                Object result = apiInstance.DeleteRedirect(collectionId, redirectId);
+                Object result = apiInstance.DeleteRedirect(collectionId, redirectId, accountId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -148,6 +151,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **string**| The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;. | 
  **redirectId** | **string**| The redirect to delete, e.g. &#x60;1234&#x60;. | 
+ **accountId** | **string**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] 
 
 ### Return type
 
@@ -177,7 +181,7 @@ Name | Type | Description  | Notes
 
 <a name="getredirect"></a>
 # **GetRedirect**
-> Redirect GetRedirect (string collectionId, string redirectId)
+> Redirect GetRedirect (string collectionId, string redirectId, string accountId = null)
 
 Get redirect
 
@@ -206,11 +210,12 @@ namespace Example
             var apiInstance = new RedirectsApi(config);
             var collectionId = "collectionId_example";  // string | The collection that owns the redirect, e.g. `my-collection`.
             var redirectId = "redirectId_example";  // string | The redirect to retrieve, e.g. `1234`.
+            var accountId = "accountId_example";  // string | The account that owns the collection, e.g. `1618535966441231024`. (optional) 
 
             try
             {
                 // Get redirect
-                Redirect result = apiInstance.GetRedirect(collectionId, redirectId);
+                Redirect result = apiInstance.GetRedirect(collectionId, redirectId, accountId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -230,6 +235,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **string**| The collection that owns the redirect, e.g. &#x60;my-collection&#x60;. | 
  **redirectId** | **string**| The redirect to retrieve, e.g. &#x60;1234&#x60;. | 
+ **accountId** | **string**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] 
 
 ### Return type
 
@@ -259,7 +265,7 @@ Name | Type | Description  | Notes
 
 <a name="listredirects"></a>
 # **ListRedirects**
-> ListRedirectsResponse ListRedirects (string collectionId, int? pageSize = null, string pageToken = null)
+> ListRedirectsResponse ListRedirects (string collectionId, string accountId = null, int? pageSize = null, string pageToken = null)
 
 List redirects
 
@@ -287,13 +293,14 @@ namespace Example
 
             var apiInstance = new RedirectsApi(config);
             var collectionId = "collectionId_example";  // string | The collection that owns this set of redirects, e.g. `my-collection`.
+            var accountId = "accountId_example";  // string | The account that owns the collection, e.g. `1618535966441231024`. (optional) 
             var pageSize = 56;  // int? | The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional) 
             var pageToken = "pageToken_example";  // string | A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional) 
 
             try
             {
                 // List redirects
-                ListRedirectsResponse result = apiInstance.ListRedirects(collectionId, pageSize, pageToken);
+                ListRedirectsResponse result = apiInstance.ListRedirects(collectionId, accountId, pageSize, pageToken);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -312,6 +319,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collectionId** | **string**| The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. | 
+ **accountId** | **string**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] 
  **pageSize** | **int?**| The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional] 
  **pageToken** | **string**| A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. | [optional] 
 
@@ -343,7 +351,7 @@ Name | Type | Description  | Notes
 
 <a name="updateredirect"></a>
 # **UpdateRedirect**
-> Redirect UpdateRedirect (string collectionId, string redirectId, string updateMask, Redirect redirect)
+> Redirect UpdateRedirect (string collectionId, string redirectId, string updateMask, Redirect redirect, string accountId = null)
 
 Update redirect
 
@@ -374,11 +382,12 @@ namespace Example
             var redirectId = "redirectId_example";  // string | The redirect to update, e.g. `1234`.
             var updateMask = "updateMask_example";  // string | The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  Each field should be in snake case, e.g. `condition`, `target`.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value.
             var redirect = new Redirect(); // Redirect | Details of the redirect to update.
+            var accountId = "accountId_example";  // string | The account that owns the collection, e.g. `1618535966441231024`. (optional) 
 
             try
             {
                 // Update redirect
-                Redirect result = apiInstance.UpdateRedirect(collectionId, redirectId, updateMask, redirect);
+                Redirect result = apiInstance.UpdateRedirect(collectionId, redirectId, updateMask, redirect, accountId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -400,6 +409,7 @@ Name | Type | Description  | Notes
  **redirectId** | **string**| The redirect to update, e.g. &#x60;1234&#x60;. | 
  **updateMask** | **string**| The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value. | 
  **redirect** | [**Redirect**](Redirect.md)| Details of the redirect to update. | 
+ **accountId** | **string**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional] 
 
 ### Return type
 
