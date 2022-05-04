@@ -18,6 +18,7 @@ docs/BatchUpsertRecordsResponseError.md
 docs/BatchUpsertRecordsResponseKey.md
 docs/BatchUpsertRecordsResponseVariables.md
 docs/Collection.md
+docs/CollectionType.md
 docs/CollectionsApi.md
 docs/DeleteRecordRequest.md
 docs/Error.md
@@ -28,10 +29,12 @@ docs/ExperimentRequestPipeline.md
 docs/ExperimentResponse.md
 docs/GeneratePipelinesRequest.md
 docs/GeneratePipelinesResponse.md
+docs/GetCollectionRequestView.md
 docs/GetDefaultPipelineResponse.md
 docs/GetDefaultVersionRequestView.md
 docs/GetPipelineRequestView.md
 docs/GetRecordRequest.md
+docs/ListCollectionsRequestView.md
 docs/ListCollectionsResponse.md
 docs/ListPipelinesRequestView.md
 docs/ListPipelinesResponse.md
@@ -94,14 +97,6 @@ docs/UpsertRecordRequest.md
 docs/UpsertRecordRequestPipeline.md
 docs/UpsertRecordResponse.md
 src/Com.Sajari.Sdk.Test/Com.Sajari.Sdk.Test.csproj
-src/Com.Sajari.Sdk.Test/Model/BannerTests.cs
-src/Com.Sajari.Sdk.Test/Model/EventTests.cs
-src/Com.Sajari.Sdk.Test/Model/ExperimentRequestPipelineTests.cs
-src/Com.Sajari.Sdk.Test/Model/ExperimentRequestTests.cs
-src/Com.Sajari.Sdk.Test/Model/ExperimentResponseTests.cs
-src/Com.Sajari.Sdk.Test/Model/ListPromotionsRequestPromotionViewTests.cs
-src/Com.Sajari.Sdk.Test/Model/PromotionPinModeTests.cs
-src/Com.Sajari.Sdk.Test/Model/TextPositionTests.cs
 src/Com.Sajari.Sdk/Api/CollectionsApi.cs
 src/Com.Sajari.Sdk/Api/EventsApi.cs
 src/Com.Sajari.Sdk/Api/PipelinesApi.cs
@@ -143,6 +138,7 @@ src/Com.Sajari.Sdk/Model/BatchUpsertRecordsResponseError.cs
 src/Com.Sajari.Sdk/Model/BatchUpsertRecordsResponseKey.cs
 src/Com.Sajari.Sdk/Model/BatchUpsertRecordsResponseVariables.cs
 src/Com.Sajari.Sdk/Model/Collection.cs
+src/Com.Sajari.Sdk/Model/CollectionType.cs
 src/Com.Sajari.Sdk/Model/DeleteRecordRequest.cs
 src/Com.Sajari.Sdk/Model/Error.cs
 src/Com.Sajari.Sdk/Model/Event.cs
@@ -151,10 +147,12 @@ src/Com.Sajari.Sdk/Model/ExperimentRequestPipeline.cs
 src/Com.Sajari.Sdk/Model/ExperimentResponse.cs
 src/Com.Sajari.Sdk/Model/GeneratePipelinesRequest.cs
 src/Com.Sajari.Sdk/Model/GeneratePipelinesResponse.cs
+src/Com.Sajari.Sdk/Model/GetCollectionRequestView.cs
 src/Com.Sajari.Sdk/Model/GetDefaultPipelineResponse.cs
 src/Com.Sajari.Sdk/Model/GetDefaultVersionRequestView.cs
 src/Com.Sajari.Sdk/Model/GetPipelineRequestView.cs
 src/Com.Sajari.Sdk/Model/GetRecordRequest.cs
+src/Com.Sajari.Sdk/Model/ListCollectionsRequestView.cs
 src/Com.Sajari.Sdk/Model/ListCollectionsResponse.cs
 src/Com.Sajari.Sdk/Model/ListPipelinesRequestView.cs
 src/Com.Sajari.Sdk/Model/ListPipelinesResponse.cs

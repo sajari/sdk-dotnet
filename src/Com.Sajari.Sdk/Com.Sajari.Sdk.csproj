@@ -12,7 +12,7 @@
     <Description>A library generated from a OpenAPI doc</Description>
     <Copyright>No Copyright</Copyright>
     <RootNamespace>Com.Sajari.Sdk</RootNamespace>
-    <Version>5.0.0</Version>
+    <Version>5.1.0</Version>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Com.Sajari.Sdk.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/sajari/GIT_USER_ID/sdk-dotnet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>

@@ -74,6 +74,29 @@ namespace Com.Sajari.Sdk.Api
         /// <returns>ApiResponse of SchemaField</returns>
         ApiResponse<SchemaField> CreateSchemaFieldWithHttpInfo(string collectionId, SchemaField schemaField);
         /// <summary>
+        /// Delete schema field
+        /// </summary>
+        /// <remarks>
+        /// Deleting a schema field removes it from all records within the collection, however, references to the schema field in pipelines are not removed.  &gt; Note: This operation cannot be reversed.
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to delete.</param>
+        /// <returns>Object</returns>
+        Object DeleteSchemaField(string collectionId, string schemaFieldName);
+
+        /// <summary>
+        /// Delete schema field
+        /// </summary>
+        /// <remarks>
+        /// Deleting a schema field removes it from all records within the collection, however, references to the schema field in pipelines are not removed.  &gt; Note: This operation cannot be reversed.
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to delete.</param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> DeleteSchemaFieldWithHttpInfo(string collectionId, string schemaFieldName);
+        /// <summary>
         /// List schema fields
         /// </summary>
         /// <remarks>
@@ -98,6 +121,33 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="pageToken">A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)</param>
         /// <returns>ApiResponse of ListSchemaFieldsResponse</returns>
         ApiResponse<ListSchemaFieldsResponse> ListSchemaFieldsWithHttpInfo(string collectionId, int? pageSize = default(int?), string pageToken = default(string));
+        /// <summary>
+        /// Update schema field
+        /// </summary>
+        /// <remarks>
+        /// Update the details of a schema field.  Only &#x60;name&#x60; and &#x60;description&#x60; can be updated.
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to update.</param>
+        /// <param name="schemaField">The schema field details to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)</param>
+        /// <returns>SchemaField</returns>
+        SchemaField UpdateSchemaField(string collectionId, string schemaFieldName, SchemaField schemaField, string updateMask = default(string));
+
+        /// <summary>
+        /// Update schema field
+        /// </summary>
+        /// <remarks>
+        /// Update the details of a schema field.  Only &#x60;name&#x60; and &#x60;description&#x60; can be updated.
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to update.</param>
+        /// <param name="schemaField">The schema field details to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)</param>
+        /// <returns>ApiResponse of SchemaField</returns>
+        ApiResponse<SchemaField> UpdateSchemaFieldWithHttpInfo(string collectionId, string schemaFieldName, SchemaField schemaField, string updateMask = default(string));
         #endregion Synchronous Operations
     }
 
@@ -158,6 +208,31 @@ namespace Com.Sajari.Sdk.Api
         /// <returns>Task of ApiResponse (SchemaField)</returns>
         System.Threading.Tasks.Task<ApiResponse<SchemaField>> CreateSchemaFieldWithHttpInfoAsync(string collectionId, SchemaField schemaField, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// Delete schema field
+        /// </summary>
+        /// <remarks>
+        /// Deleting a schema field removes it from all records within the collection, however, references to the schema field in pipelines are not removed.  &gt; Note: This operation cannot be reversed.
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to delete.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> DeleteSchemaFieldAsync(string collectionId, string schemaFieldName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Delete schema field
+        /// </summary>
+        /// <remarks>
+        /// Deleting a schema field removes it from all records within the collection, however, references to the schema field in pipelines are not removed.  &gt; Note: This operation cannot be reversed.
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to delete.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSchemaFieldWithHttpInfoAsync(string collectionId, string schemaFieldName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// List schema fields
         /// </summary>
         /// <remarks>
@@ -184,6 +259,35 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListSchemaFieldsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ListSchemaFieldsResponse>> ListSchemaFieldsWithHttpInfoAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// Update schema field
+        /// </summary>
+        /// <remarks>
+        /// Update the details of a schema field.  Only &#x60;name&#x60; and &#x60;description&#x60; can be updated.
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to update.</param>
+        /// <param name="schemaField">The schema field details to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SchemaField</returns>
+        System.Threading.Tasks.Task<SchemaField> UpdateSchemaFieldAsync(string collectionId, string schemaFieldName, SchemaField schemaField, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Update schema field
+        /// </summary>
+        /// <remarks>
+        /// Update the details of a schema field.  Only &#x60;name&#x60; and &#x60;description&#x60; can be updated.
+        /// </remarks>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to update.</param>
+        /// <param name="schemaField">The schema field details to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SchemaField)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SchemaField>> UpdateSchemaFieldWithHttpInfoAsync(string collectionId, string schemaFieldName, SchemaField schemaField, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -637,6 +741,170 @@ namespace Com.Sajari.Sdk.Api
         }
 
         /// <summary>
+        /// Delete schema field Deleting a schema field removes it from all records within the collection, however, references to the schema field in pipelines are not removed.  &gt; Note: This operation cannot be reversed.
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to delete.</param>
+        /// <returns>Object</returns>
+        public Object DeleteSchemaField(string collectionId, string schemaFieldName)
+        {
+            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = DeleteSchemaFieldWithHttpInfo(collectionId, schemaFieldName);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete schema field Deleting a schema field removes it from all records within the collection, however, references to the schema field in pipelines are not removed.  &gt; Note: This operation cannot be reversed.
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to delete.</param>
+        /// <returns>ApiResponse of Object</returns>
+        public Com.Sajari.Sdk.Client.ApiResponse<Object> DeleteSchemaFieldWithHttpInfo(string collectionId, string schemaFieldName)
+        {
+            // verify the required parameter 'collectionId' is set
+            if (collectionId == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling SchemaApi->DeleteSchemaField");
+            }
+
+            // verify the required parameter 'schemaFieldName' is set
+            if (schemaFieldName == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'schemaFieldName' when calling SchemaApi->DeleteSchemaField");
+            }
+
+            Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("schema_field_name", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(schemaFieldName)); // path parameter
+
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Delete<Object>("/v4/collections/{collection_id}/schemaFields/{schema_field_name}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteSchemaField", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Delete schema field Deleting a schema field removes it from all records within the collection, however, references to the schema field in pipelines are not removed.  &gt; Note: This operation cannot be reversed.
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to delete.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> DeleteSchemaFieldAsync(string collectionId, string schemaFieldName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = await DeleteSchemaFieldWithHttpInfoAsync(collectionId, schemaFieldName, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Delete schema field Deleting a schema field removes it from all records within the collection, however, references to the schema field in pipelines are not removed.  &gt; Note: This operation cannot be reversed.
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to delete.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Object>> DeleteSchemaFieldWithHttpInfoAsync(string collectionId, string schemaFieldName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'collectionId' is set
+            if (collectionId == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling SchemaApi->DeleteSchemaField");
+            }
+
+            // verify the required parameter 'schemaFieldName' is set
+            if (schemaFieldName == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'schemaFieldName' when calling SchemaApi->DeleteSchemaField");
+            }
+
+
+            Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("schema_field_name", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(schemaFieldName)); // path parameter
+
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.DeleteAsync<Object>("/v4/collections/{collection_id}/schemaFields/{schema_field_name}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("DeleteSchemaField", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// List schema fields Retrieve a list of schema fields in a collection.
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -797,6 +1065,202 @@ namespace Com.Sajari.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListSchemaFields", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update schema field Update the details of a schema field.  Only &#x60;name&#x60; and &#x60;description&#x60; can be updated.
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to update.</param>
+        /// <param name="schemaField">The schema field details to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)</param>
+        /// <returns>SchemaField</returns>
+        public SchemaField UpdateSchemaField(string collectionId, string schemaFieldName, SchemaField schemaField, string updateMask = default(string))
+        {
+            Com.Sajari.Sdk.Client.ApiResponse<SchemaField> localVarResponse = UpdateSchemaFieldWithHttpInfo(collectionId, schemaFieldName, schemaField, updateMask);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update schema field Update the details of a schema field.  Only &#x60;name&#x60; and &#x60;description&#x60; can be updated.
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to update.</param>
+        /// <param name="schemaField">The schema field details to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)</param>
+        /// <returns>ApiResponse of SchemaField</returns>
+        public Com.Sajari.Sdk.Client.ApiResponse<SchemaField> UpdateSchemaFieldWithHttpInfo(string collectionId, string schemaFieldName, SchemaField schemaField, string updateMask = default(string))
+        {
+            // verify the required parameter 'collectionId' is set
+            if (collectionId == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling SchemaApi->UpdateSchemaField");
+            }
+
+            // verify the required parameter 'schemaFieldName' is set
+            if (schemaFieldName == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'schemaFieldName' when calling SchemaApi->UpdateSchemaField");
+            }
+
+            // verify the required parameter 'schemaField' is set
+            if (schemaField == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'schemaField' when calling SchemaApi->UpdateSchemaField");
+            }
+
+            Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("schema_field_name", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(schemaFieldName)); // path parameter
+            if (updateMask != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
+            }
+            localVarRequestOptions.Data = schemaField;
+
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Patch<SchemaField>("/v4/collections/{collection_id}/schemaFields/{schema_field_name}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateSchemaField", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Update schema field Update the details of a schema field.  Only &#x60;name&#x60; and &#x60;description&#x60; can be updated.
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to update.</param>
+        /// <param name="schemaField">The schema field details to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of SchemaField</returns>
+        public async System.Threading.Tasks.Task<SchemaField> UpdateSchemaFieldAsync(string collectionId, string schemaFieldName, SchemaField schemaField, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Com.Sajari.Sdk.Client.ApiResponse<SchemaField> localVarResponse = await UpdateSchemaFieldWithHttpInfoAsync(collectionId, schemaFieldName, schemaField, updateMask, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update schema field Update the details of a schema field.  Only &#x60;name&#x60; and &#x60;description&#x60; can be updated.
+        /// </summary>
+        /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="collectionId">The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="schemaFieldName">The name of the schema field to update.</param>
+        /// <param name="schemaField">The schema field details to update.</param>
+        /// <param name="updateMask">The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (SchemaField)</returns>
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<SchemaField>> UpdateSchemaFieldWithHttpInfoAsync(string collectionId, string schemaFieldName, SchemaField schemaField, string updateMask = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'collectionId' is set
+            if (collectionId == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'collectionId' when calling SchemaApi->UpdateSchemaField");
+            }
+
+            // verify the required parameter 'schemaFieldName' is set
+            if (schemaFieldName == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'schemaFieldName' when calling SchemaApi->UpdateSchemaField");
+            }
+
+            // verify the required parameter 'schemaField' is set
+            if (schemaField == null)
+            {
+                throw new Com.Sajari.Sdk.Client.ApiException(400, "Missing required parameter 'schemaField' when calling SchemaApi->UpdateSchemaField");
+            }
+
+
+            Com.Sajari.Sdk.Client.RequestOptions localVarRequestOptions = new Com.Sajari.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Com.Sajari.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("schema_field_name", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(schemaFieldName)); // path parameter
+            if (updateMask != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
+            }
+            localVarRequestOptions.Data = schemaField;
+
+            // authentication (BasicAuth) required
+            // http basic authentication required
+            if (!string.IsNullOrEmpty(this.Configuration.Username) || !string.IsNullOrEmpty(this.Configuration.Password) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Basic " + Com.Sajari.Sdk.Client.ClientUtils.Base64Encode(this.Configuration.Username + ":" + this.Configuration.Password));
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PatchAsync<SchemaField>("/v4/collections/{collection_id}/schemaFields/{schema_field_name}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("UpdateSchemaField", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

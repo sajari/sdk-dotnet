@@ -27,7 +27,7 @@ using OpenAPIDateConverter = Com.Sajari.Sdk.Client.OpenAPIDateConverter;
 namespace Com.Sajari.Sdk.Model
 {
     /// <summary>
-    /// A set of filters of the form &#x60;field &#x3D; &#39;value&#39;&#x60;. Matches a query if the set of filters in the condition matches exactly the set of filters associated with it.
+    /// A set of filters of the form &#x60;field &#x3D; &#39;value&#39;&#x60;. Matches a query if all filters are present in that query.
     /// </summary>
     [DataContract(Name = "PromotionFilterCondition")]
     public partial class PromotionFilterCondition : IEquatable<PromotionFilterCondition>, IValidatableObject
@@ -35,16 +35,16 @@ namespace Com.Sajari.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PromotionFilterCondition" /> class.
         /// </summary>
-        /// <param name="filter">A filter of the form &#x60;field &#x3D; &#39;value&#39;&#x60;..</param>
+        /// <param name="filter">A filter of the form &#x60;field &#x3D; &#39;value&#39;&#x60;. All of these filters must be present in a query&#39;s filter in order for the promotion to be considered active..</param>
         public PromotionFilterCondition(List<string> filter = default(List<string>))
         {
             this.Filter = filter;
         }
 
         /// <summary>
-        /// A filter of the form &#x60;field &#x3D; &#39;value&#39;&#x60;.
+        /// A filter of the form &#x60;field &#x3D; &#39;value&#39;&#x60;. All of these filters must be present in a query&#39;s filter in order for the promotion to be considered active.
         /// </summary>
-        /// <value>A filter of the form &#x60;field &#x3D; &#39;value&#39;&#x60;.</value>
+        /// <value>A filter of the form &#x60;field &#x3D; &#39;value&#39;&#x60;. All of these filters must be present in a query&#39;s filter in order for the promotion to be considered active.</value>
         [DataMember(Name = "filter", EmitDefaultValue = false)]
         public List<string> Filter { get; set; }
 

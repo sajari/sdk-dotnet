@@ -45,7 +45,7 @@ namespace Com.Sajari.Sdk.Model
         /// <param name="queryId">The query identifier. (required).</param>
         /// <param name="redirectId">The identifier of the redirect the event is about..</param>
         /// <param name="resultId">The identifier of the result the event is about..</param>
-        /// <param name="type">The type of event, e.g. &#x60;click&#x60;, &#x60;purchase&#x60;, &#x60;add_to_cart&#x60;. (required).</param>
+        /// <param name="type">The type of event, e.g. &#x60;click&#x60;, &#x60;redirect&#x60;, &#x60;purchase&#x60;, &#x60;add_to_cart&#x60;. (required).</param>
         public Event(string bannerId = default(string), Dictionary<string, Object> metadata = default(Dictionary<string, Object>), string queryId = default(string), string redirectId = default(string), string resultId = default(string), string type = default(string))
         {
             // to ensure "queryId" is required (not null)
@@ -100,9 +100,9 @@ namespace Com.Sajari.Sdk.Model
         public string ResultId { get; set; }
 
         /// <summary>
-        /// The type of event, e.g. &#x60;click&#x60;, &#x60;purchase&#x60;, &#x60;add_to_cart&#x60;.
+        /// The type of event, e.g. &#x60;click&#x60;, &#x60;redirect&#x60;, &#x60;purchase&#x60;, &#x60;add_to_cart&#x60;.
         /// </summary>
-        /// <value>The type of event, e.g. &#x60;click&#x60;, &#x60;purchase&#x60;, &#x60;add_to_cart&#x60;.</value>
+        /// <value>The type of event, e.g. &#x60;click&#x60;, &#x60;redirect&#x60;, &#x60;purchase&#x60;, &#x60;add_to_cart&#x60;.</value>
         [DataMember(Name = "type", IsRequired = true, EmitDefaultValue = false)]
         public string Type { get; set; }
 

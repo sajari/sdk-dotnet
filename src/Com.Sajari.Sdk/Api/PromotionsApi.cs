@@ -36,8 +36,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a promotion in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotion">The promotion to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Promotion</returns>
-        Promotion CreatePromotion(string collectionId, Promotion promotion);
+        Promotion CreatePromotion(string collectionId, Promotion promotion, string accountId = default(string));
 
         /// <summary>
         /// Create promotion
@@ -48,8 +49,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a promotion in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotion">The promotion to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Promotion</returns>
-        ApiResponse<Promotion> CreatePromotionWithHttpInfo(string collectionId, Promotion promotion);
+        ApiResponse<Promotion> CreatePromotionWithHttpInfo(string collectionId, Promotion promotion, string accountId = default(string));
         /// <summary>
         /// Delete promotion
         /// </summary>
@@ -59,8 +61,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Object</returns>
-        Object DeletePromotion(string collectionId, string promotionId);
+        Object DeletePromotion(string collectionId, string promotionId, string accountId = default(string));
 
         /// <summary>
         /// Delete promotion
@@ -71,8 +74,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> DeletePromotionWithHttpInfo(string collectionId, string promotionId);
+        ApiResponse<Object> DeletePromotionWithHttpInfo(string collectionId, string promotionId, string accountId = default(string));
         /// <summary>
         /// Get promotion
         /// </summary>
@@ -82,8 +86,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the promotion, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Promotion</returns>
-        Promotion GetPromotion(string collectionId, string promotionId);
+        Promotion GetPromotion(string collectionId, string promotionId, string accountId = default(string));
 
         /// <summary>
         /// Get promotion
@@ -94,8 +99,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the promotion, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Promotion</returns>
-        ApiResponse<Promotion> GetPromotionWithHttpInfo(string collectionId, string promotionId);
+        ApiResponse<Promotion> GetPromotionWithHttpInfo(string collectionId, string promotionId, string accountId = default(string));
         /// <summary>
         /// List promotions
         /// </summary>
@@ -104,11 +110,12 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
         /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <returns>ListPromotionsResponse</returns>
-        ListPromotionsResponse ListPromotions(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string));
+        ListPromotionsResponse ListPromotions(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string));
 
         /// <summary>
         /// List promotions
@@ -118,11 +125,12 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
         /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <returns>ApiResponse of ListPromotionsResponse</returns>
-        ApiResponse<ListPromotionsResponse> ListPromotionsWithHttpInfo(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string));
+        ApiResponse<ListPromotionsResponse> ListPromotionsWithHttpInfo(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string));
         /// <summary>
         /// Update promotion
         /// </summary>
@@ -134,8 +142,9 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="promotionId">The promotion to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value.</param>
         /// <param name="promotion">Details of the promotion to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Promotion</returns>
-        Promotion UpdatePromotion(string collectionId, string promotionId, string updateMask, Promotion promotion);
+        Promotion UpdatePromotion(string collectionId, string promotionId, string updateMask, Promotion promotion, string accountId = default(string));
 
         /// <summary>
         /// Update promotion
@@ -148,8 +157,9 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="promotionId">The promotion to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value.</param>
         /// <param name="promotion">Details of the promotion to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Promotion</returns>
-        ApiResponse<Promotion> UpdatePromotionWithHttpInfo(string collectionId, string promotionId, string updateMask, Promotion promotion);
+        ApiResponse<Promotion> UpdatePromotionWithHttpInfo(string collectionId, string promotionId, string updateMask, Promotion promotion, string accountId = default(string));
         #endregion Synchronous Operations
     }
 
@@ -168,9 +178,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a promotion in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotion">The promotion to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Promotion</returns>
-        System.Threading.Tasks.Task<Promotion> CreatePromotionAsync(string collectionId, Promotion promotion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Promotion> CreatePromotionAsync(string collectionId, Promotion promotion, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Create promotion
@@ -181,9 +192,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a promotion in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotion">The promotion to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Promotion)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Promotion>> CreatePromotionWithHttpInfoAsync(string collectionId, Promotion promotion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Promotion>> CreatePromotionWithHttpInfoAsync(string collectionId, Promotion promotion, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete promotion
         /// </summary>
@@ -193,9 +205,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> DeletePromotionAsync(string collectionId, string promotionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> DeletePromotionAsync(string collectionId, string promotionId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Delete promotion
@@ -206,9 +219,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeletePromotionWithHttpInfoAsync(string collectionId, string promotionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> DeletePromotionWithHttpInfoAsync(string collectionId, string promotionId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Get promotion
         /// </summary>
@@ -218,9 +232,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the promotion, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Promotion</returns>
-        System.Threading.Tasks.Task<Promotion> GetPromotionAsync(string collectionId, string promotionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Promotion> GetPromotionAsync(string collectionId, string promotionId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Get promotion
@@ -231,9 +246,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the promotion, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Promotion)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Promotion>> GetPromotionWithHttpInfoAsync(string collectionId, string promotionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Promotion>> GetPromotionWithHttpInfoAsync(string collectionId, string promotionId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List promotions
         /// </summary>
@@ -242,12 +258,13 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
         /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListPromotionsResponse</returns>
-        System.Threading.Tasks.Task<ListPromotionsResponse> ListPromotionsAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListPromotionsResponse> ListPromotionsAsync(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// List promotions
@@ -257,12 +274,13 @@ namespace Com.Sajari.Sdk.Api
         /// </remarks>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
         /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListPromotionsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ListPromotionsResponse>> ListPromotionsWithHttpInfoAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<ListPromotionsResponse>> ListPromotionsWithHttpInfoAsync(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update promotion
         /// </summary>
@@ -274,9 +292,10 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="promotionId">The promotion to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value.</param>
         /// <param name="promotion">Details of the promotion to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Promotion</returns>
-        System.Threading.Tasks.Task<Promotion> UpdatePromotionAsync(string collectionId, string promotionId, string updateMask, Promotion promotion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Promotion> UpdatePromotionAsync(string collectionId, string promotionId, string updateMask, Promotion promotion, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Update promotion
@@ -289,9 +308,10 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="promotionId">The promotion to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value.</param>
         /// <param name="promotion">Details of the promotion to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Promotion)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Promotion>> UpdatePromotionWithHttpInfoAsync(string collectionId, string promotionId, string updateMask, Promotion promotion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Promotion>> UpdatePromotionWithHttpInfoAsync(string collectionId, string promotionId, string updateMask, Promotion promotion, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -418,10 +438,11 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a promotion in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotion">The promotion to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Promotion</returns>
-        public Promotion CreatePromotion(string collectionId, Promotion promotion)
+        public Promotion CreatePromotion(string collectionId, Promotion promotion, string accountId = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Promotion> localVarResponse = CreatePromotionWithHttpInfo(collectionId, promotion);
+            Com.Sajari.Sdk.Client.ApiResponse<Promotion> localVarResponse = CreatePromotionWithHttpInfo(collectionId, promotion, accountId);
             return localVarResponse.Data;
         }
 
@@ -431,8 +452,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a promotion in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotion">The promotion to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Promotion</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<Promotion> CreatePromotionWithHttpInfo(string collectionId, Promotion promotion)
+        public Com.Sajari.Sdk.Client.ApiResponse<Promotion> CreatePromotionWithHttpInfo(string collectionId, Promotion promotion, string accountId = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -470,6 +492,10 @@ namespace Com.Sajari.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
             localVarRequestOptions.Data = promotion;
 
             // authentication (BasicAuth) required
@@ -499,11 +525,12 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a promotion in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotion">The promotion to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Promotion</returns>
-        public async System.Threading.Tasks.Task<Promotion> CreatePromotionAsync(string collectionId, Promotion promotion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Promotion> CreatePromotionAsync(string collectionId, Promotion promotion, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Promotion> localVarResponse = await CreatePromotionWithHttpInfoAsync(collectionId, promotion, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<Promotion> localVarResponse = await CreatePromotionWithHttpInfoAsync(collectionId, promotion, accountId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -513,9 +540,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection to create a promotion in, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotion">The promotion to create.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Promotion)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Promotion>> CreatePromotionWithHttpInfoAsync(string collectionId, Promotion promotion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Promotion>> CreatePromotionWithHttpInfoAsync(string collectionId, Promotion promotion, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -554,6 +582,10 @@ namespace Com.Sajari.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
             localVarRequestOptions.Data = promotion;
 
             // authentication (BasicAuth) required
@@ -584,10 +616,11 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Object</returns>
-        public Object DeletePromotion(string collectionId, string promotionId)
+        public Object DeletePromotion(string collectionId, string promotionId, string accountId = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = DeletePromotionWithHttpInfo(collectionId, promotionId);
+            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = DeletePromotionWithHttpInfo(collectionId, promotionId, accountId);
             return localVarResponse.Data;
         }
 
@@ -597,8 +630,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<Object> DeletePromotionWithHttpInfo(string collectionId, string promotionId)
+        public Com.Sajari.Sdk.Client.ApiResponse<Object> DeletePromotionWithHttpInfo(string collectionId, string promotionId, string accountId = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -636,6 +670,10 @@ namespace Com.Sajari.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("promotion_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(promotionId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
 
             // authentication (BasicAuth) required
             // http basic authentication required
@@ -664,11 +702,12 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> DeletePromotionAsync(string collectionId, string promotionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> DeletePromotionAsync(string collectionId, string promotionId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = await DeletePromotionWithHttpInfoAsync(collectionId, promotionId, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<Object> localVarResponse = await DeletePromotionWithHttpInfoAsync(collectionId, promotionId, accountId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -678,9 +717,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to delete, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Object>> DeletePromotionWithHttpInfoAsync(string collectionId, string promotionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Object>> DeletePromotionWithHttpInfoAsync(string collectionId, string promotionId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -719,6 +759,10 @@ namespace Com.Sajari.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("promotion_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(promotionId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
 
             // authentication (BasicAuth) required
             // http basic authentication required
@@ -748,10 +792,11 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the promotion, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Promotion</returns>
-        public Promotion GetPromotion(string collectionId, string promotionId)
+        public Promotion GetPromotion(string collectionId, string promotionId, string accountId = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Promotion> localVarResponse = GetPromotionWithHttpInfo(collectionId, promotionId);
+            Com.Sajari.Sdk.Client.ApiResponse<Promotion> localVarResponse = GetPromotionWithHttpInfo(collectionId, promotionId, accountId);
             return localVarResponse.Data;
         }
 
@@ -761,8 +806,9 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the promotion, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Promotion</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<Promotion> GetPromotionWithHttpInfo(string collectionId, string promotionId)
+        public Com.Sajari.Sdk.Client.ApiResponse<Promotion> GetPromotionWithHttpInfo(string collectionId, string promotionId, string accountId = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -800,6 +846,10 @@ namespace Com.Sajari.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("promotion_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(promotionId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
 
             // authentication (BasicAuth) required
             // http basic authentication required
@@ -828,11 +878,12 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the promotion, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Promotion</returns>
-        public async System.Threading.Tasks.Task<Promotion> GetPromotionAsync(string collectionId, string promotionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Promotion> GetPromotionAsync(string collectionId, string promotionId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Promotion> localVarResponse = await GetPromotionWithHttpInfoAsync(collectionId, promotionId, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<Promotion> localVarResponse = await GetPromotionWithHttpInfoAsync(collectionId, promotionId, accountId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -842,9 +893,10 @@ namespace Com.Sajari.Sdk.Api
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns the promotion, e.g. &#x60;my-collection&#x60;.</param>
         /// <param name="promotionId">The promotion to retrieve, e.g. &#x60;1234&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Promotion)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Promotion>> GetPromotionWithHttpInfoAsync(string collectionId, string promotionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Promotion>> GetPromotionWithHttpInfoAsync(string collectionId, string promotionId, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -883,6 +935,10 @@ namespace Com.Sajari.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("promotion_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(promotionId)); // path parameter
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
 
             // authentication (BasicAuth) required
             // http basic authentication required
@@ -911,13 +967,14 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
         /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <returns>ListPromotionsResponse</returns>
-        public ListPromotionsResponse ListPromotions(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string))
+        public ListPromotionsResponse ListPromotions(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse> localVarResponse = ListPromotionsWithHttpInfo(collectionId, pageSize, pageToken, view);
+            Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse> localVarResponse = ListPromotionsWithHttpInfo(collectionId, accountId, pageSize, pageToken, view);
             return localVarResponse.Data;
         }
 
@@ -926,11 +983,12 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
         /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <returns>ApiResponse of ListPromotionsResponse</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse> ListPromotionsWithHttpInfo(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string))
+        public Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse> ListPromotionsWithHttpInfo(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -972,6 +1030,10 @@ namespace Com.Sajari.Sdk.Api
             if (view != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "view", view));
+            }
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
             }
 
             // authentication (BasicAuth) required
@@ -1000,14 +1062,15 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
         /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ListPromotionsResponse</returns>
-        public async System.Threading.Tasks.Task<ListPromotionsResponse> ListPromotionsAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListPromotionsResponse> ListPromotionsAsync(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse> localVarResponse = await ListPromotionsWithHttpInfoAsync(collectionId, pageSize, pageToken, view, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse> localVarResponse = await ListPromotionsWithHttpInfoAsync(collectionId, accountId, pageSize, pageToken, view, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1016,12 +1079,13 @@ namespace Com.Sajari.Sdk.Api
         /// </summary>
         /// <exception cref="Com.Sajari.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="collectionId">The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="pageSize">The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)</param>
         /// <param name="pageToken">A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)</param>
         /// <param name="view">The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional, default to PROMOTION_VIEW_UNSPECIFIED)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ListPromotionsResponse)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse>> ListPromotionsWithHttpInfoAsync(string collectionId, int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<ListPromotionsResponse>> ListPromotionsWithHttpInfoAsync(string collectionId, string accountId = default(string), int? pageSize = default(int?), string pageToken = default(string), string view = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -1064,6 +1128,10 @@ namespace Com.Sajari.Sdk.Api
             if (view != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "view", view));
+            }
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
             }
 
             // authentication (BasicAuth) required
@@ -1096,10 +1164,11 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="promotionId">The promotion to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value.</param>
         /// <param name="promotion">Details of the promotion to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>Promotion</returns>
-        public Promotion UpdatePromotion(string collectionId, string promotionId, string updateMask, Promotion promotion)
+        public Promotion UpdatePromotion(string collectionId, string promotionId, string updateMask, Promotion promotion, string accountId = default(string))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Promotion> localVarResponse = UpdatePromotionWithHttpInfo(collectionId, promotionId, updateMask, promotion);
+            Com.Sajari.Sdk.Client.ApiResponse<Promotion> localVarResponse = UpdatePromotionWithHttpInfo(collectionId, promotionId, updateMask, promotion, accountId);
             return localVarResponse.Data;
         }
 
@@ -1111,8 +1180,9 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="promotionId">The promotion to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value.</param>
         /// <param name="promotion">Details of the promotion to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <returns>ApiResponse of Promotion</returns>
-        public Com.Sajari.Sdk.Client.ApiResponse<Promotion> UpdatePromotionWithHttpInfo(string collectionId, string promotionId, string updateMask, Promotion promotion)
+        public Com.Sajari.Sdk.Client.ApiResponse<Promotion> UpdatePromotionWithHttpInfo(string collectionId, string promotionId, string updateMask, Promotion promotion, string accountId = default(string))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -1164,6 +1234,10 @@ namespace Com.Sajari.Sdk.Api
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("promotion_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(promotionId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
             localVarRequestOptions.Data = promotion;
 
             // authentication (BasicAuth) required
@@ -1195,11 +1269,12 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="promotionId">The promotion to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value.</param>
         /// <param name="promotion">Details of the promotion to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Promotion</returns>
-        public async System.Threading.Tasks.Task<Promotion> UpdatePromotionAsync(string collectionId, string promotionId, string updateMask, Promotion promotion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Promotion> UpdatePromotionAsync(string collectionId, string promotionId, string updateMask, Promotion promotion, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Com.Sajari.Sdk.Client.ApiResponse<Promotion> localVarResponse = await UpdatePromotionWithHttpInfoAsync(collectionId, promotionId, updateMask, promotion, cancellationToken).ConfigureAwait(false);
+            Com.Sajari.Sdk.Client.ApiResponse<Promotion> localVarResponse = await UpdatePromotionWithHttpInfoAsync(collectionId, promotionId, updateMask, promotion, accountId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1211,9 +1286,10 @@ namespace Com.Sajari.Sdk.Api
         /// <param name="promotionId">The promotion to update, e.g. &#x60;1234&#x60;.</param>
         /// <param name="updateMask">The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value.</param>
         /// <param name="promotion">Details of the promotion to update.</param>
+        /// <param name="accountId">The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Promotion)</returns>
-        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Promotion>> UpdatePromotionWithHttpInfoAsync(string collectionId, string promotionId, string updateMask, Promotion promotion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Com.Sajari.Sdk.Client.ApiResponse<Promotion>> UpdatePromotionWithHttpInfoAsync(string collectionId, string promotionId, string updateMask, Promotion promotion, string accountId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'collectionId' is set
             if (collectionId == null)
@@ -1266,6 +1342,10 @@ namespace Com.Sajari.Sdk.Api
             localVarRequestOptions.PathParameters.Add("collection_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(collectionId)); // path parameter
             localVarRequestOptions.PathParameters.Add("promotion_id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(promotionId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(Com.Sajari.Sdk.Client.ClientUtils.ParameterToMultiMap("", "update_mask", updateMask));
+            if (accountId != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Account-Id", Com.Sajari.Sdk.Client.ClientUtils.ParameterToString(accountId)); // header parameter
+            }
             localVarRequestOptions.Data = promotion;
 
             // authentication (BasicAuth) required
